@@ -32,12 +32,29 @@ README = """TWILIGHT: 2000 REMAKE - DEMO (manuaalitestaus)
 
 Kaikki manuaalinen testaus tehdään tämän kansion kautta; kehityskansioon ei kosketa.
 
-Käynnistys: tuplaklikkaa Peli.bat (tai Godot_v4.7.2-stable_win64_console.exe).
+KÄYNNISTYS
+----------
+1. Tuplaklikkaa Peli.bat.
+2. Avautuu myös musta konsoliikkuna - se on normaalia ja saa jäädä taakse.
+3. Pelin ikkuna (1280 x 800) voi avautua muiden ikkunoiden taakse: napsauta pelin
+   ikkunaa tai tehtäväpalkin Godot-riviä, jotta se saa fokuksen.
+4. Sulje peli ikkunan ruksista; konsoliikkunan voi sulkea erikseen.
+
+Jos napsautukset eivät mene läpi: napsauta ensin kerran pelin ikkunan yläpalkkia
+(ikkuna fokukseen), ja yritä uudelleen.
+
+VIRHELOKI
+---------
+Demo kirjoittaa virhelokin automaattisesti:
+  %APPDATA%\\Godot\\app_userdata\\Twilight- 2000 Remake DEMO\\logs\\godot.log
+Liitä tämä tiedosto raporttiin, jos peli toimii oudosti (lokin viimeiset rivit
+kertovat syyn). Lokeja säilytetään 5 kpl.
 
 Tallennukset ja kuvakaappaukset ovat omissa nimissään
-(%APPDATA%\\Godot\\app_userdata\\Twilight- 2000 Remake DEMO), eivätkä sekoitu kehityskopion aineistoon.
+(%APPDATA%\\Godot\\app_userdata\\Twilight- 2000 Remake DEMO), eivätkä sekoitu
+kehityskopion aineistoon.
 
-Pikaohje
+PIKAOHJE
 --------
 - Hiiri: yksi klikkaus riittää; hiiren päällä näkyy vihje; oikea nappi peruu.
 - F5 pikatallennus / F9 lataus (maailmankartalla, toimistossa, kaupungissa).
@@ -49,7 +66,7 @@ Pikaohje
   yläkulmassa ja kohde oikeassa.
 - Vaikeustaso valitaan värväyksessä (NORMAL / STORY).
 
-Kirjaa löydökset: mitä teit, mitä tapahtui, missä (kaupunki/tehtävä). 
+Kirjaa löydökset: mitä teit, mitä tapahtui, missä (kaupunki/tehtävä).
 Uusin versio: python remake/tools/make_demo.py (kehityskansiosta).
 """
 
@@ -67,8 +84,14 @@ def main() -> None:
     pg = os.path.join(PROJECT, "project.godot")
     with open(pg, encoding="utf-8") as f:
         cfg = f.read()
+    changed = False
     if "Twilight: 2000 Remake DEMO" not in cfg:
         cfg = cfg.replace('config/name="Twilight: 2000 Remake"', 'config/name="Twilight: 2000 Remake DEMO"')
+        changed = True
+    if "[debug]" not in cfg:      # the demo writes an error log: user://logs/godot.log
+        cfg = cfg.rstrip() + "\n\n[debug]\n\nfile_logging/enable_file_logging=true\nfile_logging/max_log_files=5\n"
+        changed = True
+    if changed:
         with open(pg, "w", encoding="utf-8", newline="") as f:
             f.write(cfg)
     for exe in ("Godot_v4.7.2-stable_win64_console.exe", "Godot_v4.7.2-stable_win64.exe"):
