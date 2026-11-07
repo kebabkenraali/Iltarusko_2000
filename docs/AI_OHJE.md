@@ -77,6 +77,14 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
   ja molemmat osapuolet (sotilaat/Black Legion) löytyvät taiteen kaikilla 8 suunnalla;
   lisäksi vartalot AM/AF/EM (AF putoaa AM:ään suuntiin N/NE/NW), jalat, päät 0–14 ja
   KNEEL/WOUND. Taistelunäytön `--test=battle` ajettu ikkunalla (1,5 min, läpi).
+- **Asset- ja tehtäväauditointi 7.11. (SUUNNITELMA luku 14):** pelin kaikki kuvat/äänet
+  ovat alkuperäisen pelin omia — `ALLOW_AI_ART=false` (F2 kuollut), `main.remastered=false`,
+  `Soldier.remastered=false`; ainoa res://remastered-viittaus sijaitsee näiden porttien
+  takana. **Demo puhdistettu kokonaan AI-tiedostoista** (make_demo.py IGNORE sai
+  "remastered": 6105→5447 tiedostoa; demossa 0 AI-tiedostoa). Tehtävätyyppien (12 kpl)
+  intro/nag/done-rivit ovat alkuperäisen TWI2D.EXE:n omia merkkijonoja (offsetit
+  SUUNNITELMA luku 14; missions.json "no retyping"); pelattavuuserot (vuoropohjainen
+  taistelu, ei TWI3D-ajoa, tietokoneen bar-graafit puuttuvat vielä) dokumentoitu.
 - **Natiivipuoli (ei SUUNNITELMASSA, katso t2k-native/docs/RAPORTTI.md):**
   Lataus-Enter-virhe, S_aAls-säännöt, TWI2D-purku.
 
@@ -183,7 +191,8 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
   mitattu uudelleen, kaikki PASS; SDXL yhä puuttuu; molemmat repon muutokset commitoitu)
   → alapalkki + pikanäppäimet (SUUNNITELMA luku 12; demo synkronoitu, LUEMINUT päivätty)
   → taistelun tuliasetuudet kunnossa (CMBT-mappaus täydennetty + turvaverrokki + auditointi
-  `tests/test_battle_art.gd`; godot `5306b68`).
+  `tests/test_battle_art.gd`; godot `5306b68`) → asset- ja tehtäväauditointi, demo puhtaana
+  AI-tiedostoista (SUUNNITELMA luku 14).
 
 ## 10. Näin päivität tätä dokumenttia
 

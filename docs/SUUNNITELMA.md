@@ -661,3 +661,43 @@ piilonäppäimin (M/L/Space).
   PIKAOHJE saa palkki- ja numeronapit.
 - Toteutustaso: TAKE/USE ovat tietoviestejä, NECESSITY-ruoat sanallisia ilmoituksia —
   täydellinen samanvertaisuus (saalistaulujen palkitseminen, ruokatalous jne.) M9/M10:een.
+
+
+## 14. Asset and mission audit 7.11.2026: only original assets; missions from the original's own strings
+
+Assets (verified against the code):
+- main.gd: main.remastered starts false and ALLOW_AI_ART = false (the F2 switch is dead at
+  compile time), so main.art() always returns the res://original/... path.
+- soldier.gd: Soldier.remastered is false and only the (dead) F2 branch could set it.
+- A scan of every res:// reference in scripts: res://remastered appears only behind those
+  disabled gates; every other load goes to res://original/... (19 direct loads), res://data
+  or res://scripts. Music and effects load from res://original/audio/....
+- The demo build is now physically free of AI files: make_demo.py IGNORE gained a
+  "remastered" filter - the demo went from 6105 files / 375 MB to 5447 files / 303 MB, and
+  demo/project/remastered does not exist. The development copy keeps the unused folder.
+- The AI tooling (tools/remaster_set.py, remake/assets_ai) stays outside the game project.
+
+Missions vs. the original:
+- The 12 remake mission types (supplies, spy, hostage, assassins, wounded, epidemic, exile,
+  dump, defend, liberate, tank, vehicle) are built from the original's own strings:
+  every intro/nag/done line is found in the extracted TWI2D.EXE texts (data/missions.json
+  is documented as "assembled from the original texts (no retyping)").
+- Examples (TWI2D offsets): supplies intro @157190, epidemic intro @152314, wounded intro
+  @152990, assassins @153734, exile @154659/@155152, spy done @125225, hostage done
+  @123968, liberate done @125794, vehicle/tank destroy done @126487; the campaign-story
+  monologue (HMMWV speech) is the original's own text (missions.json story list).
+- defend (the original's ATTACK ON KRAKOW / DEFEND strings live in ICON) and the downed
+  own-vehicle repair story (the remake's 'wreck' person) trace to the same source set.
+
+Playability differences, intentional and documented:
+- Combat: the 1991 game used PAL automatic combat (you start it and may only retreat,
+  manual p.59); the remake adds a full turn-based AP battle on the same grid (the automatic
+  ai_step/auto_play path exists too and is band-tested in tests/test_balance.gd).
+- The 3-D driving module (TWI3D) is not reproduced; vehicles drive on the world map (M6).
+- The Krakow computer screen: the original had six bar graphs (food, ammunition, medicine,
+  fuel, people, morale); the remake shows funds/stores/motor pool/squad. Bringing the
+  graphs + consumption into balance is the M9 economy round 2 task (AI_OHJE item 1).
+- New conveniences: click-to-move, the bottom icon bar with number keys (ch. 12), quick
+  save F5/F9, difficulty NORMAL/STORY, day/night light, zoom.
+- Rules fidelity is tracked on the native side: t2k-native/docs/RAPORTTI.md and
+  SAANNOT_VERTAILU.md.

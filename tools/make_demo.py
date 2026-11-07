@@ -21,7 +21,8 @@ DEMO = os.path.join(ROOT, "demo")
 ENGINE = os.path.join(ROOT, "godot", "Godot_v4.7.2-stable_win64_console.exe")
 PROJECT = os.path.join(DEMO, "project")
 
-IGNORE = shutil.ignore_patterns("tests", ".git", "__pycache__", "*.bak", "*.bak_*", "*.pyc")
+# also drop the AI art (remastered/) from the demo: the player runs only the 1991 originals
+IGNORE = shutil.ignore_patterns("tests", ".git", "__pycache__", "*.bak", "*.bak_*", "*.pyc", "remastered")
 
 BAT = """@echo off
 rem Twilight: 2000 Remake - demo (manuaalitestaus)
