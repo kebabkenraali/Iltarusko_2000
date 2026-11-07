@@ -152,7 +152,7 @@ Kansiossa `godot/remastered/` on 658 tiedostoa (noin 71,5 Mt). CGEN, FACES ja BU
 käyttöön, kun hahmonluonti (M2) ja kaupungit (M3) rakennetaan. `main.art()` löytää ne automaattisesti.
 Testi kuvaa tilat; F2-vertailu on pois päältä (ks. yllä).
 
-- **INTRO (198 kuvaa, M7 – AJO MAHDOLLINEN):** `remaster_set.py intro [N]` (lisätty 7.11.) maalaa ruudut 4×-koossa (denoise 0,3 / refine 0,15, kiinteä siemen), jo maalatut ohitetaan ja `N` pysäyttää N uuden jälkeen. Kansiossa `godot/remastered/INTRO` on vielä 0/198 (aiempi yritys katkesi, tuotokset eivät tallentuneet). Ajo: `python tools/remaster_set.py intro` (vaatii `.venv_ai`-ympäristön ja CUDA-GPU:n). Tekstiruudut saavat mallin oman kirjainasun.
+- **INTRO (198 kuvaa, M7 – AJO MAHDOLLINEN):** `remaster_set.py intro [N]` (lisätty 7.11.) maalaa ruudut 4×-koossa (denoise 0,3 / refine 0,15, kiinteä siemen), jo maalatut ohitetaan ja `N` pysäyttää N uuden jälkeen. Kansiossa `godot/remastered/INTRO` on vielä 0/198 (aiempi yritys katkesi, tuotokset eivät tallentuneet). Ajo: `python tools/remaster_set.py intro` (vaatii `.venv_ai`-ympäristön ja CUDA-GPU:n). Tekstiruudut saavat mallin oman kirjainasun. Mallitiedosto sd_xl_base_1.0.safetensors puuttuu Pinokion WebUI:n models-kansiosta (todettu 7.11.2026: kansio tyhjä) – se on ladattava uudelleen ennen ajoa.
 
 ## 4. Etenemissuunnitelma
 1. **M1 Pystyleike:** toimisto (alkuperäinen kuva, klikattavat kohteet), radio-briefing
