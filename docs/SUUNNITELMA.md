@@ -152,7 +152,7 @@ Kansiossa `godot/remastered/` on 658 tiedostoa (noin 71,5 Mt). CGEN, FACES ja BU
 käyttöön, kun hahmonluonti (M2) ja kaupungit (M3) rakennetaan. `main.art()` löytää ne automaattisesti.
 Testi kuvaa tilat; F2-vertailu on pois päältä (ks. yllä).
 
-- **INTRO (198 kuvaa, M7 – KESKEN):** `remake/assets_ai/INTRO` ja `godot/remastered/INTRO` ovat **tyhjiä (0 tiedostoa)**. Aiempi yritys ehti noin seitsemään kuvaan, mutta tuotokset eivät ole tallessa (ajo katkesi välimuistin siivoukseen). `remaster_set.py` ei tue `intro`-settiä (tuetut: briefing, sprites, faces, cgen, buildings), joten uudelleenajo vaatii uuden set-funktion (kehote + kehysanimaatio kuten briefingissä) tai yksittäiskuviin `ai_remaster.py`:n suoran ajon. Ympäristö: `remake/tools/.venv_ai` + CUDA (RTX 4070 Ti).
+- **INTRO (198 kuvaa, M7 – AJO MAHDOLLINEN):** `remaster_set.py intro [N]` (lisätty 7.11.) maalaa ruudut 4×-koossa (denoise 0,3 / refine 0,15, kiinteä siemen), jo maalatut ohitetaan ja `N` pysäyttää N uuden jälkeen. Kansiossa `godot/remastered/INTRO` on vielä 0/198 (aiempi yritys katkesi, tuotokset eivät tallentuneet). Ajo: `python tools/remaster_set.py intro` (vaatii `.venv_ai`-ympäristön ja CUDA-GPU:n). Tekstiruudut saavat mallin oman kirjainasun.
 
 ## 4. Etenemissuunnitelma
 1. **M1 Pystyleike:** toimisto (alkuperäinen kuva, klikattavat kohteet), radio-briefing
@@ -306,7 +306,7 @@ Testi kuvaa tilat; F2-vertailu on pois päältä (ks. yllä).
      - `--test=mission` pelaa kentällä supplies-, assassins-, wounded- ja spy-tehtävät:
        tiedote, johtaja, työ ja palkinto.
    - **Puuttuu:**
-     - Krakovan resurssinäkymä (computer): hotspot ja työkaluvihje ovat olemassa, mutta klikkaus ei tee vielä mitään.
+     - ~~Krakovan resurssinäkymä (computer)~~ **tehty 7.11.:** `computer.gd` – FUNDS, SQUAD/VEHICLE, MOTOR POOL, STORE ROOM, SQUAD STATUS; CLOSE tai Esc palaa toimistoon.
      - Tallennus.
      - Rekka-vaatimus (M6).
      - Oikea taistelu (M5).
@@ -504,7 +504,7 @@ Testi kuvaa tilat; F2-vertailu on pois päältä (ks. yllä).
          (jos ryhmä ajaa), loput kanistereihin (20 L/mies). Kanisterit kaadetaan tankkiin, kun ryhmä
          nousee ajoneuvoon (V).
      - Testi `--test=drive`.
-    - **Ajoneuvojen ostaminen:** `campaign.purchase_vehicle()`, `get_purchasable_vehicles()`, `get_vehicle_price()` – ostaminen Krakovan varikolle, hinta vehicles.json `price`-kentästä.
+    - **Ajoneuvojen ostaminen:** `campaign.purchase_vehicle()`, `get_purchasable_vehicles()`, `get_vehicle_price()` – ostaminen Krakovan varikolle, hinta vehicles.json `price`-kentästä, veloitus kassasta `campaign.funds` (M9).
     - **Korjaus kentällä:** `campaign.field_repair()` – COMBAT ENGINEER -taidolla (20 % + 5 %/tasoa korjaus per yritys), palauttaa moottorin toimintaan jos moottorin vahinko < 100 %.
     - **Polttoainetyypit (D/G/A):** vehicles.json:ssa `fuel_type`-kenttä (D=diesel, G=bensiini, A=avgas). `Vehicle.can_use_fuel()`, `Campaign.can_refuel_with()` tarkistavat yhteensopivuuden. Monipolttoisille (turbini, M) kaikki tyypit kelpaavat.
 7. **M7 Tekoälygrafiikka** vaiheittain kaikille kuville ja musiikin remasterointi.
@@ -526,8 +526,10 @@ Työ jatkuu tästä dokumentista: jokaisen vaiheen tila päivitetään tähän.
 - **Vaikeustasot:** NORMAL/STORY tasapaino kaikissa tehtävätyypeissä (voitettavuus 40–70 %).
   - **Toteutettu (M9 tasapaino, 1. kierros):** `tests/test_balance.gd` (headless, `godot --headless --path . --script tests/test_balance.gd`) ajaa kampanjan todelliset kohtaamiset 6 hengen ryhmällä NORMAL- ja STORY-vaikeustasoilla ja mittaa voitto-%:n (80 taistelua/solu). Vihollismäärät skaalautuvat ryhmän koon mukaan (`Campaign.field_count` = ryhmä+1..2, `room_count` = ryhmä−2, `TANK_ESCORTS` = 3; main kytkee `campaign.squad_size`). Mittaus: kaupungin varuskunta 58 %, huonetaistelu 65 %, tankkitehtävä 57 % – kaikki 40–70 %-bandissa; STORY aina helpompi (80–100 %). Tien kohtaamiset ovat "flavor"-luokkaa (sallittu rajat 40–100 %, ne voi myös välttää).
 - **Resurssitasapaino:** raha, polttoaine, ammukset, lääkkeet, korjausosat – ei trivialisaa eikä mahdottomaksi.
+  - **Toteutettu (7.11., 1. kierros):** rahatalous `Campaign.funds` (värvättyjen rahat + `PAY_PER_MISSION` 2000 MK/tehtävä); HQ-computer näyttää FUNDS/SQUAD/VEHICLE/MOTOR POOL/TOWNS/STORE ROOM/SQUAD STATUS (`computer.gd`); Motor Pool käyttää samaa kassaa ja veloittaa ostokset. Ammus-/lääke-/ruokatalous yhä auki.
 - **Käyttöliittymä:** hiiri + näppäimistö, tooltipit, nopeampaa navigoimista, selkeäristä viestilaatikko.
 - **Äänimaailma:** musiikki kiertokulussa, efektit (laukaus, räjähdys, moottori, kävely) ilman järkyttäviä leikkaumia.
+  - **Toteutettu (7.11.):** `main.set_music`/`play_sfx` – teema näkymän mukaan (TWICHAR3 toimisto/chargen, XPLORE1 kartta/kaupunki, BATTLE1 taistelu, LOSE1 häviö; musiikki loopaa). Efektit alkuperäisistä äänistä: laukaus aseen mukaan (TRIFLE/TMGUN1/TSHOTGUN/TROCKET1/TTNKGUN), räjähdys TEXPLOS/TGRENLAN, ovi DOOR. Neljä puuttunutta musiikkitiedostoa kopioitu `godot/original/audio/music`iin ja importattu.
 - **Virheentestit:** puuttuvat tiedostot, korruptoitu save, OOM, nollatiedot JSONista – peli ei kaadu vaan antaa selkeän virheilmoituksen.
 - **Suorituskyky:** 60 FPS 1280×720, latausajat < 2 s, taistelun auto_play 200 kierrosta < 1 s.
 
@@ -575,6 +577,7 @@ godot --path . -- --test=boom       # räjähdykset, kaatuvat puut, kraaterit
 godot --path . -- --test=mission    # kentällä pelattavat tehtävätyypit
 godot --path . -- --test=drive      # ajaminen, polttoaine, romut, väijytys
 godot --path . -- --test=save       # tallennus/lataus round-trip
+godot --path . -- --test=computer   # HQ-computer: funds, stores, motor pool
 godot --path . -- --test=fullgame   # koko peli alusta loppuun (story)
 ```
 

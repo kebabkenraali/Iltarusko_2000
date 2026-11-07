@@ -5,6 +5,7 @@
   remaster_set.py faces      the 30 character portraits (FACES men / women)
   remaster_set.py cgen       chargen background photo and hardware objects (icons stay original)
   remaster_set.py buildings  BUILDING exterior, interior and terrain pieces (UI symbols stay original)
+  remaster_set.py intro [N]  the 198 INTRO.LB frames (N = stop after N new ones; painted frames are skipped)
   add --recut to cut again from the saved painted sheets without the GPU
 
 Animation overlays: each frame is pasted into the base picture and the whole picture is painted
@@ -66,6 +67,32 @@ def briefing():
             m.paste(255, (6, 6, cut.width - 6, cut.height - 6))
             cut.putalpha(m.filter(ImageFilter.GaussianBlur(3)))
             save("ICON", name, cut, fr)
+
+
+INTRO_PROMPT = ("cinematic wide shot in a post-nuclear war Poland of the year 2000: soldiers in gas "
+                "masks and ragged uniforms, a burning city skyline, a tank silhouetted against smoke")
+
+
+def intro(limit=0):
+    """The 198 full-screen INTRO.LB frames, painted one by one at the stored 4x size.
+    A fixed seed keeps the style steady across the frames; text screens get the model's own
+    lettering (as with every other picture). Already painted frames are skipped, so an
+    interrupted run continues where it stopped; limit N stops after N new frames."""
+    src = os.path.join(ORIG, "INTRO")
+    names = sorted(f for f in os.listdir(src) if f.lower().endswith(".png"))
+    done = 0
+    for f in names:
+        name = os.path.splitext(f)[0]
+        if os.path.exists(os.path.join(OUT, "INTRO", name + ".png")):
+            continue
+        orig = Image.open(os.path.join(src, f)).convert("RGB")
+        img = ai.paint(orig, INTRO_PROMPT, S, denoise=0.3, refine=0.15)
+        save("INTRO", name, img, orig)
+        done += 1
+        if limit and done >= limit:
+            break
+    painted = len([f for f in names if os.path.exists(os.path.join(OUT, "INTRO", os.path.splitext(f)[0] + ".png"))])
+    print("intro: %d new frames now, %d of %d painted" % (done, painted, len(names)))
 
 
 SPRITE_GROUPS = {
@@ -304,5 +331,8 @@ if __name__ == "__main__":
         SPRITE_GROUPS = {g: SPRITE_GROUPS[g] for g in sys.argv[2:]}
     BUILDING_ONLY = sys.argv[2:] if sys.argv[1] == "buildings" else []
     CGEN_ONLY = sys.argv[2:] if sys.argv[1] == "cgen" else []
-    {"briefing": briefing, "sprites": sprites, "faces": faces, "cgen": cgen,
-     "buildings": buildings}[sys.argv[1]]()
+    if sys.argv[1] == "intro":
+        intro(int(sys.argv[2]) if len(sys.argv) > 2 and sys.argv[2].isdigit() else 0)
+    else:
+        {"briefing": briefing, "sprites": sprites, "faces": faces, "cgen": cgen,
+         "buildings": buildings}[sys.argv[1]]()
