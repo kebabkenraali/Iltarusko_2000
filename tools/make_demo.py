@@ -59,6 +59,11 @@ PIKAOHJE
 --------
 - Hiiri: yksi klikkaus riittää; hiiren päällä näkyy vihje; oikea nappi peruu.
 - F5 pikatallennus / F9 lataus (maailmankartalla, toimistossa, kaupungissa).
+- Alapalkki (kaupungissa, tienoella ja huoneissa) => 10 kuvaketta kuin alkuperäisessä:
+  1 NECESSITY (kalastus/keruu/metsästys/nukkuminen), 2 OPTIONS (tallenna/lataa/aani/poistu),
+  3 RADIO, 4 INVENTORY, 5 COMBAT, 6 TALK, 7 TAKE, 8 USE, 9 MAP (LCD) ja 0 LOOK.
+  Numerot 1-9/0 nappavat suoraan näppäimistöltä; ESC sulkee alivalikon.
+- Lisäksi: M = maailmankartalle, L = LCD-kartta, Space = pause.
 - Toimisto: radio = tehtävä, tietokone = varat ja varasto, varikkohissi = ajoneuvot,
   lamppu = ulos kartalle.
 - Maailmankartalla: klikkaa kohdetta; R = lepo; V = pysäköi / nouse kyytiin.

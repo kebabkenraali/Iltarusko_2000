@@ -59,6 +59,14 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
   Demon `project.godot` sisältää `[debug] file_logging` -asetuksen (virheloki aktiivinen).
   remake-repon jääneet muutokset (demoloki, hiiritutkimusmuistiinpanot, LUEMINUT-fokus-
   ohjeet) on commitoitu tilapäivityksen yhteydessä; `remake/godot` puhtaana `4384e89`.
+- **UUSI 7.11. (M9):** alapalkki + pikanäppäimet — alkuperäisen manuaalin 2-D Ground
+  Icons -rivi palautettu (`action_bar.gd`, numerot 1–9/0, alivalikot numeroiduilla
+  valinnoilla; kenttänäkymä + huoneet; Necessity-nukkuvaisuus `Healing.rest`-pohjaan;
+  OPTIONS-lataus/tallennus/ääni/lopeta; RADIO/INVENTORY/COMBAT/TALK/MAP/LOOK toiminnassa).
+  TAKE/USE ovat vielä tietoviestejä (M9 talous 2. kierros). Testit: uusi
+  `tests/test_action_bar.gd` (headless PASS) + kaikki vanhat PASS + windowed
+  rooms/towns/save/fullgame PASS. Demo synkronoitu (`make_demo.py --clean`), LUEMINUT
+  päivätty. Katso SUUNNITELMA luku 12.
 - **Natiivipuoli (ei SUUNNITELMASSA, katso t2k-native/docs/RAPORTTI.md):**
   Lataus-Enter-virhe, S_aAls-säännöt, TWI2D-purku.
 
@@ -86,7 +94,9 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
   `head_image()` julkisena kulmakuville; astuntapomppu _draw'ssa.
 - **`tactical.gd`** — kenttänäkymä (kaupunki/maasto), syvyysjärjestys, ihmiset, ovet;
   `_fade_over` haalistaa rakennuksen jonka takana sotilas on. **`interior.gd`** — huonenäkymä
-  (sama haalistus kalusteille). **`computer.gd`** — HQ-tietokone (funds/stores/motor pool/squad).
+  (sama haalistus kalusteille). **`action_bar.gd`** — molempien näkymien alapalkki (alkuperäisen
+  2-D Ground Icons, numerot 1–9/0, alivalikot; näkymät vetävät napit
+  `_bar_def()`-listalla ja kutsuvat `_icon_*`-funktioita). **`computer.gd`** — HQ-tietokone (funds/stores/motor pool/squad).
   **`motor_pool.gd`** — ajoneuvokauppa (veloittaa `campaign.funds`).
 - **Spritelogiikan verifiointi:** offline-kooste (PIL) toistaa Soldier._drawin — käytä jos
   spritet näyttävät rikkoutuneilta (katso git-historia: tools/_spr_probe.py-tyyppinen probe).
@@ -139,7 +149,8 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
 
 1. **M9 talous 2. kierros:** ammusten/lääkkeiden/ruoan kulutus ja hankinta (kauppa computer-
    näytöltä? varastosta nouto?), hinnat ja palkkiot tasapainoon (mitattuna: rahavirta 12
-   tehtävän yli).
+   tehtävän yli). **Alapalkin jatko:** TAKE/USE todellisiksi toiminnoiksi
+   (Necessity-kalastukseen/keruuseen oikeat tuotokset, eivät vain viestit).
 2. **M9 virheentestit:** korruptoitu save (uusi `tests/test_save_errors.gd` tai laajennus),
    puuttuva data — peli ei saa kaatua.
 3. **M9 suorituskyky:** auto_play 200 kierrosta < 1 s -mittaus ja FPS-raportti (uusi testi).
@@ -153,11 +164,13 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
 
 - remake/godot: `6e8304e` M8 fullgame läpi → `54a47cb` M9 balance-harness + skaalautuvat
   varuskunnat + combat.gd-korjaukset → `1f5d989` äänet + computer + rahatalous →
-  `4384e89` tulitusasennot + kulmakuvat + katoamiskorjaus.
+  `4384e89` tulitusasennot + kulmakuvat + katoamiskorjaus → `aeead10` alapalkki
+  (action_bar.gd) + numeronäppäimet kenttä- ja huonenäkymään.
 - remake: `fe570fb` docs+tools repoon, SUUNNITELMA auditoitu → `5fa9d24` intro-set + ääni/
   computer-dokumentointi → `2981046` mallin puuttumisen huomio → `9965c58` M5-lisäykset 7.11.
   → demovirheloki + hiiritutkimusmuistiinpanot (7.11.) → tila-auditointi 7.11.2026 (testit
-  mitattu uudelleen, kaikki PASS; SDXL yhä puuttuu; molemmat repon muutokset commitoitu).
+  mitattu uudelleen, kaikki PASS; SDXL yhä puuttuu; molemmat repon muutokset commitoitu)
+  → alapalkki + pikanäppäimet (SUUNNITELMA luku 12; demo synkronoitu, LUEMINUT päivätty).
 
 ## 10. Näin päivität tätä dokumenttia
 

@@ -614,3 +614,50 @@ Twilight- 2000 Remake DEMO\logs\godot.log`, 5 rotaatiota) ja `config/name` on
 `Twilight: 2000 Remake DEMO`. SDXL-malli `sd_xl_base_1.0.safetensors` puuttuu yhä —
 INTRO-remaster pysyy estettynä. `remake/godot` puhtaana `4384e89` (M8+M9-työt). Demo-
 LUEMINUT.txt:ssä käynnistys- ja virhelokiohjeet, AI_OHJE luku 7b pitää demo-debugin tiedot.
+
+
+## 12. **M9 Alapalkki ja pikanäppäimet (7.11.2026)** — alkuperäisen "2-D Ground Icons" -ikonirivi takaisin.
+
+**Lähde:** manuaali s. 55–58 (näytön alla kymmenen kuvaketta; numeroilla 1–9/0 suoraan). Tila ennen:
+kenttä- ja huonenäkymissä ei ollut lainkaan alhaista komentopalkkia; toiminnot vain hiirellä ja
+piilonäppäimin (M/L/Space).
+
+### Uusi komponentti: `scripts/action_bar.gd`
+- Paneeli y = 708–800 (peli-ikkunan alla), kymmenen nappia alkuperäisessä järjestyksessä:
+  **1 NECESSITY, 2 OPTIONS, 3 RADIO, 4 INVENTORY, 5 COMBAT, 6 TALK, 7 TAKE, 8 USE, 9 MAP, 0 LOOK**.
+- `hotkey()`: näppäimet 1–9/0; alivalikossa numerot valitsevat sen vaihtoehdot ja ESC sulkee
+  (näkymän `_unhandled_input` kutsuu; dialogin puhevalinnat ratkaisevat numerot ensin).
+- `choose(title, buttons)`: alivalikkoikkuna palkin yllä otsikolla ja numeroiduilla valinnoilla.
+
+### Kenttänäkymä (tactical.gd)
+- 1 NECESSITY: kalastus (FISHING), keruu (FORAGING), metsästys (RIFLE) — parhaan taidon
+  random-baseline, kesto 60/60/120 min — ja **nukkuminen 8 h** (`Healing.rest`,
+  `main.world.minutes += 480`).
+- 2 OPTIONS: tallenna (QUICKSAVE), lataa, ääni päälle/pois, lopeta.
+- 3 RADIO: tehtävän tila Exor 1:n suussa (`campaign.objective_text`); jos tehtävää ei ole, ilmoitus.
+- 4 INVENTORY: ryhmän rivit: nimi — ase — tila (`Healing.condition`) — ensiapupakkaukset.
+- 5 COMBAT: vihollinen 40 m säteellä → valinta aggressive / tactical / retreat
+  (retreat kunnioittaa NO_MOVE-sääntöä).
+- 6 TALK: lähin ei-vihollinen 5 m säteellä → kävellään luo; muuten viesti.
+- 7 TAKE / 8 USE: tietoviestit (ruoka/lääkejakeet M9:n talous 2. kierrokselle).
+- 9 MAP: LCD-kartta päälle/pois (sama kuin L). 0 LOOK: edessä olevan kuvauksen (henkilö/
+  rakennus/puu/maastotyyppi).
+
+### Huonenäkymä (interior.gd)
+- Sama palkki; COMBAT, TAKE, USE, MAP poistettu käytöstä (selittävä viesti); NECESSITY = nukkuminen
+  8 h (sängyssä), TALK = lähin ihminen `open_talk`, LOOK = huonepohjainen kuvaus,
+  OPTIONS/RADIO/INVENTORY kuten kentällä.
+
+### Muut muutokset
+- `main.gd`: `sound_on` + `toggle_sound()` (musiikki pysähtyy heti, track muistiin
+  `set_music`-poliitkalla; efektit estetään `play_sfx`-alussa).
+- `tactical.gd`: msg-rivi nostettu y = 760 → y = 682; palkki lisätty ennen dialogin luontia
+  (dialogin sivut tulevat palkin päälle).
+- Uusi testi `tests/test_action_bar.gd` (headless): 10 nappia, numerot, alivalikon numerot
+  ja sulku-avaus — PASS.
+- Ajetut testit 7.11.: test_campaign/chargen_rules/combat/vehicle/battle (headless PASS),
+  test_action_bar PASS; ikkunalla rooms, towns, save (PASS) ja fullgame (1.9 min, läpi
+  ilman skriptivirheitä). Demo päivitetty (`make_demo.py --clean`) ja LUEMINUT.txt:n
+  PIKAOHJE saa palkki- ja numeronapit.
+- Toteutustaso: TAKE/USE ovat tietoviestejä, NECESSITY-ruoat sanallisia ilmoituksia —
+  täydellinen samanvertaisuus (saalistaulujen palkitseminen, ruokatalous jne.) M9/M10:een.
