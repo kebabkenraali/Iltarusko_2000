@@ -757,3 +757,63 @@ Backlog (the remaining real gaps, in suggested order):
 7. TWI3D vehicle descriptions (12 items) can dress the motor pool / I.V.A.N. view text.
 8. Not converting on purpose: CGEN UI labels (the remake chargen is redesigned), 2000
    module's memory-kit advertisement + COM error strings, joysticks prompts, DOS bits.
+
+
+## 16. M9 economy round 2, first slice: HQ resupply (8.11.2026)
+
+What was built:
+- scripts/economy.gd (new, class_name Economy): the derived prices and carry caps.
+  The original data has no ammunition prices (items.json ammunition prices are all 0)
+  and no explicit caps, so OUR rules: one spare magazine costs the weapon price / 10
+  (minimum 10) - AKM 30, M16A2 40, M9 15, G3 50; a med kit its item price (PERSONAL
+  MEDICAL KIT 100), a grenade its item price (FRAGMENTATION GRENADE 4). Caps per
+  recruit: 12 magazines, 3 med kits, 12 grenades.
+- scripts/computer.gd rebuilt around the resupply: one row per recruit (name, weapon,
+  mags, med kits, grenades) with MAG/MED/GRE buy buttons. Funds come from
+  campaign.funds (missions pay 2000 each, plus hastened by recruit purses and rewards).
+- Consumption already flowed: battle.gd write_back passes mags/medkits/grenades back to
+  the recruit's gear after every battle, so battles are paid in ammunition and first aid.
+- The original's OFFICE strings are the interface: the section header (a splice of
+  "ADD AMMO TO WHICH WEAPON?"), and the refusals "%s CANNOT CARRY ANY MORE AMMO FOR
+  THE %s." and "%s ISN'T CARRYING ANY WEAPONS THAT USE %s AMMO." (also used when the
+  recruit has no gear at all yet - Forces.equip issues the loadout at the first battle,
+  so an early investor is told plainly that the soldier carries nothing).
+- Tests: tests/test_economy.gd (headless, PASS) checks the derived prices, the caps and
+  the no-gear refusal; --test=computer (windowed) shows the screen; --test=fullgame
+  passed.
+
+Still open in this work item:
+- Food: the original demanded food every 8 hours ("required to sleep and eat every
+  eight hours... hindered"); the remake has no food state yet. Plan: a rations counter
+  per squad, consumed by Sleep (icon 1 / world-map R), scrounged with fish/forage/hunt,
+  hungry soldiers pay initiative/aim penalties; the computer's FOOD line follows.
+- The computer screen's six bar graphs (food, ammunition, medicine, fuel, people,
+  morale) from the original; only funds/stores/motor pool/squad exist now.
+- Price tuning: the money flow over 12 measured missions decides whether 2000/mission
+  covers the mags burn (the balance harness prints stores/funds at the end of a run).
+
+## 17. OpenXCom as the battle-mechanics reference (8.11.2026)
+
+- Source read: OpenXcom/OpenXcom (github) src/Battlescape/BattlescapeGame.cpp + friends.
+  License: GPL-3.  RULE: ideas and mechanics are taken as a reference only; NO code is
+  copied into the remake (copying GPL code would force this project under GPL). The
+  actually binding rules reference remains the 1991 manual + t2k-native verification.
+- Adopted now: the reserved time units (OpenXCom checkReservedTU). In the remake:
+  battle.gd set_reserve toggles a unit's "reserve"; _flood clamps the movement frontier
+  so every reachable tile still leaves AP >= COST snap (3). The battle bar gains a
+  "T RES ON/OFF" button and the hotkey T; the unit line shows "RESERVED FOR A SNAP
+  SHOT". Vehicles cannot reserve. The AI ignores the flag (OpenXCom reserves AI TUs as
+  percentages - a future AI option, low priority). Persist until the battle ends, as
+  in OpenXCom.
+- Candidate mechanics read but NOT adopted (each needs a rules decision first):
+  reaction fire (OpenXCom checks reaction on kneel/move; the T2K battle screen has no
+  data-driven reaction curves in the extraction -> design needed), panic/morale flow
+  (the remake has a coolness-based run rule at half strength; OpenXCom's morale events
+  could map onto it later), grenade fusing (the original data has no timed-delay
+  explosive item - removed per readme), melee/hand-to-hand states (T2K has melee skills;
+  the battle has no melee action yet - candidate for M9 polish), path preview with
+  obstacles (the remake shows a reach zone instead).
+- Tests: tests/test_reserve.gd (headless, PASS): reach-with-reserve boundary cases,
+  reserved in-range move accepted, beyond-reserve move rejected with the new log line,
+  vehicles refuse, toggle free. tests/test_battle.gd re-run after the change: PASS
+  (the band values stay - reserve defaults off everywhere).

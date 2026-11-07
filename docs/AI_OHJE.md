@@ -77,6 +77,23 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
   ja molemmat osapuolet (sotilaat/Black Legion) löytyvät taiteen kaikilla 8 suunnalla;
   lisäksi vartalot AM/AF/EM (AF putoaa AM:ään suuntiin N/NE/NW), jalat, päät 0–14 ja
   KNEEL/WOUND. Taistelunäytön `--test=battle` ajettu ikkunalla (1,5 min, läpi).
+- **UUSI 8.11. (M9 talous alku):** HQ-varustekauppa tietokonenäytöllä (`computer.gd` +
+  uusi `economy.gd`): MAG/MED/GRE-napit per sotilas, ostot `campaign.funds`ista, hinta-
+  sääntö johdettu (mag = asehinta/10, minimi 10; med kit 100; kranaatti 4 — alkuperäisen
+  datan ammushinnat ovat 0), kantamiskytkot (12/3/12), refusalit alkuperäisen
+  OFFICE-merkkijonoilla ("ADD AMMO TO WHICH WEAPON?", "%s CANNOT CARRY ANY MORE AMMO
+  FOR THE %s.", "%s ISN'T CARRYING ANY WEAPONS THAT USE %s AMMO."). Kulutus jo kiertää:
+  `battle.gd write_back` kirjoittaa mags/medkits takaisin geariin taistelun jälkeen.
+  Uusi testi `tests/test_economy.gd` PASS; `--test=computer` ja fullgame läpi.
+  Jäljellä: ruoan kulutus, Krakowin kuusi bar-graafia, hintojen hienosäätö mitatun
+  rahavirran kautta (SUUNNITELMA luku 16).
+- **UUSI 8.11. (M9 taistelu-UX, OpenXCom-viittaus):** AP-varaus ("time units reserved
+  for snapshot") — `battle.gd set_reserve` + `_flood`-rajaus: varattu sotilas ei kulje
+  niin, että snap-ammunnan 3 AP katoaisi; näppäin T ja nappi "T RES ON/OFF" taistelu-
+  palkissa, ajoneuvoille ei. Idea OpenXComin `BattlescapeGame.checkReservedTU`-mekan-
+  ismista (GPL-projekti): toteutus oma, koodia ei kopioitu (SUUNNITELMA luku 17).
+  Uusi testi `tests/test_reserve.gd` PASS; test_battle PASS (varaus ei liikuta
+  bändejä: se on pelaajan valinta).
 - **Asset- ja tehtäväauditointi 7.11. (SUUNNITELMA luku 14):** pelin kaikki kuvat/äänet
   ovat alkuperäisen pelin omia — `ALLOW_AI_ART=false` (F2 kuollut), `main.remastered=false`,
   `Soldier.remastered=false`; ainoa res://remastered-viittaus sijaitsee näiden porttien
@@ -96,9 +113,11 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
   `stop_audio`), kampanjan kytkennät (`is_story`, `squad_size`), testiajo (`_setup_test`,
   `test_steps` + `_process`-tulkki: call/call1/screen/shot/key/quit).
 - **`battle.gd`** — taistelulogiikka ilman grafiikkaa (ap, osumat, haavat, panssari, ajoneuvot,
-  ai_step/auto_play, write_back). **`battle_view.gd`** — näkymä: sijoittelu, klikkaukset,
+  ai_step/auto_play, write_back; OpenXCom-tyylinen "reserve": `set_reserve` + `_flood`-rajaus,
+  T = varaa AP yhtä snap-ammuntaa varten). **`battle_view.gd`** — näkymä: sijoittelu, klikkaukset,
   spritet (Soldier), efektien käsittely (`b.events`: fire/explode/tree_down/crater), äänet,
-  tulitusasennot (`fire_pose`), kulmakuvat (`_show_faces`).
+  tulitusasennot (`fire_pose`), kulmakuvat (`_show_faces`). **`economy.gd`** — HQ-varustek
+  uppaan hinnat ja kantamiskytkot (mag = aseen hinta/10, MED 100, GRE 4; caps 12/3/12).
 - **`forces.gd`** — varusteet (equip), vihollisryhmät (group: BLACK LEGION/MARAUDERS/
   STRAGGLERS/HUNTERS), taistelukenttä (make_battle/make_room_battle) ja sijoittelu (deploy_*).
 - **`campaign.gd`** — tehtäväkierros (steps: talk/clear/treat/spy/search/reach/repair),
@@ -114,7 +133,9 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
   `_fade_over` haalistaa rakennuksen jonka takana sotilas on. **`interior.gd`** — huonenäkymä
   (sama haalistus kalusteille). **`action_bar.gd`** — molempien näkymien alapalkki (alkuperäisen
   2-D Ground Icons, numerot 1–9/0, alivalikot; näkymät vetävät napit
-  `_bar_def()`-listalla ja kutsuvat `_icon_*`-funktioita). **`computer.gd`** — HQ-tietokone (funds/stores/motor pool/squad).
+  `_bar_def()`-listalla ja kutsuvat `_icon_*`-funktioita). **`computer.gd`** — HQ-tietokone
+  (funds/stores/motor pool/squad + resupply-osio: MAG/MED/GRE-buttonit per sotilas,
+  refusalit alkuperäisen OFFICE-riveillä).
   **`motor_pool.gd`** — ajoneuvokauppa (veloittaa `campaign.funds`).
 - **Spritelogiikan verifiointi:** offline-kooste (PIL) toistaa Soldier._drawin — käytä jos
   spritet näyttävät rikkoutuneilta (katso git-historia: tools/_spr_probe.py-tyyppinen probe).
@@ -127,8 +148,12 @@ godot --headless --path . --script tests/test_campaign.gd        # PASS odotettu
 godot --headless --path . --script tests/test_chargen_rules.gd
 godot --headless --path . --script tests/test_combat.gd          # legacy combat.gd
 godot --headless --path . --script tests/test_vehicle.gd
+godot --headless --path . --script tests/test_action_bar.gd      # alapalkki (headless)
+godot --headless --path . --script tests/test_battle_art.gd      # taistelugrafiikan kartta
+godot --headless --path . --script tests/test_reserve.gd         # AP-varaus (OpenXCom-tyyli)
+godot --headless --path . --script tests/test_economy.gd         # HQ-varustekaupan säännöt
 godot --headless --path . --script tests/test_battle.gd          # ~90 s
-godot --headless --path . --script tests/test_balance.gd         # M9: 40–70 % band; -- --report = pelkkä taulukko
+godot --headless --path . --script tests/test_balance.gd         # M9: 40-70 % band; -- --report = pelkkä taulukko
 # Integraatiotestit (IKKUNALLA — headless ei tuota kuvia, frame_post_draw ei laukea):
 godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | boom |
                                 mission | drive | save | computer | fullgame
@@ -148,6 +173,9 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
 - **Poistuessa testistä:** kutsu `stop_audio()` + lyhyt await ennen `quit()` (muuten
   AudioStreamWAV jää "in use at exit" -varoituksella).
 - **PowerShell:** älä upota regexiä `-c`-kutsuihin; käytä skriptitiedostoja.
+- **Uusi `class_name` (esim. Economy):** headless-testit eivät näe sitä ennen kuin projekti
+  on skannattu kerran editorilla: `godot --headless --path . --editor --quit`. Sen jälkeen
+  se on kaikkialla käytettävissä (Cline-komponentti kuten Healing/Forces).
 - **Käyttäjäkansiot:** projektin nimi sisältää kaksoispisteen → Windowsissa user://-kansio on
   sanitisoitu muotoon `Twilight- 2000 Remake` (demonilla `...- 2000 Remake DEMO`).
 - **Testisyötteet:** testiajo syöttää syötteet TEST_DEVICE:llä ja `main.input_ok` ohittaa
@@ -165,9 +193,10 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
 
 ## 8. Seuraavat tehtävät (ehdotettu järjestys)
 
-1. **M9 talous 2. kierros:** ammusten/lääkkeiden/ruoan kulutus ja hankinta (kauppa computer-
-   näytöltä? varastosta nouto?), hinnat ja palkkiot tasapainoon (mitattuna: rahavirta 12
-   tehtävän yli). **Alapalkin jatko:** TAKE/USE todellisiksi toiminnoiksi
+1. **M9 talous 2. kierros (alku tehty 8.11.):** HQ-varustekauppa + kantamiskytkot ON.
+   Jäljellä: ruoan kulutus (söinti 8h välein — Necessity-klassisten rivien mukaan),
+   Krakowin kuusi bar-graafia computer-näytölle, hintojen hienosäätö mitatun rahavirran
+   (12 tehtävän simulaatio) kautta. **Alapalkin jatko:** TAKE/USE todellisiksi toiminnoiksi
    (Necessity-kalastukseen/keruuseen oikeat tuotokset, eivät vain viestit).
 2. **M9 virheentestit:** korruptoitu save (uusi `tests/test_save_errors.gd` tai laajennus),
    puuttuva data — peli ei saa kaatua.
@@ -194,7 +223,10 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
   varuskunnat + combat.gd-korjaukset → `1f5d989` äänet + computer + rahatalous →
   `4384e89` tulitusasennot + kulmakuvat + katoamiskorjaus → `aeead10` alapalkki
   (action_bar.gd) + numeronäppäimet kenttä- ja huonenäkymään → `5306b68` taistelun
-  CMBT-tulitaidemappaus kattavaksi + turvaverrokki (ei enää tyhjää kehoa) + auditointitesti.
+  CMBT-tulitaidemappaus kattavaksi + turvaverrokki (ei enää tyhjää kehoa) + auditointitesti
+  → `2e42652` alkuperäisrivityö (necessity-rivit, captured-rivi, endings-data) →
+  economy/reserve: economy.gd + computer-resupply + set_reserve (testit test_economy,
+  test_reserve).
 - remake: `fe570fb` docs+tools repoon, SUUNNITELMA auditoitu → `5fa9d24` intro-set + ääni/
   computer-dokumentointi → `2981046` mallin puuttumisen huomio → `9965c58` M5-lisäykset 7.11.
   → demovirheloki + hiiritutkimusmuistiinpanot (7.11.) → tila-auditointi 7.11.2026 (testit
@@ -207,6 +239,9 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
    loppuaineisto data/missions.json "endings"-lohkoon) + katveiskannaus ja konvertointi-
    backlogi (SUUNNITELMA luku 15). Testit 8.11.: campaign/chargen/combat/battle_art
    headless PASS; save ja fullgame ilman skriptivirheitä.
+- remake/godot 8.11.: `2e42652` alkuperäisrivityö → economy/reserve: economy.gd +
+  computer-resupply + set_reserve (testit test_economy, test_reserve). SUUNNITELMA
+  luvut 16–17 pitävät yksityiskohdat; editori-skannauksen kuoppa luku 7.
 
 ## 10. Näin päivität tätä dokumenttia
 
