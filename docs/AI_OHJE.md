@@ -173,10 +173,20 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
    puuttuva data — peli ei saa kaatua.
 3. **M9 suorituskyky:** auto_play 200 kierrosta < 1 s -mittaus ja FPS-raportti (uusi testi).
 4. **M10:** export_presets.cfg + buildit, README (pelaajalle), ARCHITECTURE.md (kehittäjälle),
-   CHANGELOG + version.txt, GitHub Actions (headless-testit).
+   CHANGELOG + version.txt, GitHub Actions (headless-testit). **Lisäksi loppupeli
+   (SUUNNITELMA luku 15):** Black Legionin hyökkäys tarinan lopussa; voitto ->
+   `missions.json endings.victory` (datassa jo), häviö -> `city_lost`-rivi (datassa jo),
+   ja "jammed"-viesti hyökkäyksen ajalle.
 5. **INTRO-remaster:** kun SDXL-malli palautettu → `python tools/remaster_set.py intro`
    (resumoitava; ~1–2 min/ruutu, 198 kpl).
 6. **Natiivipuoli:** Lataus-Enter-korjaus, S_aAls-säännöt, TWI2D:n purku `tools/dis86.py`:llä.
+7. **Alkuperäisestä vielä konvertoimatta (8.11. katveiskannaus):**
+   - HQ-varustekauppa: OFFICE-rivit ("ADD AMMO TO WHICH WEAPON?" ym.) ja
+     EQUIP.json-kuvausteekstit Inventoryn INFO/DESCRIPTION-valintoihin.
+   - Kuorma-auto supplies/dump-tehtävään (TWI2D @151563).
+   - ICON-lisäuutiset radioketjuun (12 story-kappaletta jo datassa, muut
+     ajastettuihin pending_story-tapahtumiin).
+   - Taisteluloki TWI2D-riveihin (matala prioriteetti).
 
 ## 9. Commit-loki (lyhennetty)
 
@@ -192,7 +202,11 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
   → alapalkki + pikanäppäimet (SUUNNITELMA luku 12; demo synkronoitu, LUEMINUT päivätty)
   → taistelun tuliasetuudet kunnossa (CMBT-mappaus täydennetty + turvaverrokki + auditointi
   `tests/test_battle_art.gd`; godot `5306b68`) → asset- ja tehtäväauditointi, demo puhtaana
-  AI-tiedostoista (SUUNNITELMA luku 14).
+  AI-tiedostoista (SUUNNITELMA luku 14) → 8.11.: alkuperäisrivityö (Necessity-rivit
+   sängyssä/avomaalla, kalastus/keruu/metsästys tulokset; `_game_over` alkuperäisrivi;
+   loppuaineisto data/missions.json "endings"-lohkoon) + katveiskannaus ja konvertointi-
+   backlogi (SUUNNITELMA luku 15). Testit 8.11.: campaign/chargen/combat/battle_art
+   headless PASS; save ja fullgame ilman skriptivirheitä.
 
 ## 10. Näin päivität tätä dokumenttia
 

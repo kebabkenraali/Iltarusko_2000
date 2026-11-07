@@ -690,9 +690,13 @@ Missions vs. the original:
   own-vehicle repair story (the remake's 'wreck' person) trace to the same source set.
 
 Playability differences, intentional and documented:
-- Combat: the 1991 game used PAL automatic combat (you start it and may only retreat,
-  manual p.59); the remake adds a full turn-based AP battle on the same grid (the automatic
-  ai_step/auto_play path exists too and is band-tested in tests/test_balance.gd).
+- Combat: the 1991 game used PAL automatic combat in the field (you start it and may only
+  retreat, manual p.59); the remake adds a full turn-based AP battle on the same grid (the
+  automatic ai_step/auto_play path exists too and is band-tested in tests/test_balance.gd).
+  NOTE (fix 8.11.): the original's TWI2D strings show the 2-D module HAD a manual combat
+  action menu of its own (CONTINUE / BREAK OFF / INTERACTIVE / DESCRIPTIVE / QUICK COMBAT,
+  "SELECT ACTION FOR %s", "AIM AT WHO" - TWI2D @146254-@146743): the remake's manual battle
+  recreates that mode, so it is faithful, not an invention.
 - The 3-D driving module (TWI3D) is not reproduced; vehicles drive on the world map (M6).
 - The Krakow computer screen: the original had six bar graphs (food, ammunition, medicine,
   fuel, people, morale); the remake shows funds/stores/motor pool/squad. Bringing the
@@ -701,3 +705,55 @@ Playability differences, intentional and documented:
   save F5/F9, difficulty NORMAL/STORY, day/night light, zoom.
 - Rules fidelity is tracked on the native side: t2k-native/docs/RAPORTTI.md and
   SAANNOT_VERTAILU.md.
+
+
+## 15. Conversion backlog from the original strings (gap scan 8.11.2026)
+
+Method: every string of the 9 extracted modules (2000, CGEN, EQUIP, ICON, INFO, INTRO,
+OFFICE, TWI2D, TWI3D - 648 readable strings) was n-gram-matched against the remake corpus
+(data/*.json + all .gd literals). Uncovered strings were bucketed by theme; the backlog
+below keeps only findings that are real missing content (many uncovered strings are UI
+labels the remake intentionally redesigned).
+
+Already converted on this day (commit 0235-missions):
+- Necessity lines: sleep variants (real bed / open + no tent, TWI2D @147836-@148225) moved
+  into healing.gd; fish/forage/hunt result lines ("YOU SPEND A FEW HOURS %sING." +
+  "AFTER ... %s COMES BACK %s/EMPTY HANDED." + "WITH SOME FISH" / "WITH BERRIES AND ROOTS"
+  / "WITH HIS KILL", TWI2D @148761-@148828) moved into tactical.gd _survive.
+- Defeat line wired: lines.captured = "YOU HAVE BEEN AMBUSHED AND CAPTURED..." (TWI2D
+  @143476) now shown by main.gd _game_over.
+- endings block stored in data/missions.json: victory p1 (ICON @74076), victory p2 /
+  epilogue (ICON @74668), news_bravo (ICON @89511), jammed comms (ICON), city lost
+  ("YOU FOUGHT WELL...", TWI2D @161104). Data ready; wiring is M10 work.
+
+Backlog (the remaining real gaps, in suggested order):
+1. Endings (M10): a victory path - "ATTACK ON KRAKOW" as the final battle: when the story
+   reaches its last paragraph, spawn the Black Legion assault in Krakow; win ->
+   endings.victory (2 paragraphs + music), lose -> defeat. The jammed-comms line replaces
+   radio dialogue during the assault (ICON: "%sSTATIC AS CZARNY'S TROOPS JAM...").
+2. Mission-failure consequences (M9/M10): when a defend/clear mission is lost or expires,
+   the city goes to Czarny (world map ownership + the city_lost line in the next briefing);
+   the failure-arc message ("YOU FOUGHT WELL, MY FRIEND, BUT THE BATTLE WAS LOST ON OTHER
+   FRONTS. CZARNY HAS FORCED US TO JOIN HIS SIDE.") is already stored. The original also
+   ends the whole campaign if caps violations (captured) happen to Krakow itself.
+3. HQ gear sale / ammunition purchase (M9 economy round 2): OFFICE strings
+   ("ADD AMMO TO WHICH WEAPON?", "%s CANNOT CARRY ANY MORE AMMO FOR THE %s.",
+   "%s ISN'T CARRYING ANY WEAPONS THAT USE %s AMMO.") - the squad re-equips at the office
+   cabinet for funds; also EQUIP.json long item descriptions belong to the Inventory
+   icon's INFO/DESCRIPTION options (manual p.63) --------------
+4. Truck-bound supplies (M9 economy): dump mission recall line "YOU MUST HAVE A 2 1/2 TON
+   TRUCK CLOSE BY IN ORDER TO LOAD THE SUPPLIES." (TWI2D @151563) - the crates should be
+   truck-loadable (ICON: "IN OUR 2 1/2 TON TRUCK AND RECOVER THESE SUPPLIES..."). The
+   rematch's dump mission currently ignores vehicles.
+5. The other-squads news cycle (M10 flavour): ICON radio stage messages (Czarny conquers
+   cities / Andrekov news / Bravo Company / Americans captured) beyond the 12 store
+   paragraphs in missions.json story - at least the remaining ICON stage lines should be
+   added as timed pending_story events driven by campaign progress.
+6. Quick fixes on combat strings (low priority): the battle screen's own lines
+   ("YOU SPEND ANOTHER COMBAT ROUND RELOADING YOUR WEAPON.", "THE ENEMY SPENDS..." etc.,
+   TWI2D) partly overlap the remake battle log wording; keep or splice on next battle
+   polish. Also TWI2D @161579 "IT'S HIM!  HE'S THE SPY!  CATCH HIM, QUICK!" is in the
+   data but only usable if the suspect flees - the remake interrogates in place.
+7. TWI3D vehicle descriptions (12 items) can dress the motor pool / I.V.A.N. view text.
+8. Not converting on purpose: CGEN UI labels (the remake chargen is redesigned), 2000
+   module's memory-kit advertisement + COM error strings, joysticks prompts, DOS bits.
