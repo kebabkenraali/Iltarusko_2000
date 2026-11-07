@@ -455,6 +455,15 @@ Testi kuvaa tilat; F2-vertailu on pois päältä (ks. yllä).
        - Jokaisella on avoimen suun ruutu.
        - Keskustelulaatikossa näkyy puhujan pää (Exor, värvätty nimen mukaan tai puhekumppani), ja suu
          liikkuu tekstin tulostuessa (`portraits.gd`, `dialog.gd`, `talk_scene.gd`).
+     - **Lisäykset 7.11.2026 (animaatiot ja tulitus):**
+       - Tulitusasento: ampuva sotilas vaihtaa 0,5 s:n ajaksi CMBT-tulitusasentoon aseen mukaan
+         (HG/SMG/PISTOL/BAZOOK/PUNCH; vihollisilla omat EHG/ESMG/EPISTE-sarjat).
+       - Kulmakuvat: kun ammutaan, ampujan muotokuva näkyy vasemmassa yläkulmassa ja kohteen
+         oikeassa (1,2 s). Rekryllä on oikea keskustelumuotokuva, vihollisella kenttäpää kameran suuntaan.
+       - Astuntapomppu: kävellessä keho pomppii 1,2 px kaksi kertaa askelsyklin aikana.
+       - Katoamisen korjaus: kenttä- ja huonenäkymässä rakennus/kaluste haalistuu (45 %), kun
+         sotilas on sen takana – yksikään asento ei enää katoa taiteen taakse (sama keino kuin
+         taistelun puissa).
      - **Tallennus (3.11.):** F5 pikatallentaa maailmankartalla, toimistossa tai kaupungissa (ei
        taistelussa eikä sisällä), F9 lataa. Automaattitallennus aina kartalle palatessa. Värväysruudussa
        CONTINUE (AUTOSAVE) ja LOAD QUICKSAVE. Kaupungissa tehty tallennus jatkuu samasta kaupungista.
