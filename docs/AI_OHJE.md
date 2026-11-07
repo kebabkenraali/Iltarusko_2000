@@ -51,7 +51,14 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
 - **EI ALOITETTU (M10):** exportit, README/ARCHITECTURE/CHANGELOG/version.txt, CI.
 - **ESTETTY:** INTRO-remaster (198 ruutua) — `remaster_set.py intro [N]` on valmis, mutta
   SDXL-malli `C:\pinokio\api\stable-diffusion-webui\models\Stable-diffusion\sd_xl_base_1.0.safetensors`
-  **puuttuu** (kansio tyhjä). Lataa malli → aja `python remake/tools/remaster_set.py intro`.
+  **puuttuu** (kansio tyhjä; tarkistettu tilapäivityksessä 7.11.2026 — yhä puuttuu).
+  Lataa malli → aja `python remake/tools/remaster_set.py intro`.
+- **Tarkistettu 7.11.2026 (tila-auditointi, mitattu uudelleen):** headless-unitit PASS —
+  `test_campaign`, `test_chargen_rules`, `test_combat`, `test_vehicle`, `test_battle`
+  (test_balancea ei ajettu uudelleen; 7.11. mitatut bändit voimaan).
+  Demon `project.godot` sisältää `[debug] file_logging` -asetuksen (virheloki aktiivinen).
+  remake-repon jääneet muutokset (demoloki, hiiritutkimusmuistiinpanot, LUEMINUT-fokus-
+  ohjeet) on commitoitu tilapäivityksen yhteydessä; `remake/godot` puhtaana `4384e89`.
 - **Natiivipuoli (ei SUUNNITELMASSA, katso t2k-native/docs/RAPORTTI.md):**
   Lataus-Enter-virhe, S_aAls-säännöt, TWI2D-purku.
 
@@ -120,6 +127,19 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
 - **Värit/encoding:** python-tiedostot aina `encoding="utf-8"`; Windowsin oletus (cp1252)
   sotkee dokumentit.
 
+## 7b. Demo (manuaalitestaus) — virheloki, tunnetut ongelmat ja debug-ohje
+
+- **VIRHELOKI (7.11. alkaen):** demon projektiin on lisätty `debug/file_logging/enable_file_logging=true` → joka ajosta syntyy loki: `%APPDATA%\Godot\app_userdata\Twilight- 2000 Remake DEMO\logs\godot.log` (5 rotaatiota). **Kun käyttäjä raportoi ongelman demon kanssa, lue tämä loki ensin.** make_demo.py lisää asetuksen synkronoinnin yhteydessä (kehityskopio pysyy ilman).
+- **Käynnistys:** `demo\Peli.bat`. Konsolirutiini avaa myös mustan konsoliikkunan — se on normaalia ja saa jäädä taakse. Pelin ikkuna voi avautua muiden ikkunoiden taakse: napsauta pelin ikkunaa kerran, jotta se saa fokuksen.
+- **CHARGEN EI OLE RIKKI:** demon user:// on oma kansionsa — uusi pelaaja näkee tyhjän rosterin (SQUAD 0/4) ja LOAD SQUAD on enabled vain jos `user://squad.json` on olemassa. Kehityskopiossa vanha squad.json latautuu rosterin mukaan — tarkoitus, ei bugi.
+- **HIIRITUTKIMUS (7.11., avoin):** käyttäjä raportoi demon jäävän toimistonäytölle eikä klikkauksia tule. Todettu:
+  - Oikean hiiren hover **toimii** (tooltipit ilmestyvät), ja ainakin yksi klikkaus tuli perille (MODE vaihtui NORMAL→STORY testissä). Käyttäjän oma istunto tallensi squad.json:n demokopioon → chargenin klikkaukset ovat hänellä toimineet; epäilyys kohdistuu toimisto-äyryyn.
+  - Skriptoidut klikkaukset (SetCursorPos + mouse_event) eivät aina osu: näytön DPI-skaalaus muuttaa sekä ikkunan että kursorin koordinaatteja (DPI-unaware-prosessi näkee virtuaali-koordinaatit). **Älä luota laskettuihin koordinaatteihin — mittaa ja käytä käyttäjän virhelokia totuutena.**
+  - `PostMessage(WM_LBUTTONDOWN)` ei saa Godot 4 -nappeja reagoimaan — älä käytä sitä.
+  - Koordinaatisto: ikkunalla on title bar (client-origin n. (8, 31)) ja sisältö letterboxataan (stretch canvas_items/keep): content-koordinaatit skaalautuvat client-korkeuden / 800 -suhteella. chargenin napit: roster_box (28, 28, 264, 744).
+  - chargenin Load SQUAD -tila kertoo onko `user://squad.json` olemassa (demon oma kansio).
+- **Debug-työkalut:** pelin ikkuna kuuluu lapsiprosessille `Godot_v4.7.2-stable_win64` (console-wrapperin MainWindowHandle on aina 0); kuvakaappaus `PrintWindow(PW_RENDERFULLCONTENT)` tai `CopyFromScreen`; ikkunan koko/paikka `SetWindowPos(h, 0, 0, 1280, 800, 0x0040)`.
+
 ## 8. Seuraavat tehtävät (ehdotettu järjestys)
 
 1. **M9 talous 2. kierros:** ammusten/lääkkeiden/ruoan kulutus ja hankinta (kauppa computer-
@@ -141,6 +161,8 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
   `4384e89` tulitusasennot + kulmakuvat + katoamiskorjaus.
 - remake: `fe570fb` docs+tools repoon, SUUNNITELMA auditoitu → `5fa9d24` intro-set + ääni/
   computer-dokumentointi → `2981046` mallin puuttumisen huomio → `9965c58` M5-lisäykset 7.11.
+  → demovirheloki + hiiritutkimusmuistiinpanot (7.11.) → tila-auditointi 7.11.2026 (testit
+  mitattu uudelleen, kaikki PASS; SDXL yhä puuttuu; molemmat repon muutokset commitoitu).
 
 ## 10. Näin päivität tätä dokumenttia
 

@@ -599,10 +599,18 @@ Kuvat: `%APPDATA%\Godot\app_userdata\Twilight- 2000 Remake\tests\<testi>\*.png`.
 Kaikki manuaalinen testaus tehdään kansion `C:\Twilight-2000_DOS_EN\demo` kautta – ei koskaan
 kehityskansiossa. Päivitä demo aina muutosten jälkeen: `python remake/tools/make_demo.py`
 (`--clean` tyhjentää ensin). Demo sisältää `Peli.bat`-käynnistäjän ja `LUEMINUT.txt`-ohjeen;
-demon tallennukset ja kuvat menevät omaan user://-kansioonsa ("Twilight- 2000 Remake DEMO").
+demon tallennukset ja kuvat menevät omaan user://-kansioonsa ("Twilight- 2000 Remake DEMO"). Huom: pelin ikkuna voi avautua muiden ikkunoiden taakse – napsauta sitä kerran, jotta se saa fokuksen; musta konsoliikkuna on normaali.
 
 ### Tila 7.11.2026
 
 Kaikki yllä olevat testit menevät läpi (PASS). SUUNNITELMAN luvut on tarkistettu koodia
 vasten: esineet 95, kaupungit 56, esinekuvaukset 80, taidot 52, kielet 33, musiikki 6,
 efektit 25, tehtävätyypit 12, tekstit 6296 merkkijonoa yhdeksässä moduulissa.
+
+**Tilapäivitys 7.11.2026 (mitattu):** headless-yksikkötestit ajettu uudelleen — campaign,
+chargen_rules, combat, vehicle ja battle kaikki PASS. Demon `project.godot` vahvistettu
+sisältävän `[debug] file_logging` -asetuksen (virheloki `%APPDATA%\Godot\app_userdata\
+Twilight- 2000 Remake DEMO\logs\godot.log`, 5 rotaatiota) ja `config/name` on
+`Twilight: 2000 Remake DEMO`. SDXL-malli `sd_xl_base_1.0.safetensors` puuttuu yhä —
+INTRO-remaster pysyy estettynä. `remake/godot` puhtaana `4384e89` (M8+M9-työt). Demo-
+LUEMINUT.txt:ssä käynnistys- ja virhelokiohjeet, AI_OHJE luku 7b pitää demo-debugin tiedot.
