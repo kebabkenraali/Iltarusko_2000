@@ -4,6 +4,8 @@ Tavoite: rakentaa peli uudelleen modernilla moottorilla niin, että tehtävät, 
 hahmonluonti, esineet ja säännöt säilyvät, mutta käyttöliittymä ja pelattavuus päivitetään
 nykyaikaan. Uusi grafiikka tehdään tekoälyllä alkuperäisiä kuvia lähtökohtana käyttäen.
 
+> **Tekoälyagentti (LLM):** aloita tästä → `docs/AI_OHJE.md` (tila, säännöt, kuopat, tehtävälista).
+
 Moottori: **Godot 4.4** (projektin `config/features`; ajettu 4.7.2-binäärillä, ks. luku 11). Valittu FOnlinen sijaan, koska peli
 on yksinpeli: FOnline vaatisi palvelin–asiakasrakenteen myös yksinpeliin.
 
@@ -591,6 +593,13 @@ godot --path . -- --test=fullgame   # koko peli alusta loppuun (story)
 ```
 
 Kuvat: `%APPDATA%\Godot\app_userdata\Twilight- 2000 Remake\tests\<testi>\*.png`.
+
+### Demo-versio (manuaalitestaus)
+
+Kaikki manuaalinen testaus tehdään kansion `C:\Twilight-2000_DOS_EN\demo` kautta – ei koskaan
+kehityskansiossa. Päivitä demo aina muutosten jälkeen: `python remake/tools/make_demo.py`
+(`--clean` tyhjentää ensin). Demo sisältää `Peli.bat`-käynnistäjän ja `LUEMINUT.txt`-ohjeen;
+demon tallennukset ja kuvat menevät omaan user://-kansioonsa ("Twilight- 2000 Remake DEMO").
 
 ### Tila 7.11.2026
 

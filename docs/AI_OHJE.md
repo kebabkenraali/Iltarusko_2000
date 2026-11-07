@@ -1,0 +1,149 @@
+# AI-OHJE — käsioitumisdokumentti tekoälyagentille
+
+> Tämä dokumentti on kirjoitettu **seuraavalle LLM-agentille**, joka jatkaa tämän projektin
+> työtä. Lue tämä ensin, sitten `docs/SUUNNITELMA.md` (yksityiskohtainen tila ja historia).
+> Päivitä tämä tiedosto jokaisen työkokonaisuuden jälkeen (Tila-, Päätökset- ja Lokiosiot).
+
+## 1. Mikä tämä on
+
+Twilight: 2000 (1991, DOS) -remake Godot 4:llä. Alkuperäisen pelin data on purettu (kuvat,
+tekstit, esineet, kaupungit, tehtävätekstit) ja peli rakennettu uudelleen vuoropohjaisella
+taistelulla. M1–M8 (pystyleike → integraatio) ovat valmiit ja testatut; M9 (tasapaino ja
+laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
+
+## 2. Polut ja ympäristö
+
+| Kohde | Polku |
+|---|---|
+| Kehitysprojekti (Godot) | `C:\Twilight-2000_DOS_EN\remake\godot` (oma git-repo) |
+| Dokumentit + työkalut | `C:\Twilight-2000_DOS_EN\remake` (oma git-repo; docs/ + tools/ versioitu) |
+| **Manuaalitestauskansio (DEMO)** | `C:\Twilight-2000_DOS_EN\demo` — **KAIKKI manuaalinen testaus täällä**, ei koskaan kehityskansiossa |
+| Demo-synkronointi | `python remake/tools/make_demo.py [--clean]` (kopioi projektin + moottorin, kirjoittaa `Peli.bat` ja `LUEMINUT.txt`; demon oma user:// on "Twilight- 2000 Remake DEMO") |
+| Godot-binääri | `C:\Twilight-2000_DOS_EN\godot\Godot_v4.7.2-stable_win64_console.exe` (HUOM: wrapper käynnistää rinnalla olevan `Godot_v4.7.2-stable_win64.exe`:n — kopioi molemmat jos siirrät) |
+| user:// (kehitys) | `%APPDATA%\Godot\app_userdata\Twilight- 2000 Remake\` (tallennukset, testikuvat `tests\<nimi>\`) |
+| Natiivipuoli (purku, simulointi) | `C:\Twilight-2000_DOS_EN\t2k-native` (tools/, docs/RAPORTTI.md, SAANNOT_VERTAILU.md) |
+| Alkuperäisdata | `remake\assets_original` (graphics 825 png, audio 6+25 wav, text 9 moduulia) |
+
+## 3. Työskentelysäännöt (tärkeimmät)
+
+1. **Varmuuskopio ensin:** ennen muokkausta `tiedosto.gd` → `tiedosto.gd.bak_YYYYMMDD` (gitignoroitu).
+2. **Testit ennen commitia:** kaikki headless-yksikkötestit PASS; isommat muutokset myös
+   `--test=fullgame` (ikkunalla). Commit-message englanniksi, selkeä.
+3. **Kaksi repoa:** gd-muutokset commitoidaan `remake/godot`-repoon, docs/tools-muutokset
+   `remake`-repoon. Commitoija: `Cline <cline@local>` (git -c ...).
+4. **Python:** älä aja monimutkaista pythonia PowerShellin `-c`-riviltä (escaping hajoaa) —
+   kirjoita väliaikainen `.py`-tiedosto, aja, poista. Kaikki tiedostot `encoding="utf-8"`.
+5. **Dokumentaatio:** SUUNNITELMA päivitetään joka työkokonaisuudella; uudet luvut mitataan,
+   ei arvata. Tämä AI_OHJE pidetään ajan tasalla.
+6. Älä koske `t2k-native`-suorittaviin pelitiedostoihin tai `unpacked$b.*`-tiedostoihin ilman
+   erillistä varmuuskopiota.
+
+## 4. Tila (7.11.2026)
+
+- **VALMIIT:** M1 pystyleike, M2 hahmonluonti, M3 kaupungit+sisätilat, M4 tehtävät (12 tyyppiä),
+  M5 vuoropohjainen taistelu (mukana panssarit), M6 ajoneuvot (ajo, polttoaine, romut, kauppa),
+  M7 AI-grafiikka **pidetty tauolla** (käyttäjän päätös: pelissä aina alkuperäinen grafiikka),
+  M8 integraatio + `--test=fullgame` läpi, M9 tasapaino 1. kierros (band-testi PASS),
+  äänimaailma (musiikki näkymittäin + alkuperäiset efektit), HQ-computer + rahatalous
+  (`Campaign.funds`), kulmakuvat ampumisessa, tulitusasennot, katoamiskorjaus (haalistus).
+- **KESKEN (M9):** ammus-/lääke-/ruokatalous, UI-hionta, virheentestit (korruptoitu save,
+  puuttuvat tiedostot), suorituskykymittaukset.
+- **EI ALOITETTU (M10):** exportit, README/ARCHITECTURE/CHANGELOG/version.txt, CI.
+- **ESTETTY:** INTRO-remaster (198 ruutua) — `remaster_set.py intro [N]` on valmis, mutta
+  SDXL-malli `C:\pinokio\api\stable-diffusion-webui\models\Stable-diffusion\sd_xl_base_1.0.safetensors`
+  **puuttuu** (kansio tyhjä). Lataa malli → aja `python remake/tools/remaster_set.py intro`.
+- **Natiivipuoli (ei SUUNNITELMASSA, katso t2k-native/docs/RAPORTTI.md):**
+  Lataus-Enter-virhe, S_aAls-säännöt, TWI2D-purku.
+
+## 5. Arkkitehtuurin pikakartta
+
+- **`scripts/main.gd`** (~1150 riviä) — pelin valvomo: näkymävaihdot (show_office → show_briefing
+  → show_world → enter_town → start_battle → battle_over), tallennus (`save_game`/`load_game`,
+  `game_state`/`apply_state`, SAVE_VERSION 1, QUICKSAVE/AUTOSAVE), äänet (`set_music`/`play_sfx`,
+  `stop_audio`), kampanjan kytkennät (`is_story`, `squad_size`), testiajo (`_setup_test`,
+  `test_steps` + `_process`-tulkki: call/call1/screen/shot/key/quit).
+- **`battle.gd`** — taistelulogiikka ilman grafiikkaa (ap, osumat, haavat, panssari, ajoneuvot,
+  ai_step/auto_play, write_back). **`battle_view.gd`** — näkymä: sijoittelu, klikkaukset,
+  spritet (Soldier), efektien käsittely (`b.events`: fire/explode/tree_down/crater), äänet,
+  tulitusasennot (`fire_pose`), kulmakuvat (`_show_faces`).
+- **`forces.gd`** — varusteet (equip), vihollisryhmät (group: BLACK LEGION/MARAUDERS/
+  STRAGGLERS/HUNTERS), taistelukenttä (make_battle/make_room_battle) ja sijoittelu (deploy_*).
+- **`campaign.gd`** — tehtäväkierros (steps: talk/clear/treat/spy/search/reach/repair),
+  sairaiden aikarajat (tick), palkinnot (stores + funds), tallennus (to_dict/from_dict),
+  M9-formulat: `field_count` = squad+1..2, `room_count` = clamp(squad−2, 2, 5),
+  `TANK_ESCORTS` = 3, `PAY_PER_MISSION` = 2000.
+- **`world.gd`** — maailmankartta, GROUPS-kohtaamiset (partiot 2–4 jne.), romut (WRECKS, vain story).
+  **`worldmap.gd`** — karttanäkymä ja ajo (A*, polttoaine).
+- **`soldier.gd`** — hahmon koostaminen streipeistä: jalat (cells/L*), torso (AM/AF/EM + suunta,
+  AF:lta puuttuvat N/NE/NW → fallback AM), pää (AMH/AFH 0–14, EMH0; 8 suuntaa 8 px/rivi, 63 px);
+  `head_image()` julkisena kulmakuville; astuntapomppu _draw'ssa.
+- **`tactical.gd`** — kenttänäkymä (kaupunki/maasto), syvyysjärjestys, ihmiset, ovet;
+  `_fade_over` haalistaa rakennuksen jonka takana sotilas on. **`interior.gd`** — huonenäkymä
+  (sama haalistus kalusteille). **`computer.gd`** — HQ-tietokone (funds/stores/motor pool/squad).
+  **`motor_pool.gd`** — ajoneuvokauppa (veloittaa `campaign.funds`).
+- **Spritelogiikan verifiointi:** offline-kooste (PIL) toistaa Soldier._drawin — käytä jos
+  spritet näyttävät rikkoutuneilta (katso git-historia: tools/_spr_probe.py-tyyppinen probe).
+
+## 6. Testit — miten ajetaan, mitä odottaa
+
+```powershell
+# Yksikkötestit (headless, sekunteja–minuutteja):
+godot --headless --path . --script tests/test_campaign.gd        # PASS odotettu
+godot --headless --path . --script tests/test_chargen_rules.gd
+godot --headless --path . --script tests/test_combat.gd          # legacy combat.gd
+godot --headless --path . --script tests/test_vehicle.gd
+godot --headless --path . --script tests/test_battle.gd          # ~90 s
+godot --headless --path . --script tests/test_balance.gd         # M9: 40–70 % band; -- --report = pelkkä taulukko
+# Integraatiotestit (IKKUNALLA — headless ei tuota kuvia, frame_post_draw ei laukea):
+godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | boom |
+                                mission | drive | save | computer | fullgame
+```
+
+- Kuvat: `%APPDATA%\Godot\app_userdata\Twilight- 2000 Remake\tests\<nimi>\*.png`.
+- `M9_ONLY=<sana>` rajaa tasapainoprofiilit; tulokset satunnaisia ±5–7 %-yks. (80 taistelua/solu).
+- Taisteluprosentit (NORMAL, 6 hengen ryhmä): kaupungin varuskunta ~58 %, huone ~65 %,
+  tankki ~57 % — pidä bandissä jos muuttaa taistelusääntöjä.
+
+## 7. Kuopat, joihin kaatua älä
+
+- **Headless + kuvakaappaus:** `await RenderingServer.frame_post_draw` ei koskaan palaa
+  headlessissa → integraatiotestit ikkunalla, yksikkötestit headless.
+- **GDScript:** tyypitetyt taulukot (`Array[Dictionary]`) vaativat tyypitetyn lähteen —
+  `var x = []` ei kelpaa paluuarvoksi. `Campaign` on RefCounted-objekti, ei Dictionary.
+- **Poistuessa testistä:** kutsu `stop_audio()` + lyhyt await ennen `quit()` (muuten
+  AudioStreamWAV jää "in use at exit" -varoituksella).
+- **PowerShell:** älä upota regexiä `-c`-kutsuihin; käytä skriptitiedostoja.
+- **Käyttäjäkansiot:** projektin nimi sisältää kaksoispisteen → Windowsissa user://-kansio on
+  sanitisoitu muotoon `Twilight- 2000 Remake` (demonilla `...- 2000 Remake DEMO`).
+- **Testisyötteet:** testiajo syöttää syötteet TEST_DEVICE:llä ja `main.input_ok` ohittaa
+  oikean hiiren/näppäimistön — älä poista tätä.
+- **Värit/encoding:** python-tiedostot aina `encoding="utf-8"`; Windowsin oletus (cp1252)
+  sotkee dokumentit.
+
+## 8. Seuraavat tehtävät (ehdotettu järjestys)
+
+1. **M9 talous 2. kierros:** ammusten/lääkkeiden/ruoan kulutus ja hankinta (kauppa computer-
+   näytöltä? varastosta nouto?), hinnat ja palkkiot tasapainoon (mitattuna: rahavirta 12
+   tehtävän yli).
+2. **M9 virheentestit:** korruptoitu save (uusi `tests/test_save_errors.gd` tai laajennus),
+   puuttuva data — peli ei saa kaatua.
+3. **M9 suorituskyky:** auto_play 200 kierrosta < 1 s -mittaus ja FPS-raportti (uusi testi).
+4. **M10:** export_presets.cfg + buildit, README (pelaajalle), ARCHITECTURE.md (kehittäjälle),
+   CHANGELOG + version.txt, GitHub Actions (headless-testit).
+5. **INTRO-remaster:** kun SDXL-malli palautettu → `python tools/remaster_set.py intro`
+   (resumoitava; ~1–2 min/ruutu, 198 kpl).
+6. **Natiivipuoli:** Lataus-Enter-korjaus, S_aAls-säännöt, TWI2D:n purku `tools/dis86.py`:llä.
+
+## 9. Commit-loki (lyhennetty)
+
+- remake/godot: `6e8304e` M8 fullgame läpi → `54a47cb` M9 balance-harness + skaalautuvat
+  varuskunnat + combat.gd-korjaukset → `1f5d989` äänet + computer + rahatalous →
+  `4384e89` tulitusasennot + kulmakuvat + katoamiskorjaus.
+- remake: `fe570fb` docs+tools repoon, SUUNNITELMA auditoitu → `5fa9d24` intro-set + ääni/
+  computer-dokumentointi → `2981046` mallin puuttumisen huomio → `9965c58` M5-lisäykset 7.11.
+
+## 10. Näin päivität tätä dokumenttia
+
+Työn jälkeen: päivitä luvut 4 (Tila), 9 (Loki), tarvittaessa 5 (Arkkitehtuuri) ja 7 (Kuopat).
+Commitoi `remake`-repoomme viestillä, joka alkaa "Docs:". SUUNNITELMA.md on yksityiskohtainen
+historia — pidä sen ja tämän tiedoston tiedot yhdenmukaisina.
