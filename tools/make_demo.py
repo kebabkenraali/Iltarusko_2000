@@ -8,10 +8,11 @@ ALL manual testing happens through the demo folder - the development folder stay
 
 Creates demo\\Peli.bat (start the game) and demo\\LUEMINUT.txt (how to start, what to try).
 The demo's own project name keeps its saves and screenshots separate from the development
-copy's user:// folder.
+copy's user:// folder, and file logging writes an error log to user://logs/godot.log.
 """
 import argparse
 import os
+import re
 import shutil
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # C:\Twilight-2000_DOS_EN
@@ -84,16 +85,18 @@ def main() -> None:
     pg = os.path.join(PROJECT, "project.godot")
     with open(pg, encoding="utf-8") as f:
         cfg = f.read()
-    changed = False
-    if "Twilight: 2000 Remake DEMO" not in cfg:
-        cfg = cfg.replace('config/name="Twilight: 2000 Remake"', 'config/name="Twilight: 2000 Remake DEMO"')
-        changed = True
-    if "[debug]" not in cfg:      # the demo writes an error log: user://logs/godot.log
-        cfg = cfg.rstrip() + "\n\n[debug]\n\nfile_logging/enable_file_logging=true\nfile_logging/max_log_files=5\n"
-        changed = True
-    if changed:
-        with open(pg, "w", encoding="utf-8", newline="") as f:
-            f.write(cfg)
+    cfg = cfg.replace('config/name="Twilight: 2000 Remake"', 'config/name="Twilight: 2000 Remake DEMO"')
+    # file logging: the engine reads the .pc override on Windows, so write both keys
+    cfg = re.sub(r"\n\[debug\]\n(?:[^\[]*?\n)*?\n", "\n", cfg)   # drop an old [debug] block if any
+    cfg = cfg.rstrip() + (
+        "\n\n[debug]\n\n"
+        "file_logging/enable_file_logging=true\n"
+        "file_logging/enable_file_logging.pc=true\n"
+        "file_logging/log_path=\"user://logs/godot.log\"\n"
+        "file_logging/max_log_files=5\n"
+    )
+    with open(pg, "w", encoding="utf-8", newline="") as f:
+        f.write(cfg)
     for exe in ("Godot_v4.7.2-stable_win64_console.exe", "Godot_v4.7.2-stable_win64.exe"):
         src = os.path.join(ROOT, "godot", exe)
         if os.path.exists(src):
