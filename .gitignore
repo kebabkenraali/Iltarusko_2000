@@ -1,0 +1,11 @@
+# Remake repository: docs and tools only.
+# The Godot project (remake/godot) has its own repository; the extracted art, audio,
+# AI art and backups are large generated data and stay out of version control.
+godot/
+assets_original/
+assets_ai/
+backup_2026-11-03/
+palettes/
+tools/.venv_ai/
+__pycache__/
+*.pyc
