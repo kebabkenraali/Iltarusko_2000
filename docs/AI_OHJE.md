@@ -67,6 +67,16 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
   `tests/test_action_bar.gd` (headless PASS) + kaikki vanhat PASS + windowed
   rooms/towns/save/fullgame PASS. Demo synkronoitu (`make_demo.py --clean`), LUEMINUT
   päivätty. Katso SUUNNITELMA luku 12.
+- **UUSI 7.11. (M9 taistelugrafiikka):** aseen→CMBT-tulitaiteen mappaus täydennetty
+  (`battle_view._fire_pose_art`): CARL GUSTAV / TANK BREAKER / DRAGON / AT-5 / AT-7
+  rakettilaukaisijat omalle BAZOOK-asetusteelle, UZI/M12/G11 konepistooleiksi (SMG),
+  M9/MAGNUM/SNUBNOSE/HP-35 pistoliasetusteelle — aiemmin ne päätyivät yleiskiväärin
+  HG-asetuun. Turvaverrokki `_place_units`: jos tulitaidetta ei ole jollekin suunnalle
+  (yksikkö olisi muutenkin hävinnyt), seisova keho jää näkyviin. Uusi auditointitesti
+  `tests/test_battle_art.gd` (headless, PASS): jokainen kädessä pidettävä ase (44 kpl)
+  ja molemmat osapuolet (sotilaat/Black Legion) löytyvät taiteen kaikilla 8 suunnalla;
+  lisäksi vartalot AM/AF/EM (AF putoaa AM:ään suuntiin N/NE/NW), jalat, päät 0–14 ja
+  KNEEL/WOUND. Taistelunäytön `--test=battle` ajettu ikkunalla (1,5 min, läpi).
 - **Natiivipuoli (ei SUUNNITELMASSA, katso t2k-native/docs/RAPORTTI.md):**
   Lataus-Enter-virhe, S_aAls-säännöt, TWI2D-purku.
 
@@ -165,12 +175,15 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
 - remake/godot: `6e8304e` M8 fullgame läpi → `54a47cb` M9 balance-harness + skaalautuvat
   varuskunnat + combat.gd-korjaukset → `1f5d989` äänet + computer + rahatalous →
   `4384e89` tulitusasennot + kulmakuvat + katoamiskorjaus → `aeead10` alapalkki
-  (action_bar.gd) + numeronäppäimet kenttä- ja huonenäkymään.
+  (action_bar.gd) + numeronäppäimet kenttä- ja huonenäkymään → `5306b68` taistelun
+  CMBT-tulitaidemappaus kattavaksi + turvaverrokki (ei enää tyhjää kehoa) + auditointitesti.
 - remake: `fe570fb` docs+tools repoon, SUUNNITELMA auditoitu → `5fa9d24` intro-set + ääni/
   computer-dokumentointi → `2981046` mallin puuttumisen huomio → `9965c58` M5-lisäykset 7.11.
   → demovirheloki + hiiritutkimusmuistiinpanot (7.11.) → tila-auditointi 7.11.2026 (testit
   mitattu uudelleen, kaikki PASS; SDXL yhä puuttuu; molemmat repon muutokset commitoitu)
-  → alapalkki + pikanäppäimet (SUUNNITELMA luku 12; demo synkronoitu, LUEMINUT päivätty).
+  → alapalkki + pikanäppäimet (SUUNNITELMA luku 12; demo synkronoitu, LUEMINUT päivätty)
+  → taistelun tuliasetuudet kunnossa (CMBT-mappaus täydennetty + turvaverrokki + auditointi
+  `tests/test_battle_art.gd`; godot `5306b68`).
 
 ## 10. Näin päivität tätä dokumenttia
 
