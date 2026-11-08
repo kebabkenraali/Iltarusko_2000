@@ -108,6 +108,18 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
     muistiloki (1/2/3 ammuntatavat, T-kytkin, "THE ENEMIES STAY IN THE DARK...").
   - Uusi testi `tests/test_spotted.gd` (headless PASS); `--test=battle` (ikkuna) ja
     fullgame läpi; legacy-testit toimivat fog=false-oletuksella.
+- **UUSI 8.11. (M9 taistelu, lukujen 18-19 jatkot):** reaktiotuli ja paniikki.
+  Reaktiotuli: move() astuu reitin portaittain; joka porras näkevä (sticky) vastustaja
+  vastaa vapaalla snapilla (≤ 8 tilea, yksi ampuma per siirto, kerta per kierros
+  `reacted`); matka katkeaa kun siirtjän pudotus haittaus; AP maksaa vain kuljetuksi
+  sijastaen. Paniikkisysteemi: moraalit kertova (kuolema -30, putoa -20, tapto +15
+  killerin joukkuelles; moraali 0 = FREEZES IN FEAR tai PANICS AND RUNS FOR COVER,
+  toipuu 50; MORALE rivillä). Pelaajais-puolen auto-squad marssii `battle.seek` kun
+  mitään ei näy (muuten sumu jumittaa; seek = vihollispuolen spawn koordinaattisa).
+  Bändimittaus (T2K_FOGGED=1, 80 taistelua/solu): kaupungin garrison 55 % (AI kirkas
+  57 %), SCAVENGERS 71 % (flavor), T-72 + LAW 68 %, room 55 % (aiemmin 65 %);
+  legacy-mittapuu re-checked 57 % PASS. Uusi testi `test_reaction_morale.gd` PASS.
+  Suunnitelma luvut 18-20.
 - **Asset- ja tehtäväauditointi 7.11. (SUUNNITELMA luku 14):** pelin kaikki kuvat/äänet
   ovat alkuperäisen pelin omia — `ALLOW_AI_ART=false` (F2 kuollut), `main.remastered=false`,
   `Soldier.remastered=false`; ainoa res://remastered-viittaus sijaitsee näiden porttien
@@ -167,6 +179,9 @@ godot --headless --path . --script tests/test_battle_art.gd      # taistelugrafi
 godot --headless --path . --script tests/test_reserve.gd         # AP-varaus (OpenXCom-tyyli)
 godot --headless --path . --script tests/test_economy.gd         # HQ-varustekaupan säännöt
 godot --headless --path . --script tests/test_spotted.gd         # UFO-sumu (spotting)
+godot --headless --path . --script tests/test_reaction_morale.gd # reaktiotuli + paniikki
+# Bändimittaus: pelinormaalit asetukset (fog+reaction+panic+seek) T2K_FOGGED=1:llä
+T2K_FOGGED=1 godot --headless --path . --script tests/test_balance.gd
 godot --headless --path . --script tests/test_battle.gd          # ~90 s
 godot --headless --path . --script tests/test_balance.gd         # M9: 40-70 % band; -- --report = pelkkä taulukko
 # Integraatiotestit (IKKUNALLA — headless ei tuota kuvia, frame_post_draw ei laukea):
@@ -266,7 +281,9 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
 - remake/godot 8.11.: `2e42652` alkuperäisrivityö → `31537b4` economy/reserve (economy.gd,
   computer-resupply, set_reserve; testit test_economy, test_reserve) → UFO-sumu
   (fog/spotting/reveal/AI-hold; testit test_spotted + battle/battle_config + fullgame;
-  fog ON pelissä, OFF legacytesteissä). SUUNNITELMA luvut 18 (design), 19 (sumu).
+  fog ON pelissä, OFF legacytesteissä) → `4100b5b` reaktiotuli + paniikki + seek
+  (test_reaction_morale; T2K_FOGGED=1-bändimitta: garrison 55 %, T-72 68 %, room 55 %;
+  luvut 18-20 dokumentoitu SUUNNITELMAAN).
 
 ## 10. Näin päivität tätä dokumenttia
 

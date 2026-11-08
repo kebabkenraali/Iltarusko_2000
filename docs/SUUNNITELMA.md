@@ -905,3 +905,46 @@ passed with the fog on (the battle screenshots deploy dark).
 
 Reaction fire (ch. 18 item 2) is the next slice; it shifts the balance bands, so the
 ch. 11 measurement round runs with it before any band text is updated.
+
+
+## 20. Reaction fire and panic - implemented and measured (8.11.2026)
+
+Reaction fire (the UFO-engine's core player-punisher):
+- movement is walked STEP BY STEP now (battle.gd move() rewalks the path); after every
+  step refresh_seen() runs and _reaction(u) lets ONE seeing watcher of the other side
+  fire a FREE snap shot (range <= 8 tiles, one shooter per move, the watcher at most
+  once per round - "reacted" resets in _new_round). The walk stops where the mover is
+  dropped (knocked / down / dead), and the APs pay only for the ground actually
+  crossed. Vehicles can be shot at, but only men fire reactions.
+- the design keeps the powerful option: a charge across open ground costs reactions;
+  a careful creep (like the saved T-reserve) does not.
+- options["reaction"] lives next to fog (Forces.make_battle / make_room_battle set
+  both); the legacy harnesses stay off, so their bands are untouched.
+
+Panic and morale (OpenXCom's events mapped to the tabletop's coolness):
+- every man carries "morale" (starts 100, capped 150). A mate drops = -20, a death = -30
+  to the whole side; a kill gives the killer's team +15. Broken at 0: on his turn the
+  soldier FREEZES IN FEAR (prone, round lost) or PANICS AND RUNS FOR COVER (_flee),
+  then recovers to 50. The unit line shows MORALE.
+- the squad AI only fights what it sees; with nothing in sight it marches toward
+  battle.seek (set at the enemy's spawn side) - otherwise both sides would stand in
+  the new fog. The enemy stays defensive (the garrison guards its town).
+
+Measured bands (T2K_FOGGED=1, fog + reaction + panic + seek, 80 battles/cell):
+- road PATROL x4 92% / MARAUDERS x6 88% / STRAGGLERS x3 98% (flavor, fine)
+- town garrison squad+1..2 55% (plain battle: 57%) - IN BAND
+- town SCAVENGERS 71% (flavor) - T-72 + 3 LEGION and LAWs 68% (plain 57%: the LAW
+  squads get free reactions against the closing tank; still in band)
+- room squad-2 55% (plain 65%) after the seek fix (the room harness forgot seek and
+  first measured 0% stall)
+- plain no-fog ruling re-checked: town garrison 57% PASS - the legacy harness is intact.
+- the game-facing numbers are a touch player-friendlier than the plain ones except the
+  tank (68%), which the LAW-issue turn covers. Story stays above NORMAL everywhere.
+
+Tests: tests/test_reaction_morale.gd (headless, PASS): reaction while spotted, ammunition
+spent, marked used, a death drains the mate's heart, the killer's side gains, panic
+freeze/flee recovers half. Battle and fullgame windowed runs passed.
+
+Open follow-ups from ch. 18: the wider first-mission tutorial (d), any reaction-arc/cover
+refinement after more play, the melee option, and the M9 economy round 2 leftovers
+(ch. 16).
