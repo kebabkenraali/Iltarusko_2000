@@ -1002,3 +1002,42 @@ If the user still wants the port later, the spike's prerequisites are ready and
 reusable: the build setup (C:\AI_Projektit\openxcom, deps, MSVC 2022) is in place
 and the first task would be a fork adding a --load-battle flag plus the full asset
 conversion. That is a multi-month project on its own.
+
+
+## 22. Jagged Alliance-style simultaneous execution (8.11.2026)
+
+Goal (the user's call): the current T2K battle was boring because it was inherited from the
+1991 game's auto-battle. Adopt the Jagged Alliance 2 pattern: the player plans all of his
+squad's actions first, then they play out together in real time, with interrupts and
+reactions. The free port JA2-Stracciatella (C++/SDL, open source) was read as the
+reference; nothing is copied, the ideas are re-implemented in GDScript on top of the
+existing battle.gd.
+
+What was built:
+- battle.gd: each man carries "plan" (list of {move, fire, grenade}) and "plan_ap"
+  (the budget). plan_move / plan_fire / plan_grenade queue without spending AP; clear_plan
+  resets; execute_plan walks the queue in one pass (move/fire/grenade) and then hands the
+  turn to the enemy side. The plans are cleared at the start of every round.
+- battle_view.gd: a new "plan" phase (deploy -> plan -> execute -> battle/enemy -> over):
+  clicking a squad man selects him, clicking a tile queues a move, clicking a seen enemy
+  queues a fire, the grenade mode queues a throw; buttons CLEAR PLAN and EXECUTE (N);
+  the reach zone shows what the selected man can still afford.
+- Jagged Alliance feel: move events are now ANIMATED. _pull_log registers a walker per
+  "move" event (path + step index + timer); _process advances every walker together at
+  4 tiles/second, and _place_units interpolates each walker's sprite along its path with
+  Soldier.walking = true. Every squad man walks at the same time, the shots flash, the
+  muzzle reveals, and the reactions land while the walk is still in progress - the
+  "simultaneous" feel without a real-time engine.
+- The execute phase runs the logic synchronously (events accumulate) and then
+  _turn_changed() pulls the visuals and hands the enemy turn to the AI. The AI side
+  keeps its own auto_play path.
+
+Tests: --test=save, --test=battle, --test=fullgame all passed without script errors;
+the walkers are pure view state, so the headless tests are unaffected.
+
+Open follow-ups (kept small, each its own slice):
+- An EXECUTE interrupt: pause mid-execution when a new enemy is spotted and offer REPLAN.
+- A ghost/waypoint preview of the queued path on the map (currently the reach zone only).
+- Per-unit plan budget display (plan_ap) in the unit line.
+- A "quick battle" toggle that skips the planning phase and runs the old one-at-a-time
+  mode for players who prefer it.
