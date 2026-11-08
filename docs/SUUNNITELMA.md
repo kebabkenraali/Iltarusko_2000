@@ -817,3 +817,91 @@ Still open in this work item:
   reserved in-range move accepted, beyond-reserve move rejected with the new log line,
   vehicles refuse, toggle free. tests/test_battle.gd re-run after the change: PASS
   (the band values stay - reserve defaults off everywhere).
+
+
+## 18. The game's opening: the first mission - and what a UFO-engine battle could lend us (8.11.2026 design note)
+
+The opening as it plays NOW (facts, checked from the code):
+- chargen -> deploy() -> the OFFICE screen (radio / computer / filing cabinet / wall map /
+  lamp, the original's five hotspots).
+- Radio = main.show_briefing() -> the EXOR 1 split-screen scene with the mission brief
+  (the original's own strings from missions.json types[brief]).
+- Lamp = out to the world map. The first mission's type is RANDOM from the 12 playable
+  types (normal mode; campaign.new_mission, campaign.gd:106); the target is within
+  6 + 3 x done-cities of Krakow, so the first errand is short.
+- In the target town the squad talks to the city leader ("Ask about the mission"), then
+  the clear step spawns the garrison: field_count = squad_size + 1..2 soldiers
+  (a few more later on the map, hideout types fight in a room - campaign.gd:142-144).
+- The battle screen appears when the squad clicks the enemy group. The turn system is
+  our own: unit-by-unit in initiative order (battle.gd:187-224), AP per unit, new round
+  when everyone has acted. Enemies are ALL VISIBLE from the start; there is no fog of
+  war, no enemy blips, no reaction fire, no individual panic.
+
+What the UFO engine (OpenXCom, the UFO Defense reimplementation) does per round and
+what that maps to in this remake:
+1. Fog of war + enemy blips: aliens are invisible until a soldier has line of sight;
+   unseen movement is a moving red blip. NEEDED for tension in the remake's very first
+   firefight (the garrison could sit unseen behind houses). RULE DECISION: the 1991
+   original's auto-battle shows enemies walking, but the remake's manual battle has no
+   faithful counterpart - the proposal is to ADOPT spot-hidden enemies (sprite dark +
+   a blip when only heard/moving, spotted = in line of sight + range, once spotted
+   stays until out of sight for N rounds). Default ON, story NORMAL both.
+2. Reaction fire (checkReactionFire): when a hostile moves within a watching unit's
+   view, the watcher gets a snap shot. Data problem: the extracted rules have no
+   reaction curves; proposal: 1 reaction snap per moving enemy per round, range <= 8
+   tiles, front hex-arc (Facing 0-7), chance from the standard snap formula with the
+   mover's stance penalty. Implementation if adopted: hooks in move() + fire().
+3. Reserved time units: DONE (ch. 17, key T).
+4. Panic states (freeze / flee) and morale events: the remake runs a coolness check at
+   half losses (battle.gd:1036-1038). OpenXCom-style: per-soldier morale events on
+   kills/wounds/friendly deaths, freeze = skip AP, flee = one run to cover. Candidate;
+   map the original's own "coolness ~ initiative" line and keep it simple.
+5. Alien AI extras: 2 actions per unit (ours already, via AP budget), charging,
+   item attraction (ours: the wreck scavengers), objective tracking (ours: campaign
+   step counts). Nothing else to take from here.
+6. Mission-complete popup: ours is the campaign's own done lines; keep.
+
+Proposed first-mission work order (small slices, each testable):
+a) SPOTTED/BLIP fog for the battle screen (battle.gd spots per round, battle_view
+   draws blips over unseen movers, log line "ENEMIES SPOTTED"; the tactical screen's
+   encounter already shows people - only the battle grid changes).
+b) One-time first-battle tutorial line in the battle log (the F5/T/E hints + "left
+   click to move, right button cancels"), only when done_count == 0.
+c) Reaction fire with the rule above, symmetric both teams, off in tests? (it shifts
+   the balance bands: test_balance must be re-measured and the new bands recorded -
+   the ch. 11 band rule).
+d) Per-soldier panic/morale events.
+Decision needed from the player: fog default (nice-to-have ON) and reaction-fire ON/OFF
+(it changes the feel most).
+
+
+## 19. The UFO-style battle fog implemented (8.11.2026)
+
+The player's call (ch. 18): make the remake's battle feel like the UFO-engine's instead of
+the original's standing shootout. This slice ships the spotting:
+
+- battle.gd:
+  - options["fog"] (default false so the legacy harnesses stay untouched; the real
+    battles set it in Forces.make_battle / make_room_battle).
+  - is_seen(u, team): the team's knowledge; sticky - once spotted, remembered.
+  - SIGHT_TILES = 20 (40 m on the field with the 2 m tile, 20 m indoors): sighting
+    distance is NOT firing range; a distant tank stays dark until it fires.
+  - _reveal(u): the muzzle flash reveals the shooter (fire() and grenade throws).
+  - refresh_seen(): two-way refresh over the units; a move, a shot or the setup calls
+    it; the log line "%s IS SPOTTED." arrives when the squad's eye catches someone.
+  - fire() refuses shots into the dark ("THE TARGET IS NOT IN SIGHT." for the squad).
+  - the defensive AI (ai_step) holds its ground while nothing is seen - the garrison
+    waits inside the town until the squad closes in.
+- battle_view.gd:
+  - enemy sprites are drawn only when seen (deploy phase shows everyone);
+  - clicks and hover tips only work on seen targets;
+  - the first battle prints the chalk talk: click = move/fire, 1/2/3 fire modes,
+    4 grenade, T reserve, E end turn, and "THE ENEMIES STAY IN THE DARK UNTIL THEY
+    ARE SPOTTED - MOVE UP CAREFULLY."
+
+Tests: tests/test_spotted.gd (headless, PASS): dark at 66 m, hold ground, spotted at
+36 m, sticky, muzzle reveal, blind shots refused. --test=battle and --test=fullgame
+passed with the fog on (the battle screenshots deploy dark).
+
+Reaction fire (ch. 18 item 2) is the next slice; it shifts the balance bands, so the
+ch. 11 measurement round runs with it before any band text is updated.

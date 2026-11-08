@@ -87,13 +87,27 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
   Uusi testi `tests/test_economy.gd` PASS; `--test=computer` ja fullgame läpi.
   Jäljellä: ruoan kulutus, Krakowin kuusi bar-graafia, hintojen hienosäätö mitatun
   rahavirran kautta (SUUNNITELMA luku 16).
-- **UUSI 8.11. (M9 taistelu-UX, OpenXCom-viittaus):** AP-varaus ("time units reserved
-  for snapshot") — `battle.gd set_reserve` + `_flood`-rajaus: varattu sotilas ei kulje
-  niin, että snap-ammunnan 3 AP katoaisi; näppäin T ja nappi "T RES ON/OFF" taistelu-
-  palkissa, ajoneuvoille ei. Idea OpenXComin `BattlescapeGame.checkReservedTU`-mekan-
-  ismista (GPL-projekti): toteutus oma, koodia ei kopioitu (SUUNNITELMA luku 17).
-  Uusi testi `tests/test_reserve.gd` PASS; test_battle PASS (varaus ei liikuta
-  bändejä: se on pelaajan valinta).
+- **UUSI 8.11. (M9 taistelu-UX):** AP-varaus ("time units reserved for snapshot") —
+  `battle.gd set_reserve` + `_flood`-rajaus: varattu sotilas ei kulje niin, että
+  snap-ammunnan 3 AP katoaisi. Näppäin T ja nappi "T RES ON/OFF", ajoneuvoille ei.
+  Idea OpenXComin `BattlescapeGame.checkReservedTU`-mekanismista (GPL): toteutus oma,
+  koodia ei kopioitu (SUUNNITELMA luku 17). Testit `tests/test_reserve.gd` PASS,
+  test_battle PASS.
+- **UUSI 8.11. (M9 taistelu-UX, UFO-tyylinen sumu, SUUNNITELMA luku 19):**
+  `battle.gd options["fog"]` (oletus false; pelin taistelut kytkevät sen
+  `Forces.make_battle`/`make_room_battle`):
+  - vihollinen näkyy kun joku sotilas näkee sen: `SIGHT_TILES` 20 (40 m kentällä,
+    20 m sisätilassa) + `can_see`-näkölinja; kun nähty, pysyy havaittuna.
+  - laukaisu paljastaa ampujan (`_reveal` fire- ja kranaattithrowissa).
+  - `refresh_seen()` kahdensuuntainen päivitys siirron/ampumisen jälkeen; lokiin
+    "%s IS SPOTTED." kun ryhmä näkee.
+  - `fire()` ei ammu pimeään ("THE TARGET IS NOT IN SIGHT.").
+  - puolustava AI odottaa paikallaan kun mitään ei näy.
+  - `battle_view`: vihollissprite piirretään vain kun nähty (sijoittelussa kaikki),
+    klikki ja kursorin vinkki vain näkyviin kohteisiin; ensimmäisen taistelun
+    muistiloki (1/2/3 ammuntatavat, T-kytkin, "THE ENEMIES STAY IN THE DARK...").
+  - Uusi testi `tests/test_spotted.gd` (headless PASS); `--test=battle` (ikkuna) ja
+    fullgame läpi; legacy-testit toimivat fog=false-oletuksella.
 - **Asset- ja tehtäväauditointi 7.11. (SUUNNITELMA luku 14):** pelin kaikki kuvat/äänet
   ovat alkuperäisen pelin omia — `ALLOW_AI_ART=false` (F2 kuollut), `main.remastered=false`,
   `Soldier.remastered=false`; ainoa res://remastered-viittaus sijaitsee näiden porttien
@@ -152,6 +166,7 @@ godot --headless --path . --script tests/test_action_bar.gd      # alapalkki (he
 godot --headless --path . --script tests/test_battle_art.gd      # taistelugrafiikan kartta
 godot --headless --path . --script tests/test_reserve.gd         # AP-varaus (OpenXCom-tyyli)
 godot --headless --path . --script tests/test_economy.gd         # HQ-varustekaupan säännöt
+godot --headless --path . --script tests/test_spotted.gd         # UFO-sumu (spotting)
 godot --headless --path . --script tests/test_battle.gd          # ~90 s
 godot --headless --path . --script tests/test_balance.gd         # M9: 40-70 % band; -- --report = pelkkä taulukko
 # Integraatiotestit (IKKUNALLA — headless ei tuota kuvia, frame_post_draw ei laukea):
@@ -202,13 +217,22 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
    puuttuva data — peli ei saa kaatua.
 3. **M9 suorituskyky:** auto_play 200 kierrosta < 1 s -mittaus ja FPS-raportti (uusi testi).
 4. **M10:** export_presets.cfg + buildit, README (pelaajalle), ARCHITECTURE.md (kehittäjälle),
-   CHANGELOG + version.txt, GitHub Actions (headless-testit). **Lisäksi loppupeli
+   CHANGELOG + version.txt, GitHub Actions (headless-testit). **Taistelun jatkalista
+   (SUUNNITELMA luvut 18-19):** reaktiotuli (liikkujan etumalta ≤ 8 rinkeä: maksaa
+   bändimittaus), per-sotilaan paniikki/moraalitapahtumat, opettelukehitys ensimmäiseen
+   taisteluun. Muuta: luku 15 konversiobacklogi. **Lisäksi loppupeli
    (SUUNNITELMA luku 15):** Black Legionin hyökkäys tarinan lopussa; voitto ->
    `missions.json endings.victory` (datassa jo), häviö -> `city_lost`-rivi (datassa jo),
    ja "jammed"-viesti hyökkäyksen ajalle.
 5. **INTRO-remaster:** kun SDXL-malli palautettu → `python tools/remaster_set.py intro`
    (resumoitava; ~1–2 min/ruutu, 198 kpl).
 6. **Natiivipuoli:** Lataus-Enter-korjaus, S_aAls-säännöt, TWI2D:n purku `tools/dis86.py`:llä.
+7. **Pelin avaus ja ensimmäinen tehtävä (SUUNNITELMA luku 18):** design dokumentoitu.
+   Avaifäktiö: ensimmäinen tehtävä on satunnainen 12 tyypistä, garrison field_count
+   = squad+1..2; taistelussa ei ole sumua/blippejä eikä reaktiotulia (UFO-moottorin
+   hyötykäyttölistaa määritelty). Kysymys: fog-of-war ON/OFF ja reaktiotuli ON/OFF;
+   toteutuspällerit a-d luvussa 18. Reaktiotuli vaatisi test_balance-bändien uudelle-
+   mittausta (luku 11).
 7. **Alkuperäisestä vielä konvertoimatta (8.11. katveiskannaus):**
    - HQ-varustekauppa: OFFICE-rivit ("ADD AMMO TO WHICH WEAPON?" ym.) ja
      EQUIP.json-kuvausteekstit Inventoryn INFO/DESCRIPTION-valintoihin.
@@ -239,9 +263,10 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
    loppuaineisto data/missions.json "endings"-lohkoon) + katveiskannaus ja konvertointi-
    backlogi (SUUNNITELMA luku 15). Testit 8.11.: campaign/chargen/combat/battle_art
    headless PASS; save ja fullgame ilman skriptivirheitä.
-- remake/godot 8.11.: `2e42652` alkuperäisrivityö → economy/reserve: economy.gd +
-  computer-resupply + set_reserve (testit test_economy, test_reserve). SUUNNITELMA
-  luvut 16–17 pitävät yksityiskohdat; editori-skannauksen kuoppa luku 7.
+- remake/godot 8.11.: `2e42652` alkuperäisrivityö → `31537b4` economy/reserve (economy.gd,
+  computer-resupply, set_reserve; testit test_economy, test_reserve) → UFO-sumu
+  (fog/spotting/reveal/AI-hold; testit test_spotted + battle/battle_config + fullgame;
+  fog ON pelissä, OFF legacytesteissä). SUUNNITELMA luvut 18 (design), 19 (sumu).
 
 ## 10. Näin päivität tätä dokumenttia
 
