@@ -948,3 +948,47 @@ freeze/flee recovers half. Battle and fullgame windowed runs passed.
 Open follow-ups from ch. 18: the wider first-mission tutorial (d), any reaction-arc/cover
 refinement after more play, the melee option, and the M9 economy round 2 leftovers
 (ch. 16).
+
+
+## 21. Porting the battle to the OpenXCom engine (decision 8.11.2026)
+
+Goal (the user's call): the Twilight 2000 remake's battle should run on the UFO engine
+(OpenXCom), while the strategic/tactical map movement stays exactly as it is now in Godot.
+OpenXCom is the open-source reimplementation of X-COM: UFO Defense (C++ / SDL, GPL-3).
+
+What that actually means:
+- OpenXCom is NOT a library: it is a full game. It starts at the StartState (main menu)
+  and has no CLI flag to jump straight into a battle (checked in src/Engine/Options.inc.h:
+  there is no --battlescape/--load-save entry point; saves load through the in-game
+  menu). The only way to enter a battle is a save game that is already at the
+  battlescape state, or a fork that adds a launch flag.
+- So a "port" is really two things at once: (1) a T2K ruleset MOD on top of OpenXCom
+  (weapons, units, terrain, maps, missions), and (2) a way for Godot to hand a battle
+  over and read the result back (a save-file IPC, or a fork with a --load-battle flag).
+- License: OpenXCom is GPL-3. If we COPY OpenXCom code into this repo, the whole remake
+  becomes GPL-3. The clean option is to keep our code separate and run OpenXCom as an
+  external engine binary that reads our T2K mod and a one-battle save file, then writes
+  the debriefing back. That keeps the strategic layer ours and the battles on GPL, in
+  two processes - the same split the user asked for ("kartalla liikkuminen pysyy
+  samana").
+- Cost of the full port: months. It replaces battle.gd / battle_view.gd (the UFO-like
+  slices we just built - fog, reaction, panic, reserve - are already OpenXCom ideas, so
+  they are not wasted, they become the spec for the mod).
+
+Recommended order:
+1. Technical spike (1-2 sessions): build OpenXCom from source on Windows (MSVC + SDL2
+   + yaml-cpp), make a minimal T2K mod (one rifle, one soldier, one map, one alien
+   standing in a town square), and verify we can hand a battle over from Godot and
+   read the debriefing back. Decide fork-vs-IPC here.
+2. Data conversion: items.json -> ruleset weapons/ammo, Forces groups -> unit rules,
+   localmap/town -> MCD/MAP tilesets + map templates, campaign steps -> OpenXCom
+   missions.
+3. IPC: Godot writes a one-battle save (or a mission file) and launches OpenXCom;
+   OpenXCom writes the result (winner, survivors, wounds, ammo, kills) where Godot
+   reads it and calls battle_over().
+4. Keep the strategic layer (worldmap.gd, tactical.gd, office, campaign, computer) in
+   Godot exactly as it is. Only the battlescape screen leaves.
+
+Until the spike succeeds, the practical choice is to keep improving the in-house battle
+(ch. 18-20 already made it UFO-like: fog, reaction fire, morale/panic, reserved TU,
+cover, terrain, vehicles). Both paths stay open; the spike tells us which one to fund.
