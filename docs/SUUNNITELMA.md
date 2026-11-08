@@ -975,20 +975,30 @@ What that actually means:
   slices we just built - fog, reaction, panic, reserve - are already OpenXCom ideas, so
   they are not wasted, they become the spec for the mod).
 
-Recommended order:
-1. Technical spike (1-2 sessions): build OpenXCom from source on Windows (MSVC + SDL2
-   + yaml-cpp), make a minimal T2K mod (one rifle, one soldier, one map, one alien
-   standing in a town square), and verify we can hand a battle over from Godot and
-   read the debriefing back. Decide fork-vs-IPC here.
-2. Data conversion: items.json -> ruleset weapons/ammo, Forces groups -> unit rules,
-   localmap/town -> MCD/MAP tilesets + map templates, campaign steps -> OpenXCom
-   missions.
-3. IPC: Godot writes a one-battle save (or a mission file) and launches OpenXCom;
-   OpenXCom writes the result (winner, survivors, wounds, ammo, kills) where Godot
-   reads it and calls battle_over().
-4. Keep the strategic layer (worldmap.gd, tactical.gd, office, campaign, computer) in
-   Godot exactly as it is. Only the battlescape screen leaves.
+Spike result (8.11.2026): build succeeded, runtime blocked on the data layer.
 
-Until the spike succeeds, the practical choice is to keep improving the in-house battle
-(ch. 18-20 already made it UFO-like: fog, reaction fire, morale/panic, reserved TU,
-cover, terrain, vehicles). Both paths stay open; the spike tells us which one to fund.
+- Build: OpenXcom cloned into C:\AI_Projektit\openxcom, configured with CMake 4.4.3
+  + MSVC 2022 (vcvars64), DEPS_DIR = the repo's own deps (SDL 1.2, SDL_image,
+  SDL_mixer, SDL_gfx, yaml-cpp, all prebuilt in deps/lib/x64). `cmake --build ... openxcom`
+  succeeded; openxcom.exe runs (SDL and SDL_mixer initialise). It exits immediately
+  because no UFO resources are installed ("Failed to open directory: common").
+- Critical finding: the battlescape is NOT data-light. OpenXcom needs the full UFO
+  resource set (common fonts/palettes, terrain MCD/MAP/PCK, unit sprites, sound
+  effects) before it can draw a single battle. A standalone T2K-on-OpenXcom port
+  therefore means converting EVERY game asset into OpenXcom's formats - a project at
+  least as large as the Godot remake itself, and arguably larger, because the original
+  1991 art has no MCD/PCK equivalents ready.
+- IPC is also not a one-liner: Options.cpp has no --load-save / --battlescape flag,
+  so handing a battle over would require a fork that adds a launch flag (or a mod
+  that auto-starts a mission from a generated save file in the user folder).
+
+Revised recommendation: do NOT fund the full port. Keep the in-house battle (it is now
+UFO-like: fog, reaction fire, morale/panic, reserved TU, cover, terrain, vehicles)
+and keep improving it. The OpenXcom source remains a reference engine for the
+mechanics we have not yet ported (melee, alien AI extras, path preview, morale
+events) - those are borrowed as ideas, never as code.
+
+If the user still wants the port later, the spike's prerequisites are ready and
+reusable: the build setup (C:\AI_Projektit\openxcom, deps, MSVC 2022) is in place
+and the first task would be a fork adding a --load-battle flag plus the full asset
+conversion. That is a multi-month project on its own.
