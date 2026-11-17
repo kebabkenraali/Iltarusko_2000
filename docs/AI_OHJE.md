@@ -180,7 +180,9 @@ godot --headless --path . --script tests/test_reserve.gd         # AP-varaus (Op
 godot --headless --path . --script tests/test_economy.gd         # HQ-varustekaupan säännöt
 godot --headless --path . --script tests/test_spotted.gd         # UFO-sumu (spotting)
 godot --headless --path . --script tests/test_reaction_morale.gd # reaktiotuli + paniikki
+godot --headless --path . --script tests/test_tank_hunt.gd       # panssaridueli sumussa: tankit ajavat näkyviin
 godot --headless --path . --script tests/test_reaction_morale.gd # reaktiotuli + paniikki
+godot --headless --path . --script tests/test_tank_hunt.gd       # panssaridueli sumussa: tankit ajavat näkyviin
 # Bändimittaus: pelinormaalit asetukset (fog+reaction+panic+seek) T2K_FOGGED=1:llä
 T2K_FOGGED=1 godot --headless --path . --script tests/test_balance.gd
 godot --headless --path . --script tests/test_battle.gd          # ~90 s

@@ -1041,3 +1041,37 @@ Open follow-ups (kept small, each its own slice):
 - Per-unit plan budget display (plan_ap) in the unit line.
 - A "quick battle" toggle that skips the planning phase and runs the old one-at-a-time
   mode for players who prefer it.
+
+## 23. The invisible enemy in the fog (17.11.2026)
+
+The user's report: during the demo's encounter "the enemies were not drawn at all".
+Reproduced it with the screenshot harness (--test=battle, --test=hos2, the drive
+ambush): in the windowed tank duel the enemy T-72 never rendered for 23 rounds while
+its turn, selection diamond and unit text were all visible.
+
+Root causes (battle.gd):
+1. refresh_seen never let a vehicle be a pair of eyes. The crew (in_vehicle >= 0) was
+   skipped as always, and the vehicle itself was skipped too, because the code read
+   s.get("in_vehicle", 1) on it (the key does not exist on vehicles). So a squad riding
+   in its tank (or facing one) could not spot ANYTHING; the enemy was seen only when
+   somebody fired (the muzzle reveal) - and the T-72 in the test had a damaged gun
+   (0%) and never fired.
+2. The AI never closed the distance. The seek-search only ran for squad MEN
+   (u["kind"] != "vehicle" excluded the squad's own tank), and enemy units had no
+   search at all (defensive by design). With both armour units > 20 tiles apart and
+   neither seeing nor firing, the battle was a silent stalemate and the enemy stayed
+   invisible - exactly the reported "enemies not drawn".
+
+Fixes:
+- refresh_seen: the eyes are now every man on foot AND every vehicle (the crew looks
+  out through it).
+- ai_step: under fog, vehicles join the hunt. The squad's vehicles drive toward the
+  objective (seek) like the men; an enemy VEHICLE drives toward the nearest squad
+  unit's engine noise. Garrison infantry keeps its defensive posture (unchanged, the
+  spotted test still holds).
+
+Tests: new tests/test_tank_hunt.gd (the enemy tank drives in and is spotted within
+3 rounds) PASS; test_spotted, test_reaction_morale, test_economy, test_balance
+(T2K_FOGGED=1: tank 62% / town 48% / room 53%, all IN BAND), --test=save,
+windowed --test=battle (the M1A1 now renders and the duel resolves in 8 rounds
+instead of stalling) and --test=fullgame all PASS.
