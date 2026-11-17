@@ -181,8 +181,6 @@ godot --headless --path . --script tests/test_economy.gd         # HQ-varustekau
 godot --headless --path . --script tests/test_spotted.gd         # UFO-sumu (spotting)
 godot --headless --path . --script tests/test_reaction_morale.gd # reaktiotuli + paniikki
 godot --headless --path . --script tests/test_tank_hunt.gd       # panssaridueli sumussa: tankit ajavat näkyviin
-godot --headless --path . --script tests/test_reaction_morale.gd # reaktiotuli + paniikki
-godot --headless --path . --script tests/test_tank_hunt.gd       # panssaridueli sumussa: tankit ajavat näkyviin
 # Bändimittaus: pelinormaalit asetukset (fog+reaction+panic+seek) T2K_FOGGED=1:llä
 T2K_FOGGED=1 godot --headless --path . --script tests/test_balance.gd
 godot --headless --path . --script tests/test_battle.gd          # ~90 s
@@ -286,7 +284,15 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
   (fog/spotting/reveal/AI-hold; testit test_spotted + battle/battle_config + fullgame;
   fog ON pelissä, OFF legacytesteissä) → `4100b5b` reaktiotuli + paniikki + seek
   (test_reaction_morale; T2K_FOGGED=1-bändimitta: garrison 55 %, T-72 68 %, room 55 %;
-  luvut 18-20 dokumentoitu SUUNNITELMAAN).
+  luvut 18-20 dokumentoitu SUUNNITELMAAN) → `7687f64` JA-tyylinen suunnitteluvaihe +
+   samanaikainen kävelyanimaatio (SUUNNITELMA luku 22) → `693834d` näkymättömän vihollisen
+   korjaus sumussa (ajoneuvot silminäkijöiksi refresh_seen'ssä + panssari liittyy jahtiin;
+   test_tank_hunt; SUUNNITELMA luku 23) → 18.11.: vihollisten omat kasvokuvat
+   FACES-arkista (_face_tex; ei jaettuja indeksejä joukkueen kanssa _used_faces:n kautta,
+   vihollisen kulmalaatikko punasävytettynä) + kranaatin ystävätulisuojat
+   (throw_grenade/plan_grenade eivät hyväksy oman miehen ruutua; SUUNNITELMA luku 24).
+   Testit 18.11.: tank_hunt/spotted/reaction_morale/economy/balance (T2K_FOGGED=1),
+   save, windowed battle, fullgame — kaikki PASS.
 
 ## 10. Näin päivität tätä dokumenttia
 

@@ -1075,3 +1075,37 @@ Tests: new tests/test_tank_hunt.gd (the enemy tank drives in and is spotted with
 (T2K_FOGGED=1: tank 62% / town 48% / room 53%, all IN BAND), --test=save,
 windowed --test=battle (the M1A1 now renders and the duel resolves in 8 rounds
 instead of stalling) and --test=fullgame all PASS.
+
+## 24. Distinct enemy portraits and the grenade guard (18.11.2026)
+
+The user's request: "korjaa vihollisen kuva artti" and "luo vihollisten kasvokuvat
+erikseen jottei pelaaja ammu pelaajaa".
+
+Portrait art (battle_view.gd _face_tex): the enemy close-up used Soldier.head_image
+("EM" head art), whose EMH0 sheet is almost a black helmet - the corner box looked
+like a dark smear. Now every non-squad unit (the enemy, and any future civilian)
+gets one of the ORIGINAL FACES-sheet portraits (men.png / women.png, 15 faces of
+48x43 per gender), cut with the same grid math as the chargen screen, picked by the
+unit's head variant. Only the recruits keep their own talk-portraits.
+
+No shared faces: the squad's face indexes are recorded in _used_faces (per gender,
+filled from main.squad in _ready, dead members skipped); _face_tex skips a taken
+index and takes the next free one. So an enemy never wears the same face as a squad
+member - the player can no longer mistake a hostile for one of his own men.
+
+Red tint: _show_faces tints an enemy's corner box Color(1.0, 0.55, 0.5); a squad
+box stays white. The close-ups now read at a glance: shooter left, target right,
+red = hostile.
+
+Grenade friendly fire (battle.gd): the fire/plan click handlers only accept a seen
+enemy as a fire target, but the grenade mode accepted ANY tile - throwing a
+grenade onto a squad member's tile (or your own feet) was possible and killed your
+own man. Both throw_grenade and plan_grenade now refuse a tile occupied by an
+active same-team unit or the thrower's own tile ("YOU CANNOT DROP A GRENADE ON
+YOUR OWN MAN."). Scatter from a miss can still land near friendlies - that stays,
+it is the risk of throwing.
+
+Tests: test_tank_hunt, test_spotted, test_reaction_morale, test_economy,
+test_balance (T2K_FOGGED=1), --test=save and windowed --test=battle all PASS after
+the changes (the fire_closeup screenshot shows a distinct, red-tinted enemy
+portrait), --test=fullgame PASS.
