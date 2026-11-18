@@ -251,10 +251,12 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
 7. **Alkuperäisestä vielä konvertoimatta (8.11. katveiskannaus):**
    - HQ-varustekauppa: OFFICE-rivit ("ADD AMMO TO WHICH WEAPON?" ym.) ja
      EQUIP.json-kuvausteekstit Inventoryn INFO/DESCRIPTION-valintoihin.
-   - Kuorma-auto supplies/dump-tehtävään (TWI2D @151563).
-   - ICON-lisäuutiset radioketjuun (12 story-kappaletta jo datassa, muut
-     ajastettuihin pending_story-tapahtumiin).
-   - Taisteluloki TWI2D-riveihin (matala prioriteetti).
+   - Kuorma-auto supplies/dump-tehtävään: VALMIS (campaign.arrived tarkistaa 2 1/2 TON
+     TRUCKin squad_vehicle:n kautta; data/lines/need_truck).
+   - ICON-lisäuutiset radioketjuun: VALMIS (icon_news 8 viestiä missions.json:ssa, näkyvät
+     tarinaviestien jälkeen done_count % 2 == 1 -ehtona).
+   - Taisteluloki TWI2D-riveihin: VALMIS (COMBAT ROUND X BEGINS, reload-viestit, THE ENEMY
+     TURN BEGINS battle.gd:ssä; matala prioriteetti).
 
 ## 9. Commit-loki (lyhennetty)
 
@@ -305,5 +307,9 @@ historia — pidä sen ja tämän tiedoston tiedot yhdenmukaisina.
   FIELD RATIONS item + Campaign food counter (feed/buy_food/add_food, saved in savegame),
   scrounge returns rations, hungry soldiers take -1 initiative in battle, HQ computer
   shows six bar graphs (food/ammo/medicine/fuel/people/morale) and marks hungry squad
-  members (SUUNNITELMA luku 26). Testit 18.11.: economy/balance/spotted/reaction_morale/
-  tank_hunt/campaign/chargen_rules/save/computer/fullgame — kaikki PASS.
+  members (SUUNNITELMA luku 26) → `fbdf3c5` konversiobacklog luku 15:
+  dump-tehtävä vaatii 2 1/2 TON TRUCKin (campaign.arrived + squad_vehicle Callable),
+  ICON-uutisviestit (icon_news 8 kpl missions.jsonissa), taistelulokiin TWI2D-rivit
+  (COMBAT ROUND X BEGINS, reload, THE ENEMY TURN BEGINS). Testit 18.11.:
+  campaign/chargen/economy/balance/spotted/reaction_morale/tank_hunt/performance/
+  battle/combat/reserve/action_bar/battle_art/save/save_errors/computer/fullgame — kaikki PASS.

@@ -741,19 +741,18 @@ Backlog (the remaining real gaps, in suggested order):
    "%s ISN'T CARRYING ANY WEAPONS THAT USE %s AMMO.") - the squad re-equips at the office
    cabinet for funds; also EQUIP.json long item descriptions belong to the Inventory
    icon's INFO/DESCRIPTION options (manual p.63) --------------
-4. Truck-bound supplies (M9 economy): dump mission recall line "YOU MUST HAVE A 2 1/2 TON
-   TRUCK CLOSE BY IN ORDER TO LOAD THE SUPPLIES." (TWI2D @151563) - the crates should be
-   truck-loadable (ICON: "IN OUR 2 1/2 TON TRUCK AND RECOVER THESE SUPPLIES..."). The
-   rematch's dump mission currently ignores vehicles.
-5. The other-squads news cycle (M10 flavour): ICON radio stage messages (Czarny conquers
-   cities / Andrekov news / Bravo Company / Americans captured) beyond the 12 store
-   paragraphs in missions.json story - at least the remaining ICON stage lines should be
-   added as timed pending_story events driven by campaign progress.
-6. Quick fixes on combat strings (low priority): the battle screen's own lines
-   ("YOU SPEND ANOTHER COMBAT ROUND RELOADING YOUR WEAPON.", "THE ENEMY SPENDS..." etc.,
-   TWI2D) partly overlap the remake battle log wording; keep or splice on next battle
-   polish. Also TWI2D @161579 "IT'S HIM!  HE'S THE SPY!  CATCH HIM, QUICK!" is in the
-   data but only usable if the suspect flees - the remake interrogates in place.
+4. Truck-bound supplies (M9 economy): DONE — dump mission requires a 2 1/2 TON TRUCK
+   (campaign.arrived checks squad_vehicle; data/lines["need_truck"] shown if missing).
+   Crates are loaded into the truck (ICON: "IN OUR 2 1/2 TON TRUCK AND RECOVER THESE
+   SUPPLIES...").
+5. The other-squads news cycle (M10 flavour): DONE — icon_news array in missions.json with
+   8 ICON radio stage messages (Czarny conquers cities / Andrekov news / Bravo Company /
+   Americans captured), shown as pending_story events after the 12 story paragraphs are
+   exhausted (driven by done_count % 2 == 1).
+6. Quick fixes on combat strings (low priority): DONE — battle log now has TWI2D lines:
+   "COMBAT ROUND X BEGINS." at round start, "YOU SPEND A COMBAT ROUND RELOADING YOUR
+   %s." / "THE ENEMY SPENDS A ROUND RELOADING." on reload, "THE ENEMY TURN BEGINS." on
+   enemy turns. "IT'S HIM! HE'S THE SPY! CATCH HIM, QUICK!" exists in data["lines"]["spy_found"].
 7. TWI3D vehicle descriptions (12 items) can dress the motor pool / I.V.A.N. view text.
 8. Not converting on purpose: CGEN UI labels (the remake chargen is redesigned), 2000
    module's memory-kit advertisement + COM error strings, joysticks prompts, DOS bits.
