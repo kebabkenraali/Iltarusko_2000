@@ -1109,3 +1109,15 @@ Tests: test_tank_hunt, test_spotted, test_reaction_morale, test_economy,
 test_balance (T2K_FOGGED=1), --test=save and windowed --test=battle all PASS after
 the changes (the fire_closeup screenshot shows a distinct, red-tinted enemy
 portrait), --test=fullgame PASS.
+
+## 25. Jagged Alliance planning phase — follow-ups done (18.11.2026)
+
+All four open follow-ups from chapter 22 are implemented (godot `d772894`):
+
+- **EXECUTE interrupt + REPLAN.** `execute_plan()` captures the set of enemies seen by the squad before the loop and re-checks after every queued move/fire/grenade. If a new enemy is spotted, execution stops immediately, `interrupted` is set, plans and `plan_ap` are left intact, and the view offers a `REPLAN` button that clears the interrupt and returns to the planning phase. If no new enemy appears, plans are cleared, `plan_ap` is zeroed, and the enemy turn starts as before.
+- **Ghost waypoint preview.** In the plan phase, `_draw()` renders faint orange diamonds at each tile of every queued move path plus a thin connecting polyline, so the player sees where the squad will walk before pressing EXECUTE.
+- **Per-unit plan_ap display.** `_unit_text()` appends `   PLAN AP X/Y` to the unit line when `phase == "plan"` and the unit is a squad man.
+- **Quick battle toggle.** A `QUICK BATTLE` button in the deploy phase sets `quick_battle = true` and `begin()` goes straight to `"battle"` (one-at-a-time mode) instead of `"plan"`. The battle top label shows ` [QUICK]`.
+
+Tests after the change: test_tank_hunt, test_spotted, test_reaction_morale, test_economy,
+test_balance (T2K_FOGGED=1), --test=save, windowed --test=battle, --test=fullgame — all PASS.

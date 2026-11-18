@@ -285,7 +285,9 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
   fog ON pelissä, OFF legacytesteissä) → `4100b5b` reaktiotuli + paniikki + seek
   (test_reaction_morale; T2K_FOGGED=1-bändimitta: garrison 55 %, T-72 68 %, room 55 %;
   luvut 18-20 dokumentoitu SUUNNITELMAAN) → `7687f64` JA-tyylinen suunnitteluvaihe +
-   samanaikainen kävelyanimaatio (SUUNNITELMA luku 22) → `693834d` näkymättömän vihollisen
+   samanaikainen kävelyanimaatio (SUUNNITELMA luku 22) → `d772894` ch.22 follow-ups:
+   EXECUTE-keskeytys + REPLAN, haamupolun reittinäkymä, per-sotilaan plan_ap-näyttö,
+   QUICK BATTLE -valitsin (SUUNNITELMA luku 25) → `693834d` näkymättömän vihollisen
    korjaus sumussa (ajoneuvot silminäkijöiksi refresh_seen'ssä + panssari liittyy jahtiin;
    test_tank_hunt; SUUNNITELMA luku 23) → 18.11.: vihollisten omat kasvokuvat
    FACES-arkista (_face_tex; ei jaettuja indeksejä joukkueen kanssa _used_faces:n kautta,
