@@ -1121,3 +1121,18 @@ All four open follow-ups from chapter 22 are implemented (godot `d772894`):
 
 Tests after the change: test_tank_hunt, test_spotted, test_reaction_morale, test_economy,
 test_balance (T2K_FOGGED=1), --test=save, windowed --test=battle, --test=fullgame — all PASS.
+
+## 26. M9 economy round 2: food rations + six bar graphs (18.11.2026)
+
+M9 talous 2. kierros valmis (godot `5860e6e`):
+
+- **FIELD RATIONS** uusi esine (`data/items.json` id 112, 10 MK, category miscellaneous).
+- **Campaign food counter** (`campaign.gd`): `food`-laskuri, `feed(squad_size)` kuluttaa yhden ration per sotilas per 8 tunnin uni ja palauttaa montako söi ja montako meni nälkäisenä, `buy_food(n)` ostaa rations HQ-kaupasta (10 MK/kpl), `add_food(n)` lisää scrounge-saaliista. Tallennetaan saveen (`to_dict`/`from_dict`).
+- **Nälkä-sakko taistelussa**: jokainen unessa oleva sotilas tarvitsee yhden ration; nälkäiset merkitään (`r["hungry"] = true`) ja he saavat -1 initiaatiivin taistelun kierroksen alussa (`battle.gd _new_round`).
+- **Scrounge tuottaa ruokaa**: kalastus (2 rations), keräys (3), metsästys (4) lisäävät `main.campaign.add_food()` onnistuessaan (`tactical.gd _survive`).
+- **Unen ruokahuolto**: sekä `tactical.gd _sleep` että `worldmap.gd rest` kutsuvat `campaign.feed()` ja kertovat montako söi ja montako meni nälkäisenä.
+- **Tietokoneen kuusi bar-grafia** (`computer.gd`): FOOD, AMMO, MEDICINE, FUEL, PEOPLE, MORALE — jokaisella 20-lohkon palkki, prosentti ja cur/cap-luku, väri vihreä/keltainen/punainen riippuen tasosta. FOOD-rivi ja nälkä-merkkaus squad-status-listassa.
+
+Tests after the change: test_economy, test_balance (T2K_FOGGED=1), test_spotted,
+test_reaction_morale, test_tank_hunt, test_campaign, test_chargen_rules,
+--test=save, --test=computer, --test=fullgame — all PASS.

@@ -46,8 +46,11 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
   M8 integraatio + `--test=fullgame` läpi, M9 tasapaino 1. kierros (band-testi PASS),
   äänimaailma (musiikki näkymittäin + alkuperäiset efektit), HQ-computer + rahatalous
   (`Campaign.funds`), kulmakuvat ampumisessa, tulitusasennot, katoamiskorjaus (haalistus).
-- **KESKEN (M9):** ammus-/lääke-/ruokatalous, UI-hionta, virheentestit (korruptoitu save,
-  puuttuvat tiedostot), suorituskykymittaukset.
+- **VALMIIT (M9):** tasapaino 1. ja 2. kierros (band-testi PASS), HQ-resupply (mags/medkits/grenades),
+  ruokatalous: FIELD RATIONS + syönti unella + nälkä-sakko taistelussa, tietokoneen kuusi bar-grafia
+  (food/ammo/medicine/fuel/people/morale), tietokoneen FOOD-rivi ja nälkä-merkkaus.
+- **KESKEN (M9):** UI-hionta, virheentestit (korruptoitu save, puuttuvat tiedostot),
+  suorituskykymittaukset.
 - **EI ALOITETTU (M10):** exportit, README/ARCHITECTURE/CHANGELOG/version.txt, CI.
 - **ESTETTY:** INTRO-remaster (198 ruutua) — `remaster_set.py intro [N]` on valmis, mutta
   SDXL-malli `C:\pinokio\api\stable-diffusion-webui\models\Stable-diffusion\sd_xl_base_1.0.safetensors`
@@ -224,11 +227,11 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
 
 ## 8. Seuraavat tehtävät (ehdotettu järjestys)
 
-1. **M9 talous 2. kierros (alku tehty 8.11.):** HQ-varustekauppa + kantamiskytkot ON.
-   Jäljellä: ruoan kulutus (söinti 8h välein — Necessity-klassisten rivien mukaan),
-   Krakowin kuusi bar-graafia computer-näytölle, hintojen hienosäätö mitatun rahavirran
-   (12 tehtävän simulaatio) kautta. **Alapalkin jatko:** TAKE/USE todellisiksi toiminnoiksi
-   (Necessity-kalastukseen/keruuseen oikeat tuotokset, eivät vain viestit).
+1. **M9 talous 2. kierros: VALMIS** (ruokatalous + kuusi bar-grafia, commitoitu 18.11.).
+   Jäljellä M9:ssä: UI-hionta, virheentestit (korruptoitu save, puuttuvat tiedostot),
+   suorituskykymittaukset (auto_play 200 kierrosta < 1 s). **Alapalkin jatko:** TAKE/USE
+   todellisiksi toiminnoiksi (Necessity-kalastukseen/keruuseen oikeat tuotokset, eivät vain
+   viestit).
 2. **M9 virheentestit:** korruptoitu save (uusi `tests/test_save_errors.gd` tai laajennus),
    puuttuva data — peli ei saa kaatua.
 3. **M9 suorituskyky:** auto_play 200 kierrosta < 1 s -mittaus ja FPS-raportti (uusi testi).
@@ -301,3 +304,10 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
 Työn jälkeen: päivitä luvut 4 (Tila), 9 (Loki), tarvittaessa 5 (Arkkitehtuuri) ja 7 (Kuopat).
 Commitoi `remake`-repoomme viestillä, joka alkaa "Docs:". SUUNNITELMA.md on yksityiskohtainen
 historia — pidä sen ja tämän tiedoston tiedot yhdenmukaisina.
+
+- remake/godot 18.11.: `d772894` JA planning follow-ups → `5860e6e` M9 economy round 2:
+  FIELD RATIONS item + Campaign food counter (feed/buy_food/add_food, saved in savegame),
+  scrounge returns rations, hungry soldiers take -1 initiative in battle, HQ computer
+  shows six bar graphs (food/ammo/medicine/fuel/people/morale) and marks hungry squad
+  members (SUUNNITELMA luku 26). Testit 18.11.: economy/balance/spotted/reaction_morale/
+  tank_hunt/campaign/chargen_rules/save/computer/fullgame — kaikki PASS.
