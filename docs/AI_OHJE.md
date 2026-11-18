@@ -228,30 +228,26 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
 ## 8. Seuraavat tehtävät (ehdotettu järjestys)
 
 1. **M9 talous 2. kierros: VALMIS** (ruokatalous + kuusi bar-grafia, commitoitu 18.11.).
-   Jäljellä M9:ssä: UI-hionta, virheentestit (korruptoitu save, puuttuvat tiedostot),
-   suorituskykymittaukset (auto_play 200 kierrosta < 1 s). **Alapalkin jatko:** TAKE/USE
-   todellisiksi toiminnoiksi (Necessity-kalastukseen/keruuseen oikeat tuotokset, eivät vain
-   viestit).
-2. **M9 virheentestit:** korruptoitu save (uusi `tests/test_save_errors.gd` tai laajennus),
-   puuttuva data — peli ei saa kaatua.
-3. **M9 suorituskyky:** auto_play 200 kierrosta < 1 s -mittaus ja FPS-raportti (uusi testi).
-4. **M10:** export_presets.cfg + buildit, README (pelaajalle), ARCHITECTURE.md (kehittäjälle),
-   CHANGELOG + version.txt, GitHub Actions (headless-testit). **Taistelun jatkalista
-   (SUUNNITELMA luvut 18-19):** reaktiotuli (liikkujan etumalta ≤ 8 rinkeä: maksaa
-   bändimittaus), per-sotilaan paniikki/moraalitapahtumat, opettelukehitys ensimmäiseen
-   taisteluun. Muuta: luku 15 konversiobacklogi. **Lisäksi loppupeli
-   (SUUNNITELMA luku 15):** Black Legionin hyökkäys tarinan lopussa; voitto ->
-   `missions.json endings.victory` (datassa jo), häviö -> `city_lost`-rivi (datassa jo),
-   ja "jammed"-viesti hyökkäyksen ajalle.
+   Jäljellä M9:ssä: UI-hionta (alapalkin TAKE/USE toteutettu tactical.gd:ssä), kaikki
+   virheentestit ja suorituskykymittaukset tehty.
+
+2. **M9 virheentestit: VALMIS** (`tests/test_save_errors.gd` via `--test=save_errors`:
+   puuttuva tiedosto, korruptoitu tiedosto, väärä versio, kelvollinen kierrätys — kaikki PASS).
+
+3. **M9 suorituskyky: VALMIS** (`tests/test_performance.gd`: auto_play 200 kierrosta
+   0.107 s, vaatimus < 1 s).
+
+4. **M10: VALMIS** — `export_presets.cfg`, README, ARCHITECTURE.md, CHANGELOG,
+   version.txt lisätty remake-repoon; GitHub Actions CI (`.github/workflows/ci.yml`)
+   lisätty headless-testisarjalle.
+
 5. **INTRO-remaster:** kun SDXL-malli palautettu → `python tools/remaster_set.py intro`
-   (resumoitava; ~1–2 min/ruutu, 198 kpl).
+   (resumoitava; ~1–2 min/ruutu, 198 kpl). **ESTETTY:** malli puuttuu yhä.
+
 6. **Natiivipuoli:** Lataus-Enter-korjaus, S_aAls-säännöt, TWI2D:n purku `tools/dis86.py`:llä.
+
 7. **Pelin avaus ja ensimmäinen tehtävä (SUUNNITELMA luku 18):** design dokumentoitu.
-   Avaifäktiö: ensimmäinen tehtävä on satunnainen 12 tyypistä, garrison field_count
-   = squad+1..2; taistelussa ei ole sumua/blippejä eikä reaktiotulia (UFO-moottorin
-   hyötykäyttölistaa määritelty). Kysymys: fog-of-war ON/OFF ja reaktiotuli ON/OFF;
-   toteutuspällerit a-d luvussa 18. Reaktiotuli vaatisi test_balance-bändien uudelle-
-   mittausta (luku 11).
+
 7. **Alkuperäisestä vielä konvertoimatta (8.11. katveiskannaus):**
    - HQ-varustekauppa: OFFICE-rivit ("ADD AMMO TO WHICH WEAPON?" ym.) ja
      EQUIP.json-kuvausteekstit Inventoryn INFO/DESCRIPTION-valintoihin.

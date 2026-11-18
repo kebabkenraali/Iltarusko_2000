@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: windows-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout remake repo
+        uses: actions/checkout@v4
+        with:
+          path: remake
+
+      - name: Checkout godot repo
+        uses: actions/checkout@v4
+        with:
+          repository: <godot-repo-url>  # replace with the godot project repo URL
+          path: remake/godot
+          fetch-depth: 1
+
+      - name: Install Godot 4.7.2
+        run: |
+          $ProgressPreference = "SilentlyContinue"
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_win64.exe.zip" -OutFile godot.zip
+          Expand-Archive godot.zip -DestinationPath godot
+          Get-ChildItem godot -Filter "Godot*.exe" | Select-Object -First 1 | ForEach-Object { echo "GODOT_PATH=$($_.FullName)" >> $env:GITHUB_ENV }
+
+      - name: Run headless test suite
+        run: |
+          & $env:GODOT_PATH --headless --path remake/godot --script tests/test_campaign.gd
+          & $env:GODOT_PATH --headless --path remake/godot --script tests/test_chargen_rules.gd
+          & $env:GODOT_PATH --headless --path remake/godot --script tests/test_vehicle.gd
+          & $env:GODOT_PATH --headless --path remake/godot --script tests/test_economy.gd
+          & $env:GODOT_PATH --headless --path remake/godot --script tests/test_spotted.gd
+          & $env:GODOT_PATH --headless --path remake/godot --script tests/test_reaction_morale.gd
+          & $env:GODOT_PATH --headless --path remake/godot --script tests/test_tank_hunt.gd
+          & $env:GODOT_PATH --headless --path remake/godot --script tests/test_performance.gd
+          $env:T2K_FOGGED = "1"
+          & $env:GODOT_PATH --headless --path remake/godot --script tests/test_balance.gd
+          & $env:GODOT_PATH --path remake/godot -- --test=save
+          & $env:GODOT_PATH --path remake/godot -- --test=save_errors
+          & $env:GODOT_PATH --path remake/godot -- --test=fullgame
