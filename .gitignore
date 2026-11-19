@@ -7,3 +7,5 @@ palettes/
 tools/.venv_ai/
 __pycache__/
 *.pyc
+# Original game assets (copyrighted) - extract from your own copy
+godot/original/

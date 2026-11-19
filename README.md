@@ -39,10 +39,18 @@ balance (fogged), campaign, chargen rules, save/load errors, performance.
 - **M9:** Complete (balance round 2, food rations, six bar graphs, HQ resupply)
 - **M10:** In progress (export presets, documentation, CI)
 
-## Original assets only
+## Original assets
 
-The game uses only assets extracted from the original 1991 Twilight: 2000 DOS game.
-No AI-generated art or code is used in the demo build (see SUUNNITELMA.md ch. 14).
+The game uses assets extracted from the original 1991 Twilight: 2000 DOS game.
+**You need your own copy of the original game** to extract these assets.
+
+### Extracting assets
+1. Install the original Twilight: 2000 DOS game
+2. Use the extraction tools in `t2k-native/tools/` (separate repository) to extract graphics, audio, and text
+3. Place extracted files in `godot/original/` (see `godot/original/` structure for expected layout)
+4. Run the game
+
+No AI-generated art or code is used (see SUUNNITELMA.md ch. 14).
 
 ## License
 
