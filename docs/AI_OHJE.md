@@ -49,6 +49,12 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
 - **VALMIIT (M9):** tasapaino 1. ja 2. kierros (band-testi PASS), HQ-resupply (mags/medkits/grenades),
   ruokatalous: FIELD RATIONS + syönti unella + nälkä-sakko taistelussa, tietokoneen kuusi bar-grafia
   (food/ammo/medicine/fuel/people/morale), tietokoneen FOOD-rivi ja nälkä-merkkaus.
+- **VALMIIT (M10+):** loppuratkaisu (endings): kun tarina ja ICON-uutiset on käytetty, seuraava tehtävä
+  on lopputaistelu (Black Legionin hyökkäys Krakovaan). Voitolla näytetään endings.victory (2 kappaletta),
+  tappiolla city_lost / captured-rivi. VICT2-musiikki voitolla. Save/load tukee uusia kenttiä.
+  TWI3D-ajoneuvokuvaukset (8 kpl) vehicles.json:ssa ja motor poolissa. Korjattu vanha testivirhe
+  (worldmap.gd "done"-metodikutsu). Mission-failure seuraukset: kun ryhmä tuhoutuu defend/tank/liberate-
+  tehtävässä, kaupunki menee Czarnylle (lost_cities-lista, friends-erasing, city_lost-viesti).
 - **KESKEN (M9):** UI-hionta, virheentestit (korruptoitu save, puuttuvat tiedostot),
   suorituskykymittaukset.
 - **EI ALOITETTU (M10):** exportit, README/ARCHITECTURE/CHANGELOG/version.txt, CI.
@@ -228,6 +234,8 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
 ## 8. Seuraavat tehtävät (ehdotettu järjestys)
 
 1. **M9 talous 2. kierros: VALMIS** (ruokatalous + kuusi bar-grafia, commitoitu 18.11.).
+2. **Loppuratkaisu (endings): VALMIS** (lopputaistelu Krakovassa, voitto/tappio, jammed-viesti, VICT2-musiikki).
+3. **TWI3D-ajoneuvokuvaukset: VALMIS** (8 kuvausta motor poolissa).
    Jäljellä M9:ssä: UI-hionta (alapalkin TAKE/USE toteutettu tactical.gd:ssä), kaikki
    virheentestit ja suorituskykymittaukset tehty.
 
