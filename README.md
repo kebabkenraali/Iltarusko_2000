@@ -2,56 +2,96 @@
 
 A faithful remake of the 1991 DOS tactical RPG "Twilight: 2000" in Godot 4.7.
 Turn-based AP combat, Jagged Alliance-style simultaneous planning, HQ economy,
-world-map travel, and 12 mission types - all using only the original 1991 game assets.
+world-map travel, and 12 mission types.
 
-## Build status
-
-All headless tests pass: combat, spotting, reaction/morale, tank hunt, economy,
-balance (fogged), campaign, chargen rules, save/load errors, performance.
+## Requirements
+- **Godot 4.7.2+** (console edition recommended)
+- **Your own copy of the original 1991 Twilight: 2000 DOS game** (for asset extraction)
 
 ## Quick start
 
-### Players
-1. Download the latest demo build from the releases page.
-2. Run `demo/Peli.bat` (Windows) or the Godot-exported binary for your platform.
-3. No installation required - the demo is self-contained.
+### 1. Clone the repository
+```powershell
+git clone https://github.com/kebabkenraali/Iltarusko_2000.git
+cd Iltarusko_2000
+```
 
-### Developers
-1. Clone this repo (docs + tools) and the Godot project repo:
-   ```powershell
-   git clone <this-repo> remake
-   git clone <godot-repo> remake/godot
-   ```
-2. Install Godot 4.7.2+ (console edition).
-3. Run headless tests:
-   ```powershell
-   godot --headless --path remake/godot --script tests/test_balance.gd
-   ```
-4. Run the windowed test harness:
-   ```powershell
-   godot --path remake/godot -- --test=fullgame
-   ```
+### 2. Extract game assets
+The game needs graphics, audio, and text data extracted from the original game.
+
+If you have the original game installed, use the extraction tools:
+```powershell
+# See t2k-native/tools/ for extraction scripts
+# Or use the pre-extracted assets if you have them
+```
+
+Place extracted files in `godot/original/`:
+```
+godot/original/
+  graphics/   (PNG files from LB/MCG/LBM archives)
+  audio/music/  (WAV files from CMF)
+  audio/sfx/    (WAV files from VOC)
+  text/         (JSON files with extracted strings)
+```
+
+### 3. Run the game
+```powershell
+godot --path godot
+```
+
+### 4. Run tests
+```powershell
+# Headless unit tests
+godot --headless --path godot --script tests/test_campaign.gd
+godot --headless --path godot --script tests/test_battle.gd
+
+# Windowed integration tests
+godot --path godot -- --test=fullgame
+godot --path godot -- --test=battle
+```
+
+## Project structure
+```
+Iltarusko_2000/
+  godot/              Godot 4.7 project
+    project.godot     Project configuration
+    scenes/           Main scene (main.tscn)
+    scripts/          All game logic (GDScript)
+    data/             Game data (items, missions, cities, chargen, vehicles)
+    tests/            Automated tests (headless + windowed)
+    original/         Original game assets (extracted, not in repo - see above)
+  docs/               SUUNNITELMA.md (detailed plan), AI_OHJE.md (agent guide)
+  tools/              Python tools (extraction, composition, remastering)
+  .github/workflows/  CI (GitHub Actions)
+  README.md
+  ARCHITECTURE.md
+  CHANGELOG.md
+  version.txt
+```
+
+## Build status
+All headless tests pass: combat, spotting, reaction/morale, tank hunt, economy,
+balance (fogged), campaign, chargen rules, save/load errors, performance, endings.
 
 ## Project status
+- **M1-M8:** Complete (recruitment, cities, missions, turn-based combat, vehicles, integration)
+- **M9:** Complete (balance round 2, food rations, six bar graphs, HQ resupply, error tests, performance)
+- **M10:** Complete (export presets, documentation, CI, endings, melee combat)
 
-- **M1-M8:** Complete (recruitment, cities, missions, turn-based combat, vehicles,
-  integration, balance round 1, sound, computer screen, economy round 1)
-- **M9:** Complete (balance round 2, food rations, six bar graphs, HQ resupply)
-- **M10:** In progress (export presets, documentation, CI)
+## Features
+- **Turn-based AP combat** (10 AP/turn, initiative, fog of war, reaction fire, morale/panic)
+- **Jagged Alliance-style planning** (queue moves/fires, simultaneous execution, interrupts)
+- **12 mission types** (supplies, spy, hostage, assassins, wounded, epidemic, exile, dump, defend, liberate, tank, vehicle)
+- **HQ economy** (funds, stores, motor pool, resupply, food rations)
+- **World map travel** (driving, fuel, encounters, wrecks)
+- **Character generation** (careers, skills, faces, attributes)
+- **Save/load** (F5/F9, autosave, version management)
+- **Melee combat** (unarmed, adjacent range)
+- **Endings** (final battle at Krakow, victory/defeat)
 
-## Original assets
-
-The game uses assets extracted from the original 1991 Twilight: 2000 DOS game.
-**You need your own copy of the original game** to extract these assets.
-
-### Extracting assets
-1. Install the original Twilight: 2000 DOS game
-2. Use the extraction tools in `t2k-native/tools/` (separate repository) to extract graphics, audio, and text
-3. Place extracted files in `godot/original/` (see `godot/original/` structure for expected layout)
-4. Run the game
-
-No AI-generated art or code is used (see SUUNNITELMA.md ch. 14).
+## Original assets only
+The game uses only assets extracted from the original 1991 Twilight: 2000 DOS game.
+No AI-generated art is used (AI art switch is disabled at compile time).
 
 ## License
-
 See the original game's license for asset reuse. The remake code is original work.
