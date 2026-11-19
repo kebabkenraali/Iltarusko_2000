@@ -1,7 +1,5 @@
-# Remake repository: docs and tools only.
-# The Godot project (remake/godot) has its own repository; the extracted art, audio,
-# AI art and backups are large generated data and stay out of version control.
-godot/
+# Remake repository: docs, tools, and Godot project.
+# Large generated data stays out of version control.
 assets_original/
 assets_ai/
 backup_2026-11-03/

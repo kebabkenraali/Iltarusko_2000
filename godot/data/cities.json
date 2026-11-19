@@ -1,0 +1,394 @@
+[
+ {
+  "name": "KRAKOW",
+  "a": 159500,
+  "b": 257500,
+  "size": 3,
+  "unknown": 14266
+ },
+ {
+  "name": "ZATOR",
+  "a": 157500,
+  "b": 249500,
+  "size": 2,
+  "unknown": 14202
+ },
+ {
+  "name": "SKAWINA",
+  "a": 159500,
+  "b": 266500,
+  "size": 3,
+  "unknown": 14266
+ },
+ {
+  "name": "SLOMNIKI",
+  "a": 171500,
+  "b": 244500,
+  "size": 1,
+  "unknown": 14110
+ },
+ {
+  "name": "MIECHOW",
+  "a": 165500,
+  "b": 236500,
+  "size": 2,
+  "unknown": 14202
+ },
+ {
+  "name": "PROSZOWICE",
+  "a": 182500,
+  "b": 246500,
+  "size": 2,
+  "unknown": 14202
+ },
+ {
+  "name": "OLKUSZ",
+  "a": 134500,
+  "b": 245500,
+  "size": 3,
+  "unknown": 14266
+ },
+ {
+  "name": "IGLOMIA",
+  "a": 185500,
+  "b": 252500,
+  "size": 1,
+  "unknown": 14110
+ },
+ {
+  "name": "BOCHINA",
+  "a": 190500,
+  "b": 267500,
+  "size": 1,
+  "unknown": 14110
+ },
+ {
+  "name": "CHRZANOW",
+  "a": 129500,
+  "b": 251500,
+  "size": 3,
+  "unknown": 14266
+ },
+ {
+  "name": "PILICA",
+  "a": 154500,
+  "b": 224500,
+  "size": 1,
+  "unknown": 14110
+ },
+ {
+  "name": "KAZIMIERZA",
+  "a": 189500,
+  "b": 238500,
+  "size": 2,
+  "unknown": 14202
+ },
+ {
+  "name": "PRADLA",
+  "a": 152500,
+  "b": 214500,
+  "size": 3,
+  "unknown": 14266
+ },
+ {
+  "name": "WECHADLON",
+  "a": 189500,
+  "b": 223500,
+  "size": 1,
+  "unknown": 14110
+ },
+ {
+  "name": "ZAWIERCIE",
+  "a": 127500,
+  "b": 223500,
+  "size": 2,
+  "unknown": 14202
+ },
+ {
+  "name": "ZINDER",
+  "a": 115500,
+  "b": 223500,
+  "size": 4,
+  "unknown": 14322
+ },
+ {
+  "name": "ZARKI",
+  "a": 119500,
+  "b": 211500,
+  "size": 1,
+  "unknown": 14110
+ },
+ {
+  "name": "TARNOW",
+  "a": 223500,
+  "b": 262500,
+  "size": 2,
+  "unknown": 14202
+ },
+ {
+  "name": "WOJNICZ",
+  "a": 219500,
+  "b": 250500,
+  "size": 4,
+  "unknown": 14322
+ },
+ {
+  "name": "NOWY KOZCZYN",
+  "a": 214500,
+  "b": 238500,
+  "size": 1,
+  "unknown": 14110
+ },
+ {
+  "name": "BUSKO ZOROJ",
+  "a": 210500,
+  "b": 223500,
+  "size": 4,
+  "unknown": 14322
+ },
+ {
+  "name": "TARNOWSKA",
+  "a": 224500,
+  "b": 246500,
+  "size": 2,
+  "unknown": 14202
+ },
+ {
+  "name": "STOPNICA",
+  "a": 222500,
+  "b": 226500,
+  "size": 4,
+  "unknown": 14322
+ },
+ {
+  "name": "ZABNO",
+  "a": 229500,
+  "b": 232500,
+  "size": 3,
+  "unknown": 14266
+ },
+ {
+  "name": "LUBIEN",
+  "a": 230500,
+  "b": 225500,
+  "size": 1,
+  "unknown": 14110
+ },
+ {
+  "name": "TASZOW",
+  "a": 241500,
+  "b": 215500,
+  "size": 4,
+  "unknown": 14322
+ },
+ {
+  "name": "DEBICA",
+  "a": 255500,
+  "b": 259500,
+  "size": 3,
+  "unknown": 14266
+ },
+ {
+  "name": "MIELEC",
+  "a": 255500,
+  "b": 242500,
+  "size": 2,
+  "unknown": 14202
+ },
+ {
+  "name": "WOSNIKI",
+  "a": 103500,
+  "b": 207500,
+  "size": 0,
+  "unknown": 13976
+ },
+ {
+  "name": "CZESTOCHOWA",
+  "a": 105500,
+  "b": 190500,
+  "size": 2,
+  "unknown": 14202
+ },
+ {
+  "name": "KLOBUCK",
+  "a": 116500,
+  "b": 181500,
+  "size": 3,
+  "unknown": 14266
+ },
+ {
+  "name": "RUDNIKI",
+  "a": 126500,
+  "b": 184500,
+  "size": 3,
+  "unknown": 14266
+ },
+ {
+  "name": "JANOW",
+  "a": 122500,
+  "b": 206500,
+  "size": 4,
+  "unknown": 14322
+ },
+ {
+  "name": "ZOROJ",
+  "a": 248500,
+  "b": 199500,
+  "size": 4,
+  "unknown": 14322
+ },
+ {
+  "name": "MSTOW",
+  "a": 142500,
+  "b": 189500,
+  "size": 1,
+  "unknown": 14110
+ },
+ {
+  "name": "KANIECPOL",
+  "a": 143500,
+  "b": 198500,
+  "size": 2,
+  "unknown": 14202
+ },
+ {
+  "name": "SW.ANNA",
+  "a": 145500,
+  "b": 191500,
+  "size": 3,
+  "unknown": 14266
+ },
+ {
+  "name": "RAKOW",
+  "a": 230500,
+  "b": 203500,
+  "size": 2,
+  "unknown": 14202
+ },
+ {
+  "name": "LAGOW",
+  "a": 232500,
+  "b": 196500,
+  "size": 2,
+  "unknown": 14202
+ },
+ {
+  "name": "SZCZEKOCINY",
+  "a": 151500,
+  "b": 207500,
+  "size": 4,
+  "unknown": 14322
+ },
+ {
+  "name": "LELOW",
+  "a": 150500,
+  "b": 203500,
+  "size": 3,
+  "unknown": 14266
+ },
+ {
+  "name": "GIDLE",
+  "a": 153500,
+  "b": 187500,
+  "size": 1,
+  "unknown": 14110
+ },
+ {
+  "name": "LORUSZO",
+  "a": 223500,
+  "b": 183500,
+  "size": 1,
+  "unknown": 14110
+ },
+ {
+  "name": "WILOSZCZOWA",
+  "a": 159500,
+  "b": 190500,
+  "size": 3,
+  "unknown": 14266
+ },
+ {
+  "name": "SZCZEKOINY",
+  "a": 161500,
+  "b": 199500,
+  "size": 4,
+  "unknown": 14322
+ },
+ {
+  "name": "WODISLAW",
+  "a": 176500,
+  "b": 220500,
+  "size": 4,
+  "unknown": 14322
+ },
+ {
+  "name": "PINCZO",
+  "a": 199500,
+  "b": 220500,
+  "size": 2,
+  "unknown": 14202
+ },
+ {
+  "name": "CHMIEINIK",
+  "a": 211500,
+  "b": 210500,
+  "size": 4,
+  "unknown": 14322
+ },
+ {
+  "name": "GORNO",
+  "a": 214500,
+  "b": 194500,
+  "size": 4,
+  "unknown": 14322
+ },
+ {
+  "name": "NAGLOWICE",
+  "a": 174500,
+  "b": 201500,
+  "size": 1,
+  "unknown": 14110
+ },
+ {
+  "name": "JEDRREZELOW",
+  "a": 183500,
+  "b": 206500,
+  "size": 0,
+  "unknown": 13976
+ },
+ {
+  "name": "KIELCE",
+  "a": 204500,
+  "b": 187500,
+  "size": 3,
+  "unknown": 14266
+ },
+ {
+  "name": "MOROWICA",
+  "a": 202500,
+  "b": 198500,
+  "size": 4,
+  "unknown": 14322
+ },
+ {
+  "name": "LOPUSZNO",
+  "a": 179500,
+  "b": 192500,
+  "size": 2,
+  "unknown": 14202
+ },
+ {
+  "name": "KIJE",
+  "a": 196500,
+  "b": 203500,
+  "size": 1,
+  "unknown": 14110
+ },
+ {
+  "name": "CHECINY",
+  "a": 191500,
+  "b": 194500,
+  "size": 255,
+  "unknown": 0
+ }
+]

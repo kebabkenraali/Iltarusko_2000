@@ -1,0 +1,458 @@
+{
+  "_doc": "Vehicles of the 1991 game, values from the manual's Vehicles List (pp. 74-78): armour HF/HS/HR hull front/side/rear, TF/TS/TR turret, Sp = spaced, Cp = compound; susp = suspension critical value (W wheeled, T tracked); com_move = combat movement m per 5 s turn, road/rough; crew = crew + passengers. Main gun penetration and damage are not in the manual: the remake's values (2nd edition scale, the scale the PC game's weapons use). sprite: BUILDING picture (V own colours, V3-V5 Black Legion grey, DV wreck, CV camouflaged). heat: false = the main gun's anti-tank round is kinetic (APFSDS): no HEAT bonus against spaced armour and no ammunition cook-off from it; it still bursts (HE) against men.",
+  "guns": {
+    "120MM GUN": {
+      "damage": 25,
+      "penetration": [
+        160,
+        150,
+        140
+      ],
+      "range_m": 400,
+      "rof": 0,
+      "magazine": 1,
+      "explosive": true,
+      "burst": 6,
+      "heat": false
+    },
+    "125MM GUN": {
+      "damage": 25,
+      "penetration": [
+        130,
+        120,
+        110
+      ],
+      "range_m": 350,
+      "rof": 0,
+      "magazine": 1,
+      "explosive": true,
+      "burst": 6,
+      "heat": false
+    },
+    "25MM AUTOCANNON": {
+      "damage": 5,
+      "penetration": [
+        40,
+        30,
+        20
+      ],
+      "range_m": 250,
+      "rof": 5,
+      "magazine": 60,
+      "explosive": true,
+      "burst": 2
+    },
+    "TOW II": {
+      "damage": 12,
+      "penetration": [
+        160,
+        160,
+        160
+      ],
+      "range_m": 600,
+      "rof": 0,
+      "magazine": 1,
+      "explosive": true,
+      "burst": 12
+    },
+    "MAG MG": {
+      "damage": 4,
+      "penetration": [
+        2,
+        3,
+        0
+      ],
+      "range_m": 65,
+      "rof": 5,
+      "magazine": 100
+    },
+    "PK MG": {
+      "damage": 4,
+      "penetration": [
+        2,
+        3,
+        0
+      ],
+      "range_m": 65,
+      "rof": 5,
+      "magazine": 100
+    },
+    "M2HB MG": {
+      "damage": 8,
+      "penetration": [
+        1,
+        1,
+        2
+      ],
+      "range_m": 65,
+      "rof": 5,
+      "magazine": 105
+    },
+    "DSHK MG": {
+      "damage": 8,
+      "penetration": [
+        1,
+        1,
+        2
+      ],
+      "range_m": 65,
+      "rof": 5,
+      "magazine": 50
+    }
+  },
+  "vehicles": [
+    {
+      "name": "HMMWV",
+      "kind": "wheeled",
+      "config": "Stnd",
+      "crew": 2,
+      "passengers": 4,
+      "load_t": 1.25,
+      "weight_t": 2,
+      "armor": {
+        "HF": 1,
+        "HS": 1,
+        "HR": 1
+      },
+      "susp": [
+        "W",
+        2
+      ],
+      "com_move": [
+        50,
+        15
+      ],
+      "fuel_cap": 90,
+      "fuel_cons": 30,
+      "weapons": [],
+      "night": "Headlights",
+      "price": 20000,
+      "sprite": "V1",
+      "enemy_sprite": "V4",
+      "wreck": "DV1",
+      "enemy_wreck": "DV4",
+      "fuel_type": "D",
+      "description": "High Mobility, multipurpose wheeled vehicle. The HuMMWV is a four-wheel-drive, off-road vehicle. It has replaced the jeep in U.S. service."
+    },
+    {
+      "name": "2 1/2 TON TRUCK",
+      "kind": "wheeled",
+      "config": "Stnd",
+      "crew": 2,
+      "passengers": 12,
+      "load_t": 2.5,
+      "weight_t": 4,
+      "armor": {
+        "HF": 1,
+        "HS": 1,
+        "HR": 1
+      },
+      "susp": [
+        "W",
+        3
+      ],
+      "com_move": [
+        45,
+        8
+      ],
+      "fuel_cap": 195,
+      "fuel_cons": 65,
+      "weapons": [],
+      "night": "Headlights",
+      "price": 15000,
+      "sprite": "V2",
+      "enemy_sprite": "V5",
+      "wreck": "DV2",
+      "enemy_wreck": "DV5",
+      "fuel_type": "D",
+      "description": "A standard 6x6 cargo truck with moderate cross country performance, capable of carrying 2.5 tons of cargo."
+    },
+    {
+      "name": "M2A2 BRADLEY",
+      "kind": "tracked",
+      "config": "Trt",
+      "crew": 3,
+      "passengers": 7,
+      "load_t": 1.5,
+      "weight_t": 33,
+      "armor": {
+        "HF": 14,
+        "HS": 12,
+        "HR": 6,
+        "TF": 10,
+        "TS": 6,
+        "TR": 4
+      },
+      "spaced": [
+        "HS",
+        "TS",
+        "TR"
+      ],
+      "susp": [
+        "T",
+        4
+      ],
+      "com_move": [
+        35,
+        30
+      ],
+      "fuel_cap": 650,
+      "fuel_cons": 225,
+      "weapons": [
+        "25MM AUTOCANNON",
+        "TOW II",
+        "MAG MG"
+      ],
+      "ammo": {
+        "25MM AUTOCANNON": 300,
+        "TOW II": 7
+      },
+      "stabilization": "Good",
+      "night": "Passive IR/thermal",
+      "price": 200000,
+      "sprite": "V0",
+      "enemy_sprite": "V3",
+      "wreck": "DV0",
+      "enemy_wreck": "DV3",
+      "fuel_type": "D",
+      "description": "A tracked, amphibious infantry fighing vehicle. This is an upgraded version of the earlier Bradley infantry fighting vehicle. The M2A2 features an extra 30mm of applique armor, and the adoption of a more powerful engine."
+    },
+    {
+      "name": "M1A1",
+      "kind": "tracked",
+      "config": "Trt",
+      "crew": 4,
+      "passengers": 0,
+      "load_t": 0.7,
+      "weight_t": 63,
+      "armor": {
+        "HF": 300,
+        "HS": 16,
+        "HR": 16,
+        "TF": 120,
+        "TS": 40,
+        "TR": 16
+      },
+      "compound": [
+        "HF",
+        "TF"
+      ],
+      "spaced": [
+        "HS"
+      ],
+      "susp": [
+        "T",
+        6
+      ],
+      "com_move": [
+        30,
+        25
+      ],
+      "fuel_cap": 1920,
+      "fuel_cons": 560,
+      "weapons": [
+        "120MM GUN",
+        "MAG MG",
+        "M2HB MG"
+      ],
+      "ammo": {
+        "120MM GUN": 40
+      },
+      "stabilization": "Good",
+      "night": "Passive IR/thermal",
+      "price": 650000,
+      "sprite": "V0",
+      "enemy_sprite": "V3",
+      "wreck": "DV0",
+      "enemy_wreck": "DV3",
+      "fuel_type": "D",
+      "description": "A tracked main battle tank with a large turret. An extensively improved version of the basic M1. The M1A1 makes use of depleted uranium inserts to increase the armor protection on the hull and turret front."
+    },
+    {
+      "name": "M1A2",
+      "kind": "tracked",
+      "config": "CIH",
+      "crew": 3,
+      "passengers": 0,
+      "load_t": 0.7,
+      "weight_t": 59,
+      "armor": {
+        "HF": 300,
+        "HS": 16,
+        "HR": 16,
+        "TF": 120,
+        "TS": 40,
+        "TR": 20
+      },
+      "compound": [
+        "HF",
+        "TF"
+      ],
+      "spaced": [
+        "HS"
+      ],
+      "susp": [
+        "T",
+        6
+      ],
+      "com_move": [
+        35,
+        30
+      ],
+      "fuel_cap": 1920,
+      "fuel_cons": 560,
+      "weapons": [
+        "120MM GUN",
+        "MAG MG",
+        "M2HB MG"
+      ],
+      "ammo": {
+        "120MM GUN": 40
+      },
+      "stabilization": "Good",
+      "night": "Passive IR/thermal",
+      "price": 700000,
+      "sprite": "V0",
+      "enemy_sprite": "V3",
+      "wreck": "DV0",
+      "enemy_wreck": "DV3",
+      "fuel_type": "D",
+      "description": "An M1 with a slightly higher superstructure and a small unmanned turet. The commander, gunner and driver ride in the vehicle chassis."
+    },
+    {
+      "name": "T-72",
+      "kind": "tracked",
+      "config": "Trt",
+      "crew": 3,
+      "passengers": 0,
+      "load_t": 0.5,
+      "weight_t": 40,
+      "armor": {
+        "HF": 100,
+        "HS": 16,
+        "HR": 10,
+        "TF": 70,
+        "TS": 24,
+        "TR": 20
+      },
+      "susp": [
+        "T",
+        6
+      ],
+      "com_move": [
+        25,
+        15
+      ],
+      "fuel_cap": 960,
+      "fuel_cons": 300,
+      "weapons": [
+        "125MM GUN",
+        "PK MG",
+        "DSHK MG"
+      ],
+      "ammo": {
+        "125MM GUN": 40
+      },
+      "stabilization": "Fair",
+      "night": "White light/IR spotlight",
+      "price": 400000,
+      "sprite": "V0",
+      "enemy_sprite": "V3",
+      "wreck": "DV0",
+      "enemy_wreck": "DV3",
+      "fuel_type": "D",
+      "description": "A tracked main battle tank of Soviet Manufacture. The gun is automatically reloaded. A weapons mount is located by the commander's hatch."
+    },
+    {
+      "name": "T-80",
+      "kind": "tracked",
+      "config": "Trt",
+      "crew": 3,
+      "passengers": 0,
+      "load_t": 0.5,
+      "weight_t": 40,
+      "armor": {
+        "HF": 125,
+        "HS": 16,
+        "HR": 10,
+        "TF": 90,
+        "TS": 24,
+        "TR": 20
+      },
+      "susp": [
+        "T",
+        6
+      ],
+      "com_move": [
+        30,
+        20
+      ],
+      "fuel_cap": 960,
+      "fuel_cons": 300,
+      "weapons": [
+        "125MM GUN",
+        "PK MG",
+        "DSHK MG"
+      ],
+      "ammo": {
+        "125MM GUN": 40
+      },
+      "stabilization": "Fair",
+      "night": "White light/IR spotlight",
+      "price": 500000,
+      "sprite": "V0",
+      "enemy_sprite": "V3",
+      "wreck": "DV0",
+      "enemy_wreck": "DV3",
+      "fuel_type": "D",
+      "description": "An improved version of the T-72, the T-80 has identical layout but stregnthened armor protection."
+    },
+    {
+      "name": "T-90",
+      "kind": "tracked",
+      "config": "CIH",
+      "crew": 3,
+      "passengers": 0,
+      "load_t": 0.5,
+      "weight_t": 40,
+      "armor": {
+        "HF": 200,
+        "HS": 20,
+        "HR": 16,
+        "TF": 100,
+        "TS": 50,
+        "TR": 30
+      },
+      "compound": [
+        "HF",
+        "TF"
+      ],
+      "susp": [
+        "T",
+        6
+      ],
+      "com_move": [
+        30,
+        20
+      ],
+      "fuel_cap": 960,
+      "fuel_cons": 340,
+      "weapons": [
+        "125MM GUN",
+        "PK MG"
+      ],
+      "ammo": {
+        "125MM GUN": 40
+      },
+      "stabilization": "Good",
+      "night": "White light/IR spotlight",
+      "price": 600000,
+      "sprite": "V0",
+      "enemy_sprite": "V3",
+      "wreck": "DV0",
+      "enemy_wreck": "DV3",
+      "fuel_type": "D",
+      "description": "First seen by western intelligence in the late 1980s and first tentatively identified as the FST-1 (Follow-on-Soviet tank), the T-90 feaures an enlarged T-80 chassis with a casemated, remote-contolled gun."
+    }
+  ]
+}

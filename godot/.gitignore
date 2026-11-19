@@ -1,0 +1,15 @@
+# Godot 4 cache and imported resources
+.godot/
+*.import
+
+# Test output and screenshots (user:// mirrors locally)
+tests/out/
+screenshots/
+
+# Backups and one-off scripts
+*.bak*
+*.bak_*
+
+# OS junk
+Thumbs.db
+Desktop.ini
