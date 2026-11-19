@@ -55,6 +55,8 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
   TWI3D-ajoneuvokuvaukset (8 kpl) vehicles.json:ssa ja motor poolissa. Korjattu vanha testivirhe
   (worldmap.gd "done"-metodikutsu). Mission-failure seuraukset: kun ryhmä tuhoutuu defend/tank/liberate-
   tehtävässä, kaupunki menee Czarnylle (lost_cities-lista, friends-erasing, city_lost-viesti).
+  Melee-lähitaistelu: melee() battle.gd:ssä, M-näppäin + MELEE-nappi battle_view:ssä, UNARMED MELEE -taito,
+  vain vierekkäiset kohteet.
 - **KESKEN (M9):** UI-hionta, virheentestit (korruptoitu save, puuttuvat tiedostot),
   suorituskykymittaukset.
 - **EI ALOITETTU (M10):** exportit, README/ARCHITECTURE/CHANGELOG/version.txt, CI.
