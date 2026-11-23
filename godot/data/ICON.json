@@ -1,0 +1,4042 @@
+[
+ {
+  "offset": 34,
+  "kind": "ui",
+  "text": "PQRSTUVW"
+ },
+ {
+  "offset": 3784,
+  "kind": "ui",
+  "text": "PQRSTUVW"
+ },
+ {
+  "offset": 10509,
+  "kind": "ui",
+  "text": "tW,;ta"
+ },
+ {
+  "offset": 43953,
+  "kind": "ui",
+  "text": "Ht&Ht/-"
+ },
+ {
+  "offset": 47842,
+  "kind": "ui",
+  "text": "PQRSTUVW"
+ },
+ {
+  "offset": 49186,
+  "kind": "ui",
+  "text": "PQRSTUVW"
+ },
+ {
+  "offset": 53399,
+  "kind": "ui",
+  "text": "\"SRPWV"
+ },
+ {
+  "offset": 54603,
+  "kind": "ui",
+  "text": "Ht.Ht9Ht\\"
+ },
+ {
+  "offset": 60527,
+  "kind": "ui",
+  "text": "tX<\"t$<\\t"
+ },
+ {
+  "offset": 61842,
+  "kind": "ui",
+  "text": "<st'<ntQ<pt`<Et"
+ },
+ {
+  "offset": 67913,
+  "kind": "ui",
+  "text": "H|\nHH~.H|"
+ },
+ {
+  "offset": 68368,
+  "kind": "ui",
+  "text": "LPQWVW"
+ },
+ {
+  "offset": 68428,
+  "kind": "ui",
+  "text": "LPQWVW"
+ },
+ {
+  "offset": 68627,
+  "kind": "ui",
+  "text": "Ht Ht-"
+ },
+ {
+  "offset": 72920,
+  "kind": "ui",
+  "text": "MS Run-Time Library - Copyright (c) 1990, Microsoft Corp"
+ },
+ {
+  "offset": 72978,
+  "kind": "ui",
+  "text": "GAMEDATA\\ICON.LB"
+ },
+ {
+  "offset": 72995,
+  "kind": "ui",
+  "text": "GAMEDATA\\FACES.LB"
+ },
+ {
+  "offset": 73826,
+  "kind": "ui",
+  "text": "czarn1"
+ },
+ {
+  "offset": 73833,
+  "kind": "ui",
+  "text": "gamedata\\laugh1.voc"
+ },
+ {
+  "offset": 73883,
+  "kind": "ui",
+  "text": "gamedata\\ready.voc"
+ },
+ {
+  "offset": 73902,
+  "kind": "ui",
+  "text": "gamedata\\aim.voc"
+ },
+ {
+  "offset": 73919,
+  "kind": "ui",
+  "text": "gamedata\\fire.voc"
+ },
+ {
+  "offset": 73937,
+  "kind": "ui",
+  "text": "gamedata\\trifle.voc"
+ },
+ {
+  "offset": 73968,
+  "kind": "ui",
+  "text": "READY!"
+ },
+ {
+  "offset": 73975,
+  "kind": "dialogue",
+  "text": "YOUR WINNING CODE NUMBER IS: XJ11%02X%02XY%sMZ%02XZAMBONI%d%d%d%d.  SEND THIS NUMBER IN TO PARAGON."
+ },
+ {
+  "offset": 74076,
+  "kind": "dialogue",
+  "text": "AFTER AN EXHAUSTIVE BATTLE, YOU DEFEATED THE BLACK LEGION AND CAPTURED BARON CZARNY.  YOU WATCH AS THE MAD DICTATOR IS SWIFTLY SILENCED... ONCE AND FOR ALL."
+ },
+ {
+  "offset": 74234,
+  "kind": "dialogue",
+  "text": "THE BATTLE OF KRAKOW WILL BE REMEMBERED AS THE FINAL BLOW THAT BROKE THE CHAINS OF TYRANNY AND TERROR THAT SCARRED THE FACE OF POLAND.  YOU HAVE WRITTEN THE FIRST PAGE IN POLAND'S NEW HISTORY, A HISTORY BORN IN FREEDOM AND LIBERATION."
+ },
+ {
+  "offset": 74470,
+  "kind": "dialogue",
+  "text": "YOU HAVE DEMONSTRATED COURAGE, PATIENCE, LEADERSHIP, PERSEVERANCE AND WILL, AND YOU'VE SOMEHOW WON A WAR THE WORLD LOST.  PERHAPS MAN CAN LEARN FROM HIS MISTAKES.  PERHAPS THE WAR IS FINALLY OVER."
+ },
+ {
+  "offset": 74668,
+  "kind": "dialogue",
+  "text": "AS YOU CONTEMPLATE MANKIND'S FUTURE, A FUTURE FULL OF FRESH OPPORTUNITIES AND NEW BEGINNINGS, A TROUBLING THOUGHT STIRS IN THE BACK OF YOUR MIND.  GENERAL ANDREKOV WAS NOT CAPTURED, AND HIS BODY WAS NEVER DISCOVERED IN THE SEA OF CORPSES THAT COVERED THE SURFACE OF KRAKOW LIKE A CARPET.  SOME SAY HE DISAPPEARED BEFORE THE BATTLE OF KRAKOW AND FLED TO WHAT'S LEFT OF THE UNITED STATES OF AMERICA.  OTHERS SAY CZARNY PERSONALLY EXECUTED HIM WHEN HE CALLED FOR THE SURRENDER OF THE BLACK LEGION.  THE MOST FRIGHTENING THEORY IS THAT CZARNY WAS ONLY A PUPPET OF GENERAL ANDREKOV, WHO WAS THE TRUE SOURCE OF POLAND'S TERROR.  AS LONG AS THAT DISTURBING QUESTION REMAINS UNANSWERED AND THE GHOST OF GENERAL ANDREKOV CONTINUES TO HAUNT YOUR NIGHTMARES, YOU REALIZE THE WAR WILL NEVER BE OVER.  CAN MAN REALLY LEARN FROM HIS MISTAKES, OR IS HE TRAPPED IN A NEVER-ENDING CIRCLE WHERE HIS DESTRUCTIVE DESTINY IS, IN THE END, UNAVOIDABLE?"
+ },
+ {
+  "offset": 75598,
+  "kind": "ui",
+  "text": "czarny0"
+ },
+ {
+  "offset": 75606,
+  "kind": "ui",
+  "text": "End Of People"
+ },
+ {
+  "offset": 75620,
+  "kind": "dialogue",
+  "text": "Divide by zero at %04X:%04X.  PSP=%04X\nAX=%04X BX=%04X CX=%04X DX=%04X SI=%04X DI=%04X BP=%04X SP=%04X\nES=%04X DS=%04X flags=%04X"
+ },
+ {
+  "offset": 75757,
+  "kind": "ui",
+  "text": "DESCRIPTION"
+ },
+ {
+  "offset": 75769,
+  "kind": "ui",
+  "text": "LEFT HAND"
+ },
+ {
+  "offset": 75779,
+  "kind": "ui",
+  "text": "RIGHT HAND"
+ },
+ {
+  "offset": 75790,
+  "kind": "ui",
+  "text": "GROUND"
+ },
+ {
+  "offset": 75797,
+  "kind": "ui",
+  "text": "PLAYER:"
+ },
+ {
+  "offset": 75805,
+  "kind": "ui",
+  "text": "CHARACTER:"
+ },
+ {
+  "offset": 75816,
+  "kind": "ui",
+  "text": "NATIONALITY:"
+ },
+ {
+  "offset": 75829,
+  "kind": "ui",
+  "text": "GENDER:"
+ },
+ {
+  "offset": 75843,
+  "kind": "ui",
+  "text": "BRANCH:"
+ },
+ {
+  "offset": 75851,
+  "kind": "ui",
+  "text": "THROW RANGE:"
+ },
+ {
+  "offset": 75864,
+  "kind": "ui",
+  "text": "WEIGHT:"
+ },
+ {
+  "offset": 75872,
+  "kind": "ui",
+  "text": "INITIATIVE:"
+ },
+ {
+  "offset": 75901,
+  "kind": "ui",
+  "text": "KILLS:"
+ },
+ {
+  "offset": 75908,
+  "kind": "ui",
+  "text": "MISSIONS:"
+ },
+ {
+  "offset": 75918,
+  "kind": "ui",
+  "text": "CURRENT LOAD:"
+ },
+ {
+  "offset": 77042,
+  "kind": "format",
+  "text": "%u KILOGRAMS"
+ },
+ {
+  "offset": 77055,
+  "kind": "format",
+  "text": "%u GRAMS"
+ },
+ {
+  "offset": 77064,
+  "kind": "ui",
+  "text": "LENGTH LEFT:"
+ },
+ {
+  "offset": 77078,
+  "kind": "ui",
+  "text": "LESS THAN ONE HOUR"
+ },
+ {
+  "offset": 77097,
+  "kind": "ui",
+  "text": "HOURS"
+ },
+ {
+  "offset": 77110,
+  "kind": "ui",
+  "text": "ROUNDS LEFT:"
+ },
+ {
+  "offset": 77124,
+  "kind": "ui",
+  "text": "CLIPS LEFT:"
+ },
+ {
+  "offset": 77142,
+  "kind": "ui",
+  "text": "GAMEDATA\\ITEMS.PIC"
+ },
+ {
+  "offset": 77161,
+  "kind": "ui",
+  "text": "ERROR OPENING PICTURE FILE ITEMS.PIC"
+ },
+ {
+  "offset": 77198,
+  "kind": "ui",
+  "text": "GAMEDATA\\EQUIP.TXT"
+ },
+ {
+  "offset": 77217,
+  "kind": "ui",
+  "text": "Unable to open file EQUIP.TXT"
+ },
+ {
+  "offset": 77247,
+  "kind": "ui",
+  "text": "THERE IS NO INFORMATION FOR THIS ITEM."
+ },
+ {
+  "offset": 77302,
+  "kind": "ui",
+  "text": "PERSONAL DATA"
+ },
+ {
+  "offset": 77321,
+  "kind": "ui",
+  "text": "FEMALE"
+ },
+ {
+  "offset": 77331,
+  "kind": "ui",
+  "text": "MTRS."
+ },
+ {
+  "offset": 77356,
+  "kind": "ui",
+  "text": "BASE HITS"
+ },
+ {
+  "offset": 77366,
+  "kind": "ui",
+  "text": "SKILL:"
+ },
+ {
+  "offset": 77381,
+  "kind": "ui",
+  "text": "UNARMED COMBAT"
+ },
+ {
+  "offset": 77396,
+  "kind": "ui",
+  "text": "CONTACTS"
+ },
+ {
+  "offset": 77405,
+  "kind": "ui",
+  "text": "FOREIGN"
+ },
+ {
+  "offset": 77414,
+  "kind": "ui",
+  "text": "LANGUAGE ("
+ },
+ {
+  "offset": 77425,
+  "kind": "ui",
+  "text": "GAMEDATA\\ITEMS.PIC"
+ },
+ {
+  "offset": 77444,
+  "kind": "ui",
+  "text": "ERROR OPENING PICTURE FILE ITEMS.PIC"
+ },
+ {
+  "offset": 77516,
+  "kind": "ui",
+  "text": "PISTOL"
+ },
+ {
+  "offset": 77533,
+  "kind": "ui",
+  "text": "HVY. WEAPONS"
+ },
+ {
+  "offset": 77546,
+  "kind": "ui",
+  "text": "UNARMED COMBAT"
+ },
+ {
+  "offset": 77561,
+  "kind": "ui",
+  "text": "ARMENIAN"
+ },
+ {
+  "offset": 77570,
+  "kind": "ui",
+  "text": "AZERBAIJANI"
+ },
+ {
+  "offset": 77582,
+  "kind": "ui",
+  "text": "BYELORUSSIAN"
+ },
+ {
+  "offset": 77595,
+  "kind": "ui",
+  "text": "CHUVASH"
+ },
+ {
+  "offset": 77609,
+  "kind": "ui",
+  "text": "DANISH"
+ },
+ {
+  "offset": 77616,
+  "kind": "ui",
+  "text": "ENGLISH"
+ },
+ {
+  "offset": 77624,
+  "kind": "ui",
+  "text": "ESTONIAN"
+ },
+ {
+  "offset": 77633,
+  "kind": "ui",
+  "text": "FRENCH"
+ },
+ {
+  "offset": 77640,
+  "kind": "ui",
+  "text": "GAELIC"
+ },
+ {
+  "offset": 77647,
+  "kind": "ui",
+  "text": "GEORGIAN"
+ },
+ {
+  "offset": 77656,
+  "kind": "ui",
+  "text": "GERMAN"
+ },
+ {
+  "offset": 77663,
+  "kind": "ui",
+  "text": "HUNGARIAN"
+ },
+ {
+  "offset": 77673,
+  "kind": "ui",
+  "text": "ITALIAN"
+ },
+ {
+  "offset": 77681,
+  "kind": "ui",
+  "text": "KAZAKH"
+ },
+ {
+  "offset": 77688,
+  "kind": "ui",
+  "text": "KIRGIZ"
+ },
+ {
+  "offset": 77695,
+  "kind": "ui",
+  "text": "LATVIAN"
+ },
+ {
+  "offset": 77703,
+  "kind": "ui",
+  "text": "LITHUANIAN"
+ },
+ {
+  "offset": 77714,
+  "kind": "ui",
+  "text": "MORDVINIAN"
+ },
+ {
+  "offset": 77725,
+  "kind": "ui",
+  "text": "POLISH"
+ },
+ {
+  "offset": 77732,
+  "kind": "ui",
+  "text": "ROMANIAN"
+ },
+ {
+  "offset": 77741,
+  "kind": "ui",
+  "text": "ROMANY"
+ },
+ {
+  "offset": 77748,
+  "kind": "ui",
+  "text": "RUSSIAN"
+ },
+ {
+  "offset": 77756,
+  "kind": "ui",
+  "text": "SCOTSGAELIC"
+ },
+ {
+  "offset": 77768,
+  "kind": "ui",
+  "text": "SLOVAK"
+ },
+ {
+  "offset": 77775,
+  "kind": "ui",
+  "text": "SPANISH"
+ },
+ {
+  "offset": 77783,
+  "kind": "ui",
+  "text": "TAIJIK"
+ },
+ {
+  "offset": 77790,
+  "kind": "ui",
+  "text": "TARTAR"
+ },
+ {
+  "offset": 77797,
+  "kind": "ui",
+  "text": "TURKOMAN"
+ },
+ {
+  "offset": 77806,
+  "kind": "ui",
+  "text": "UKRAINIAN"
+ },
+ {
+  "offset": 77828,
+  "kind": "ui",
+  "text": "YIDDISH"
+ },
+ {
+  "offset": 77836,
+  "kind": "ui",
+  "text": "STRENGTH"
+ },
+ {
+  "offset": 77845,
+  "kind": "ui",
+  "text": "EDUCATION"
+ },
+ {
+  "offset": 77855,
+  "kind": "ui",
+  "text": "CONSTITUTION"
+ },
+ {
+  "offset": 77868,
+  "kind": "ui",
+  "text": "CHARISMA"
+ },
+ {
+  "offset": 77877,
+  "kind": "ui",
+  "text": "AGILITY"
+ },
+ {
+  "offset": 77885,
+  "kind": "ui",
+  "text": "INTELLIGENCE"
+ },
+ {
+  "offset": 77898,
+  "kind": "ui",
+  "text": "AIRCRAFT MECHANIC"
+ },
+ {
+  "offset": 77916,
+  "kind": "ui",
+  "text": "HUNTING BOW"
+ },
+ {
+  "offset": 77928,
+  "kind": "ui",
+  "text": "HEAVY WEAPONS"
+ },
+ {
+  "offset": 77942,
+  "kind": "ui",
+  "text": "ARMED MELEE COMBAT"
+ },
+ {
+  "offset": 77961,
+  "kind": "ui",
+  "text": "UNARMED MELEE COMBAT"
+ },
+ {
+  "offset": 77982,
+  "kind": "ui",
+  "text": "MECHANIC"
+ },
+ {
+  "offset": 77991,
+  "kind": "ui",
+  "text": "SMALL ARMS PISTOL"
+ },
+ {
+  "offset": 78009,
+  "kind": "ui",
+  "text": "SMALL ARMS RIFLE"
+ },
+ {
+  "offset": 78026,
+  "kind": "ui",
+  "text": "THROWN WEAPON"
+ },
+ {
+  "offset": 78040,
+  "kind": "ui",
+  "text": "BIOLOGY"
+ },
+ {
+  "offset": 78048,
+  "kind": "ui",
+  "text": "CHEMISTRY"
+ },
+ {
+  "offset": 78058,
+  "kind": "ui",
+  "text": "COMPUTER"
+ },
+ {
+  "offset": 78067,
+  "kind": "ui",
+  "text": "CIVIL ENGINEER"
+ },
+ {
+  "offset": 78082,
+  "kind": "ui",
+  "text": "GEOLOGY"
+ },
+ {
+  "offset": 78090,
+  "kind": "ui",
+  "text": "MEDICAL"
+ },
+ {
+  "offset": 78098,
+  "kind": "ui",
+  "text": "METEOROLOGY"
+ },
+ {
+  "offset": 78110,
+  "kind": "ui",
+  "text": "MINING ENGINEER"
+ },
+ {
+  "offset": 78126,
+  "kind": "ui",
+  "text": "METALLURGY"
+ },
+ {
+  "offset": 78137,
+  "kind": "ui",
+  "text": "COMBAT ENGINEER"
+ },
+ {
+  "offset": 78153,
+  "kind": "ui",
+  "text": "HORSEMANSHIP"
+ },
+ {
+  "offset": 78166,
+  "kind": "ui",
+  "text": "MOTORCYCLE"
+ },
+ {
+  "offset": 78177,
+  "kind": "ui",
+  "text": "MOUNTAINEERING"
+ },
+ {
+  "offset": 78192,
+  "kind": "ui",
+  "text": "PARACHUTE"
+ },
+ {
+  "offset": 78208,
+  "kind": "ui",
+  "text": "SWIMMING"
+ },
+ {
+  "offset": 78217,
+  "kind": "ui",
+  "text": "DISGUISE"
+ },
+ {
+  "offset": 78226,
+  "kind": "ui",
+  "text": "INSTRUCTION"
+ },
+ {
+  "offset": 78238,
+  "kind": "ui",
+  "text": "INTERROGATION"
+ },
+ {
+  "offset": 78252,
+  "kind": "ui",
+  "text": "LEADERSHIP"
+ },
+ {
+  "offset": 78263,
+  "kind": "ui",
+  "text": "PERSUASION"
+ },
+ {
+  "offset": 78274,
+  "kind": "ui",
+  "text": "ELECTRONICS"
+ },
+ {
+  "offset": 78286,
+  "kind": "ui",
+  "text": "FORGERY"
+ },
+ {
+  "offset": 78294,
+  "kind": "ui",
+  "text": "GUNSMITH"
+ },
+ {
+  "offset": 78303,
+  "kind": "ui",
+  "text": "LOCKPICK"
+ },
+ {
+  "offset": 78312,
+  "kind": "ui",
+  "text": "MACHINIST"
+ },
+ {
+  "offset": 78322,
+  "kind": "ui",
+  "text": "PILOT FIXED WING"
+ },
+ {
+  "offset": 78339,
+  "kind": "ui",
+  "text": "PILOT ROTARY WING"
+ },
+ {
+  "offset": 78357,
+  "kind": "ui",
+  "text": "SMALL BOAT"
+ },
+ {
+  "offset": 78368,
+  "kind": "ui",
+  "text": "SNOW SKIING"
+ },
+ {
+  "offset": 78380,
+  "kind": "ui",
+  "text": "STEALTH"
+ },
+ {
+  "offset": 78388,
+  "kind": "ui",
+  "text": "TRACKED VEHICLE"
+ },
+ {
+  "offset": 78404,
+  "kind": "ui",
+  "text": "WARHEAD"
+ },
+ {
+  "offset": 78412,
+  "kind": "ui",
+  "text": "WHEELED VEHICLE"
+ },
+ {
+  "offset": 78428,
+  "kind": "ui",
+  "text": "FORWARD OBSERVER"
+ },
+ {
+  "offset": 78445,
+  "kind": "ui",
+  "text": "FORAGING"
+ },
+ {
+  "offset": 78454,
+  "kind": "ui",
+  "text": "FARMING"
+ },
+ {
+  "offset": 78462,
+  "kind": "ui",
+  "text": "FISHING"
+ },
+ {
+  "offset": 78470,
+  "kind": "ui",
+  "text": "NAVIGATION"
+ },
+ {
+  "offset": 78481,
+  "kind": "ui",
+  "text": "OBSERVATION"
+ },
+ {
+  "offset": 78493,
+  "kind": "ui",
+  "text": "SCROUNGING"
+ },
+ {
+  "offset": 78504,
+  "kind": "ui",
+  "text": "TRACKING"
+ },
+ {
+  "offset": 78513,
+  "kind": "ui",
+  "text": "LANGUAGE"
+ },
+ {
+  "offset": 78522,
+  "kind": "ui",
+  "text": "ENGLISH"
+ },
+ {
+  "offset": 78536,
+  "kind": "ui",
+  "text": "SCOTTISH"
+ },
+ {
+  "offset": 78551,
+  "kind": "ui",
+  "text": "ANGLO-CANADIAN"
+ },
+ {
+  "offset": 78566,
+  "kind": "ui",
+  "text": "FRENCH-CANADIAN"
+ },
+ {
+  "offset": 78582,
+  "kind": "ui",
+  "text": "GERMAN"
+ },
+ {
+  "offset": 78589,
+  "kind": "ui",
+  "text": "DANISH"
+ },
+ {
+  "offset": 78596,
+  "kind": "ui",
+  "text": "AMERICAN"
+ },
+ {
+  "offset": 78605,
+  "kind": "ui",
+  "text": "POLISH"
+ },
+ {
+  "offset": 78612,
+  "kind": "ui",
+  "text": "HUNGARIAN"
+ },
+ {
+  "offset": 78622,
+  "kind": "ui",
+  "text": "CZECHOSLOVAKIAN"
+ },
+ {
+  "offset": 78638,
+  "kind": "ui",
+  "text": "SLOVAK"
+ },
+ {
+  "offset": 78645,
+  "kind": "ui",
+  "text": "RUSSIAN"
+ },
+ {
+  "offset": 78653,
+  "kind": "ui",
+  "text": "AZERBAIJANI"
+ },
+ {
+  "offset": 78665,
+  "kind": "ui",
+  "text": "UKRAINIAN"
+ },
+ {
+  "offset": 78675,
+  "kind": "ui",
+  "text": "BYELORUSSIAN"
+ },
+ {
+  "offset": 78688,
+  "kind": "ui",
+  "text": "GEORGIAN"
+ },
+ {
+  "offset": 78703,
+  "kind": "ui",
+  "text": "LITHUANIAN"
+ },
+ {
+  "offset": 78714,
+  "kind": "ui",
+  "text": "ROMANIAN"
+ },
+ {
+  "offset": 78723,
+  "kind": "ui",
+  "text": "LATVIAN"
+ },
+ {
+  "offset": 78731,
+  "kind": "ui",
+  "text": "KAZAKH"
+ },
+ {
+  "offset": 78738,
+  "kind": "ui",
+  "text": "CHUVASH"
+ },
+ {
+  "offset": 78746,
+  "kind": "ui",
+  "text": "ARMENIAN"
+ },
+ {
+  "offset": 78755,
+  "kind": "ui",
+  "text": "ESTONIAN"
+ },
+ {
+  "offset": 78764,
+  "kind": "ui",
+  "text": "KIRGIZ"
+ },
+ {
+  "offset": 78771,
+  "kind": "ui",
+  "text": "TARTAR"
+ },
+ {
+  "offset": 78778,
+  "kind": "ui",
+  "text": "MORDVINIAN"
+ },
+ {
+  "offset": 78789,
+  "kind": "ui",
+  "text": "TAIJIK"
+ },
+ {
+  "offset": 78796,
+  "kind": "ui",
+  "text": "TURKOMAN"
+ },
+ {
+  "offset": 78805,
+  "kind": "ui",
+  "text": "PRIVATE"
+ },
+ {
+  "offset": 78813,
+  "kind": "ui",
+  "text": "SPEC 4"
+ },
+ {
+  "offset": 78820,
+  "kind": "ui",
+  "text": "SERGEANT"
+ },
+ {
+  "offset": 78829,
+  "kind": "ui",
+  "text": "STAFF SERGEANT"
+ },
+ {
+  "offset": 78844,
+  "kind": "ui",
+  "text": "PLATOON SERGEANT"
+ },
+ {
+  "offset": 78861,
+  "kind": "ui",
+  "text": "MASTER SERGEANT"
+ },
+ {
+  "offset": 78877,
+  "kind": "ui",
+  "text": "SERGEANT MAJOR"
+ },
+ {
+  "offset": 78892,
+  "kind": "ui",
+  "text": "2ND LIEUTENANT"
+ },
+ {
+  "offset": 78907,
+  "kind": "ui",
+  "text": "1ST LIEUTENANT"
+ },
+ {
+  "offset": 78922,
+  "kind": "ui",
+  "text": "CAPTAIN"
+ },
+ {
+  "offset": 78936,
+  "kind": "ui",
+  "text": "LIEUTENANT COLONEL"
+ },
+ {
+  "offset": 78955,
+  "kind": "ui",
+  "text": "COLONEL"
+ },
+ {
+  "offset": 78963,
+  "kind": "ui",
+  "text": "PRIVATE"
+ },
+ {
+  "offset": 78971,
+  "kind": "ui",
+  "text": "LANCE CORPORAL"
+ },
+ {
+  "offset": 78986,
+  "kind": "ui",
+  "text": "SERGEANT"
+ },
+ {
+  "offset": 78995,
+  "kind": "ui",
+  "text": "STAFF SERGEANT"
+ },
+ {
+  "offset": 79010,
+  "kind": "ui",
+  "text": "GUNNERY SERGEANT"
+ },
+ {
+  "offset": 79027,
+  "kind": "ui",
+  "text": "MASTER SERGEANT"
+ },
+ {
+  "offset": 79043,
+  "kind": "ui",
+  "text": "SERGEANT MAJOR"
+ },
+ {
+  "offset": 79058,
+  "kind": "ui",
+  "text": "2ND LIEUTENANT"
+ },
+ {
+  "offset": 79073,
+  "kind": "ui",
+  "text": "1ST LIEUTENANT"
+ },
+ {
+  "offset": 79088,
+  "kind": "ui",
+  "text": "CAPTAIN"
+ },
+ {
+  "offset": 79102,
+  "kind": "ui",
+  "text": "LIEUTENANT COLONEL"
+ },
+ {
+  "offset": 79121,
+  "kind": "ui",
+  "text": "COLONEL"
+ },
+ {
+  "offset": 79129,
+  "kind": "ui",
+  "text": "SEAMAN"
+ },
+ {
+  "offset": 79136,
+  "kind": "ui",
+  "text": "GUNNER'S MATE"
+ },
+ {
+  "offset": 79150,
+  "kind": "ui",
+  "text": "BO'SUN"
+ },
+ {
+  "offset": 79157,
+  "kind": "ui",
+  "text": "PETTY OFFICER 2ND CLASS"
+ },
+ {
+  "offset": 79181,
+  "kind": "ui",
+  "text": "PETTY OFFICER 1ST CLASS"
+ },
+ {
+  "offset": 79205,
+  "kind": "ui",
+  "text": "CHIEF PETTY OFFICER"
+ },
+ {
+  "offset": 79225,
+  "kind": "ui",
+  "text": "SENIOR CPO"
+ },
+ {
+  "offset": 79236,
+  "kind": "ui",
+  "text": "ENSIGN"
+ },
+ {
+  "offset": 79243,
+  "kind": "ui",
+  "text": "LIEUTENANT JUNIOR GRADE"
+ },
+ {
+  "offset": 79267,
+  "kind": "ui",
+  "text": "LIEUTENANT"
+ },
+ {
+  "offset": 79278,
+  "kind": "ui",
+  "text": "LIEUTENANT COMMANDER"
+ },
+ {
+  "offset": 79299,
+  "kind": "ui",
+  "text": "COMMANDER"
+ },
+ {
+  "offset": 79309,
+  "kind": "ui",
+  "text": "CAPTAIN"
+ },
+ {
+  "offset": 79317,
+  "kind": "ui",
+  "text": "AIRMAN"
+ },
+ {
+  "offset": 79324,
+  "kind": "ui",
+  "text": "SENIOR AIRMAN"
+ },
+ {
+  "offset": 79338,
+  "kind": "ui",
+  "text": "SERGEANT"
+ },
+ {
+  "offset": 79347,
+  "kind": "ui",
+  "text": "STAFF SERGEANT"
+ },
+ {
+  "offset": 79362,
+  "kind": "ui",
+  "text": "TECHNICAL SERGEANT"
+ },
+ {
+  "offset": 79381,
+  "kind": "ui",
+  "text": "MASTER SERGEANT"
+ },
+ {
+  "offset": 79397,
+  "kind": "ui",
+  "text": "FIRST SERGEANT"
+ },
+ {
+  "offset": 79412,
+  "kind": "ui",
+  "text": "2ND LIEUTENANT"
+ },
+ {
+  "offset": 79427,
+  "kind": "ui",
+  "text": "1ST LIEUTENANT"
+ },
+ {
+  "offset": 79442,
+  "kind": "ui",
+  "text": "CAPTAIN"
+ },
+ {
+  "offset": 79456,
+  "kind": "ui",
+  "text": "LIEUTENANT COLONEL"
+ },
+ {
+  "offset": 79475,
+  "kind": "ui",
+  "text": "COLONEL"
+ },
+ {
+  "offset": 79489,
+  "kind": "ui",
+  "text": "ARTILLERY"
+ },
+ {
+  "offset": 79499,
+  "kind": "ui",
+  "text": "AVIATION"
+ },
+ {
+  "offset": 79508,
+  "kind": "ui",
+  "text": "ENGINEER"
+ },
+ {
+  "offset": 79517,
+  "kind": "ui",
+  "text": "INFANTRY"
+ },
+ {
+  "offset": 79526,
+  "kind": "ui",
+  "text": "MEDICAL"
+ },
+ {
+  "offset": 79534,
+  "kind": "ui",
+  "text": "INTELLIGENCE"
+ },
+ {
+  "offset": 79547,
+  "kind": "ui",
+  "text": "SPECIAL FORCES"
+ },
+ {
+  "offset": 79562,
+  "kind": "ui",
+  "text": "SUPPORT"
+ },
+ {
+  "offset": 79575,
+  "kind": "ui",
+  "text": "MARINES"
+ },
+ {
+  "offset": 79588,
+  "kind": "ui",
+  "text": "AIR FORCE"
+ },
+ {
+  "offset": 79598,
+  "kind": "ui",
+  "text": "ACADEMIC"
+ },
+ {
+  "offset": 79607,
+  "kind": "ui",
+  "text": "BUSINESS"
+ },
+ {
+  "offset": 79616,
+  "kind": "ui",
+  "text": "CRIMINAL"
+ },
+ {
+  "offset": 79625,
+  "kind": "ui",
+  "text": "ENTERTAINMENT"
+ },
+ {
+  "offset": 79639,
+  "kind": "ui",
+  "text": "GOVERNMENT"
+ },
+ {
+  "offset": 79650,
+  "kind": "ui",
+  "text": "INTELLIGENCE"
+ },
+ {
+  "offset": 79663,
+  "kind": "ui",
+  "text": "JOURNALIST"
+ },
+ {
+  "offset": 79674,
+  "kind": "ui",
+  "text": "LAW ENFORCEMENT"
+ },
+ {
+  "offset": 79690,
+  "kind": "ui",
+  "text": "MEDICAL"
+ },
+ {
+  "offset": 79698,
+  "kind": "ui",
+  "text": "MILITARY"
+ },
+ {
+  "offset": 79707,
+  "kind": "ui",
+  "text": "SPECIALIST"
+ },
+ {
+  "offset": 79718,
+  "kind": "ui",
+  "text": "WEALTHY"
+ },
+ {
+  "offset": 79738,
+  "kind": "ui",
+  "text": "WEIGHT:"
+ },
+ {
+  "offset": 79762,
+  "kind": "ui",
+  "text": "DAMAGE:"
+ },
+ {
+  "offset": 79775,
+  "kind": "ui",
+  "text": "BLOCK:"
+ },
+ {
+  "offset": 79782,
+  "kind": "ui",
+  "text": "RECOIL"
+ },
+ {
+  "offset": 79793,
+  "kind": "ui",
+  "text": "BURST:"
+ },
+ {
+  "offset": 79800,
+  "kind": "ui",
+  "text": "RANGE:"
+ },
+ {
+  "offset": 79818,
+  "kind": "ui",
+  "text": "DAMAGE:"
+ },
+ {
+  "offset": 79831,
+  "kind": "ui",
+  "text": "RANGE:"
+ },
+ {
+  "offset": 79849,
+  "kind": "ui",
+  "text": "DAMAGE:"
+ },
+ {
+  "offset": 79862,
+  "kind": "ui",
+  "text": "RANGE:"
+ },
+ {
+  "offset": 79869,
+  "kind": "ui",
+  "text": "RELOAD:"
+ },
+ {
+  "offset": 79883,
+  "kind": "ui",
+  "text": "DAMAGE:"
+ },
+ {
+  "offset": 79896,
+  "kind": "ui",
+  "text": "RANGE:"
+ },
+ {
+  "offset": 79903,
+  "kind": "ui",
+  "text": "RELOAD:"
+ },
+ {
+  "offset": 79911,
+  "kind": "ui",
+  "text": "MELEE WEAPON"
+ },
+ {
+  "offset": 79928,
+  "kind": "ui",
+  "text": "REVOLVER"
+ },
+ {
+  "offset": 79937,
+  "kind": "ui",
+  "text": "SINGLE SHOT PISTOL"
+ },
+ {
+  "offset": 79956,
+  "kind": "ui",
+  "text": "AUTOMATIC PISTOL"
+ },
+ {
+  "offset": 79973,
+  "kind": "ui",
+  "text": "BATTLE RIFLE"
+ },
+ {
+  "offset": 79986,
+  "kind": "ui",
+  "text": "SUBMACHINEGUN"
+ },
+ {
+  "offset": 80000,
+  "kind": "ui",
+  "text": "ASSAULT RIFLE"
+ },
+ {
+  "offset": 80014,
+  "kind": "ui",
+  "text": "SPORTING RIFLE"
+ },
+ {
+  "offset": 80029,
+  "kind": "ui",
+  "text": "SNIPER RIFLE"
+ },
+ {
+  "offset": 80042,
+  "kind": "ui",
+  "text": "SHOTGUN"
+ },
+ {
+  "offset": 80050,
+  "kind": "ui",
+  "text": "AUTOMATIC RIFLE"
+ },
+ {
+  "offset": 80066,
+  "kind": "ui",
+  "text": "MACHINEGUN"
+ },
+ {
+  "offset": 80077,
+  "kind": "ui",
+  "text": "HEAVY MACHINEGUN"
+ },
+ {
+  "offset": 80094,
+  "kind": "ui",
+  "text": "GRENADE LAUNCHER"
+ },
+ {
+  "offset": 80111,
+  "kind": "ui",
+  "text": "ROCKET LAUNCHER"
+ },
+ {
+  "offset": 80127,
+  "kind": "ui",
+  "text": "MISSILE LAUNCHER"
+ },
+ {
+  "offset": 80144,
+  "kind": "ui",
+  "text": "HOWITZER"
+ },
+ {
+  "offset": 80153,
+  "kind": "ui",
+  "text": "LARGE-CALIBER GUN"
+ },
+ {
+  "offset": 80171,
+  "kind": "ui",
+  "text": "MORTAR"
+ },
+ {
+  "offset": 80178,
+  "kind": "ui",
+  "text": "AMMUNITION"
+ },
+ {
+  "offset": 80189,
+  "kind": "ui",
+  "text": "HAND GRENADE"
+ },
+ {
+  "offset": 80202,
+  "kind": "ui",
+  "text": "EXPLOSIVE"
+ },
+ {
+  "offset": 80212,
+  "kind": "ui",
+  "text": "GENERATOR"
+ },
+ {
+  "offset": 80228,
+  "kind": "ui",
+  "text": "HEATER OR COOLER"
+ },
+ {
+  "offset": 80245,
+  "kind": "ui",
+  "text": "HAND TOOL"
+ },
+ {
+  "offset": 80261,
+  "kind": "ui",
+  "text": "RANGEFINDER"
+ },
+ {
+  "offset": 80273,
+  "kind": "ui",
+  "text": "VISION DEVICE"
+ },
+ {
+  "offset": 80293,
+  "kind": "ui",
+  "text": "LASER DESIGNATOR"
+ },
+ {
+  "offset": 80310,
+  "kind": "ui",
+  "text": "NBC EQUIPMENT"
+ },
+ {
+  "offset": 80324,
+  "kind": "ui",
+  "text": "MEDICAL SUPPLY"
+ },
+ {
+  "offset": 80339,
+  "kind": "ui",
+  "text": "BODY ARMOR"
+ },
+ {
+  "offset": 80350,
+  "kind": "ui",
+  "text": "PERSONAL GEAR"
+ },
+ {
+  "offset": 80364,
+  "kind": "ui",
+  "text": "MISCELLANEOUS"
+ },
+ {
+  "offset": 80378,
+  "kind": "ui",
+  "text": "4.7MM CLS"
+ },
+ {
+  "offset": 80445,
+  "kind": "ui",
+  "text": ".38 SPECIAL"
+ },
+ {
+  "offset": 80457,
+  "kind": "ui",
+  "text": ".357 MAGNUM"
+ },
+ {
+  "offset": 80486,
+  "kind": "ui",
+  "text": "12 GAUGE"
+ },
+ {
+  "offset": 80495,
+  "kind": "ui",
+  "text": "30MM GRENADES"
+ },
+ {
+  "offset": 80509,
+  "kind": "ui",
+  "text": "40MM GRENADES"
+ },
+ {
+  "offset": 80523,
+  "kind": "ui",
+  "text": "58.3MM HEAT ROCKETS"
+ },
+ {
+  "offset": 80543,
+  "kind": "ui",
+  "text": "84MM HEAT ROCKETS"
+ },
+ {
+  "offset": 80561,
+  "kind": "ui",
+  "text": "TANK BREAKER"
+ },
+ {
+  "offset": 80574,
+  "kind": "ui",
+  "text": "TOW II MISSILE"
+ },
+ {
+  "offset": 80589,
+  "kind": "ui",
+  "text": "AT-5 \"SPANDREL\""
+ },
+ {
+  "offset": 80605,
+  "kind": "ui",
+  "text": "AT-7 \"SAXHORN\""
+ },
+ {
+  "offset": 80620,
+  "kind": "ui",
+  "text": "DRAGON PIP"
+ },
+ {
+  "offset": 80636,
+  "kind": "ui",
+  "text": "ROUNDS"
+ },
+ {
+  "offset": 80653,
+  "kind": "ui",
+  "text": "SINGLE SHOT"
+ },
+ {
+  "offset": 80665,
+  "kind": "ui",
+  "text": "BOLT ACTION"
+ },
+ {
+  "offset": 80677,
+  "kind": "ui",
+  "text": "LEVER ACTION"
+ },
+ {
+  "offset": 80690,
+  "kind": "ui",
+  "text": "PUMP ACTION"
+ },
+ {
+  "offset": 80702,
+  "kind": "ui",
+  "text": "DOUBLE-ACTION REVOLVER"
+ },
+ {
+  "offset": 80725,
+  "kind": "ui",
+  "text": "SEMIAUTOMATIC"
+ },
+ {
+  "offset": 82152,
+  "kind": "ui",
+  "text": "KRAKOW"
+ },
+ {
+  "offset": 82165,
+  "kind": "ui",
+  "text": "SKAWINA"
+ },
+ {
+  "offset": 82173,
+  "kind": "ui",
+  "text": "SLOMNIKI"
+ },
+ {
+  "offset": 82182,
+  "kind": "ui",
+  "text": "MIECHOW"
+ },
+ {
+  "offset": 82190,
+  "kind": "ui",
+  "text": "PROSZOWICE"
+ },
+ {
+  "offset": 82201,
+  "kind": "ui",
+  "text": "OLKUSZ"
+ },
+ {
+  "offset": 82208,
+  "kind": "ui",
+  "text": "IGLOMIA"
+ },
+ {
+  "offset": 82216,
+  "kind": "ui",
+  "text": "BOCHINA"
+ },
+ {
+  "offset": 82224,
+  "kind": "ui",
+  "text": "CHRZANOW"
+ },
+ {
+  "offset": 82233,
+  "kind": "ui",
+  "text": "PILICA"
+ },
+ {
+  "offset": 82240,
+  "kind": "ui",
+  "text": "KAZIMIERZA"
+ },
+ {
+  "offset": 82251,
+  "kind": "ui",
+  "text": "PRADLA"
+ },
+ {
+  "offset": 82258,
+  "kind": "ui",
+  "text": "WECHADLON"
+ },
+ {
+  "offset": 82268,
+  "kind": "ui",
+  "text": "ZAWIERCIE"
+ },
+ {
+  "offset": 82278,
+  "kind": "ui",
+  "text": "ZINDER"
+ },
+ {
+  "offset": 82291,
+  "kind": "ui",
+  "text": "TARNOW"
+ },
+ {
+  "offset": 82298,
+  "kind": "ui",
+  "text": "WOJNICZ"
+ },
+ {
+  "offset": 82306,
+  "kind": "ui",
+  "text": "NOWY KORCZYN"
+ },
+ {
+  "offset": 82319,
+  "kind": "ui",
+  "text": "BUSKO ZOROJ"
+ },
+ {
+  "offset": 82331,
+  "kind": "ui",
+  "text": "TARNOWSKA"
+ },
+ {
+  "offset": 82341,
+  "kind": "ui",
+  "text": "STOPNICA"
+ },
+ {
+  "offset": 82356,
+  "kind": "ui",
+  "text": "LUBIEN"
+ },
+ {
+  "offset": 82363,
+  "kind": "ui",
+  "text": "TASZOW"
+ },
+ {
+  "offset": 82370,
+  "kind": "ui",
+  "text": "DEBICA"
+ },
+ {
+  "offset": 82377,
+  "kind": "ui",
+  "text": "MIELEC"
+ },
+ {
+  "offset": 82384,
+  "kind": "ui",
+  "text": "WOSNIKI"
+ },
+ {
+  "offset": 82392,
+  "kind": "ui",
+  "text": "CZESTOCHOWA"
+ },
+ {
+  "offset": 82404,
+  "kind": "ui",
+  "text": "KLOBUCK"
+ },
+ {
+  "offset": 82412,
+  "kind": "ui",
+  "text": "RUDNICKI"
+ },
+ {
+  "offset": 82439,
+  "kind": "ui",
+  "text": "KANIECPOL"
+ },
+ {
+  "offset": 82449,
+  "kind": "ui",
+  "text": "SW.ANNA"
+ },
+ {
+  "offset": 82469,
+  "kind": "ui",
+  "text": "SZCZEKOCINY"
+ },
+ {
+  "offset": 82493,
+  "kind": "ui",
+  "text": "LORUSZNO"
+ },
+ {
+  "offset": 82502,
+  "kind": "ui",
+  "text": "WLOSZCZOWA"
+ },
+ {
+  "offset": 82513,
+  "kind": "ui",
+  "text": "SZCZEKOINY"
+ },
+ {
+  "offset": 82524,
+  "kind": "ui",
+  "text": "WODISLAW"
+ },
+ {
+  "offset": 82533,
+  "kind": "ui",
+  "text": "PINCZO"
+ },
+ {
+  "offset": 82540,
+  "kind": "ui",
+  "text": "CHMIEINIK"
+ },
+ {
+  "offset": 82556,
+  "kind": "ui",
+  "text": "NAGLOWICE"
+ },
+ {
+  "offset": 82566,
+  "kind": "ui",
+  "text": "JEDRZELOW"
+ },
+ {
+  "offset": 82576,
+  "kind": "ui",
+  "text": "KIELCE"
+ },
+ {
+  "offset": 82583,
+  "kind": "ui",
+  "text": "MOROWICA"
+ },
+ {
+  "offset": 82592,
+  "kind": "ui",
+  "text": "LOPUSZNO"
+ },
+ {
+  "offset": 82606,
+  "kind": "ui",
+  "text": "CHECINY"
+ },
+ {
+  "offset": 83170,
+  "kind": "ui",
+  "text": "GAMEDATA\\DW_GFY.UYB"
+ },
+ {
+  "offset": 83190,
+  "kind": "ui",
+  "text": "ERROR OPENING MAP FILE"
+ },
+ {
+  "offset": 83214,
+  "kind": "ui",
+  "text": "Corrupt map file."
+ },
+ {
+  "offset": 83232,
+  "kind": "ui",
+  "text": "maptop"
+ },
+ {
+  "offset": 83239,
+  "kind": "ui",
+  "text": "maptop"
+ },
+ {
+  "offset": 83247,
+  "kind": "ui",
+  "text": "PRESS ANY KEY TO CONTINUE."
+ },
+ {
+  "offset": 83274,
+  "kind": "dialogue",
+  "text": "YOU CAN'T USE THE MOVE FEATURE BECAUSE THERE ARE ENEMIES TOO CLOSE TO YOU."
+ },
+ {
+  "offset": 83349,
+  "kind": "ui",
+  "text": "YOUR VEHICLE IS OUT OF FUEL."
+ },
+ {
+  "offset": 83378,
+  "kind": "ui",
+  "text": "YOUR VEHICLE CANNOT MOVE BECAUSE THE SUSPENSION IS DAMAGED."
+ },
+ {
+  "offset": 83438,
+  "kind": "ui",
+  "text": "MOVE TO WHERE?"
+ },
+ {
+  "offset": 83453,
+  "kind": "ui",
+  "text": "(ESC TO CONTINUE)"
+ },
+ {
+  "offset": 83500,
+  "kind": "ui",
+  "text": "nnnAFF2"
+ },
+ {
+  "offset": 83532,
+  "kind": "format",
+  "text": "%d DAY%s,"
+ },
+ {
+  "offset": 83543,
+  "kind": "format",
+  "text": "%d HOUR%s,"
+ },
+ {
+  "offset": 83555,
+  "kind": "format",
+  "text": "%d MINUTE%s"
+ },
+ {
+  "offset": 83570,
+  "kind": "ui",
+  "text": "NORTHEAST"
+ },
+ {
+  "offset": 83585,
+  "kind": "ui",
+  "text": "SOUTHEAST"
+ },
+ {
+  "offset": 83601,
+  "kind": "ui",
+  "text": "SOUTHWEST"
+ },
+ {
+  "offset": 83616,
+  "kind": "ui",
+  "text": "NORTHWEST"
+ },
+ {
+  "offset": 83632,
+  "kind": "ui",
+  "text": "mapout"
+ },
+ {
+  "offset": 83639,
+  "kind": "ui",
+  "text": "mapspr"
+ },
+ {
+  "offset": 83646,
+  "kind": "ui",
+  "text": "maplegen"
+ },
+ {
+  "offset": 83655,
+  "kind": "ui",
+  "text": "YOU RUN OUT OF FUEL ON YOUR WAY THERE."
+ },
+ {
+  "offset": 83694,
+  "kind": "ui",
+  "text": "MARCHING AND RESTING"
+ },
+ {
+  "offset": 83715,
+  "kind": "ui",
+  "text": "DRIVING"
+ },
+ {
+  "offset": 83723,
+  "kind": "format",
+  "text": "YOU SPEND %s %s."
+ },
+ {
+  "offset": 83740,
+  "kind": "format",
+  "text": "AFTER %s OF %s, YOU RUN INTO TROUBLE FROM THE %s."
+ },
+ {
+  "offset": 83790,
+  "kind": "dialogue",
+  "text": "YOU WOULD HAVE MADE BETTER TIME IF ALL YOUR PARTY MEMBERS WERE WEARING SNOWSHOES."
+ },
+ {
+  "offset": 83891,
+  "kind": "ui",
+  "text": "*3*FILE OPTIONS"
+ },
+ {
+  "offset": 83907,
+  "kind": "ui",
+  "text": "LOAD GAME"
+ },
+ {
+  "offset": 83917,
+  "kind": "ui",
+  "text": "SAVE GAME"
+ },
+ {
+  "offset": 83927,
+  "kind": "ui",
+  "text": "QUIT GAME"
+ },
+ {
+  "offset": 83937,
+  "kind": "ui",
+  "text": "SHOW CREDITS"
+ },
+ {
+  "offset": 83950,
+  "kind": "ui",
+  "text": "GAME SPEED"
+ },
+ {
+  "offset": 83961,
+  "kind": "ui",
+  "text": "FULL ANIMATION"
+ },
+ {
+  "offset": 83976,
+  "kind": "ui",
+  "text": "HALF ANIMATION"
+ },
+ {
+  "offset": 83991,
+  "kind": "ui",
+  "text": "ONE FRAME ANIMATION"
+ },
+ {
+  "offset": 84011,
+  "kind": "ui",
+  "text": "GAME VISUALS"
+ },
+ {
+  "offset": 84024,
+  "kind": "ui",
+  "text": "SHOW BUILDINGS"
+ },
+ {
+  "offset": 84039,
+  "kind": "ui",
+  "text": "HIDE BUILDINGS"
+ },
+ {
+  "offset": 84067,
+  "kind": "ui",
+  "text": "SOUND EFFECTS"
+ },
+ {
+  "offset": 84094,
+  "kind": "ui",
+  "text": "PRESS ANY KEY TO CONTINUE."
+ },
+ {
+  "offset": 84302,
+  "kind": "ui",
+  "text": "SAVES\\*.SVE"
+ },
+ {
+  "offset": 84314,
+  "kind": "ui",
+  "text": "SAVES\\*.SVE"
+ },
+ {
+  "offset": 84326,
+  "kind": "ui",
+  "text": "NO FILES TO RESTORE."
+ },
+ {
+  "offset": 84347,
+  "kind": "ui",
+  "text": "RESTORE WHICH FILE:"
+ },
+ {
+  "offset": 84367,
+  "kind": "format",
+  "text": "SAVES\\%s.SVE"
+ },
+ {
+  "offset": 84380,
+  "kind": "format",
+  "text": "ERROR OPENING RESTORE FILE %s"
+ },
+ {
+  "offset": 84410,
+  "kind": "ui",
+  "text": "GAME SUCCESSFULLY RESTORED."
+ },
+ {
+  "offset": 84438,
+  "kind": "ui",
+  "text": "ERROR RESTORING GAME (BAD SAVE FILE)."
+ },
+ {
+  "offset": 84496,
+  "kind": "ui",
+  "text": "ENTER FILE NAME (8 CHARACTERS)"
+ },
+ {
+  "offset": 84527,
+  "kind": "format",
+  "text": "SAVES\\%s.SVE"
+ },
+ {
+  "offset": 84540,
+  "kind": "ui",
+  "text": "SAVE FILE EXISTS. OVERWRITE?"
+ },
+ {
+  "offset": 84569,
+  "kind": "ui",
+  "text": "ERROR SAVING GAME."
+ },
+ {
+  "offset": 84588,
+  "kind": "ui",
+  "text": "DISK FULL - UNABLE TO SAVE."
+ },
+ {
+  "offset": 84621,
+  "kind": "ui",
+  "text": "TWILIGHT: 2000"
+ },
+ {
+  "offset": 84636,
+  "kind": "ui",
+  "text": "PRODUCED UNDER LICENSE FROM GAME DESIGNERS WORKSHOP"
+ },
+ {
+  "offset": 84688,
+  "kind": "ui",
+  "text": "COPYRIGHT (C) 1991 PARAGON SOFTWARE AND"
+ },
+ {
+  "offset": 84728,
+  "kind": "ui",
+  "text": "GAME DESIGNERS WORKSHOP  ALL RIGHTS RESERVED."
+ },
+ {
+  "offset": 84774,
+  "kind": "ui",
+  "text": "TWILIGHT: 2000 IS A TRADEMARK OF GDW."
+ },
+ {
+  "offset": 84818,
+  "kind": "ui",
+  "text": "ARE YOU SURE YOU WANT TO QUIT?"
+ },
+ {
+  "offset": 84859,
+  "kind": "ui",
+  "text": "MEDICINE"
+ },
+ {
+  "offset": 84868,
+  "kind": "ui",
+  "text": "WEAPONS AND AMMUNITION"
+ },
+ {
+  "offset": 84891,
+  "kind": "ui",
+  "text": "DYSENTERY"
+ },
+ {
+  "offset": 84901,
+  "kind": "ui",
+  "text": "CHOLERA"
+ },
+ {
+  "offset": 84909,
+  "kind": "ui",
+  "text": "HEPATITUS-A"
+ },
+ {
+  "offset": 84921,
+  "kind": "ui",
+  "text": "DIPTHERIA"
+ },
+ {
+  "offset": 84931,
+  "kind": "ui",
+  "text": "PNEUMONIA"
+ },
+ {
+  "offset": 84941,
+  "kind": "ui",
+  "text": "TYPHOID FEVER"
+ },
+ {
+  "offset": 84955,
+  "kind": "ui",
+  "text": "TYPHUS"
+ },
+ {
+  "offset": 84962,
+  "kind": "ui",
+  "text": "BUBONIC PLAGUE"
+ },
+ {
+  "offset": 84977,
+  "kind": "ui",
+  "text": "PNEUMONIC PLAGUE"
+ },
+ {
+  "offset": 84994,
+  "kind": "ui",
+  "text": "T-90 TANK"
+ },
+ {
+  "offset": 85004,
+  "kind": "ui",
+  "text": "T-80 TANK"
+ },
+ {
+  "offset": 85014,
+  "kind": "ui",
+  "text": "T-72 TANK"
+ },
+ {
+  "offset": 85024,
+  "kind": "ui",
+  "text": "M2A2 BRADLEY"
+ },
+ {
+  "offset": 85047,
+  "kind": "ui",
+  "text": "2 1/2 TON TRUCK"
+ },
+ {
+  "offset": 85063,
+  "kind": "ui",
+  "text": "HUMVEE"
+ },
+ {
+  "offset": 85070,
+  "kind": "ui",
+  "text": "EXOR 1 REPORTING."
+ },
+ {
+  "offset": 85090,
+  "kind": "ui",
+  "text": "EXOR 1 REPEATING."
+ },
+ {
+  "offset": 85185,
+  "kind": "ui",
+  "text": "/!/2/</F/P/]/b/g/w/~/"
+ },
+ {
+  "offset": 85207,
+  "kind": "ui",
+  "text": "/mouth0"
+ },
+ {
+  "offset": 85216,
+  "kind": "ui",
+  "text": "screen1"
+ },
+ {
+  "offset": 85242,
+  "kind": "dialogue",
+  "text": "YOU GET NOTHING BUT STATIC AS CZARNY'S TROOPS JAM YOUR COMMUNICATIONS IN THEIR ASSAULT ON KRAKOW."
+ },
+ {
+  "offset": 85340,
+  "kind": "ui",
+  "text": "GAMEDATA\\BATTLE1.CMF"
+ },
+ {
+  "offset": 85361,
+  "kind": "ui",
+  "text": "BRUTAL FORCE"
+ },
+ {
+  "offset": 85374,
+  "kind": "ui",
+  "text": "THREATS"
+ },
+ {
+  "offset": 85382,
+  "kind": "ui",
+  "text": "EMBARGOS"
+ },
+ {
+  "offset": 85391,
+  "kind": "ui",
+  "text": "STARVATION TACTICS"
+ },
+ {
+  "offset": 85410,
+  "kind": "dialogue",
+  "text": "A COMBINATION OF INTIMIDATING FORCE AND SEDUCTIVE PROPAGANDA"
+ },
+ {
+  "offset": 85476,
+  "kind": "ui",
+  "text": "CITIES"
+ },
+ {
+  "offset": 85483,
+  "kind": "format",
+  "text": "CZARNY HAS CONQUERED THE %s OF"
+ },
+ {
+  "offset": 85527,
+  "kind": "dialogue",
+  "text": "WITH %s ORCHESTRATED BY GENERAL ANDREKOV.  WE MUST ADD TERRITORIES TO OUR SIDE OR FACE LOSING EVERYTHING WE'VE WORKED FOR.  FOR EACH TERRITORY CZARNY CONQUERS, WE MUST GAIN TWO!"
+ },
+ {
+  "offset": 85706,
+  "kind": "dialogue",
+  "text": "THINGS ARE A LITTLE SLOW RIGHT NOW.  WHY DON'T YOU SEARCH THE AREA FOR HIDDEN SUPPLIES, OR RETURN TO BASE TO REST UP.  WE'LL NEED YOU LATER."
+ },
+ {
+  "offset": 85891,
+  "kind": "ui",
+  "text": "0KRAKOW"
+ },
+ {
+  "offset": 85905,
+  "kind": "ui",
+  "text": "SKAWINA"
+ },
+ {
+  "offset": 85913,
+  "kind": "ui",
+  "text": "SLOMNIKI"
+ },
+ {
+  "offset": 85922,
+  "kind": "ui",
+  "text": "MIECHOW"
+ },
+ {
+  "offset": 85930,
+  "kind": "ui",
+  "text": "PROSZOWICE"
+ },
+ {
+  "offset": 85941,
+  "kind": "ui",
+  "text": "OLKUSZ"
+ },
+ {
+  "offset": 85948,
+  "kind": "ui",
+  "text": "IGLOMIA"
+ },
+ {
+  "offset": 85956,
+  "kind": "ui",
+  "text": "BOCHINA"
+ },
+ {
+  "offset": 85964,
+  "kind": "ui",
+  "text": "CHRZANOW"
+ },
+ {
+  "offset": 85973,
+  "kind": "ui",
+  "text": "PILICA"
+ },
+ {
+  "offset": 85980,
+  "kind": "ui",
+  "text": "KAZIMIERZA"
+ },
+ {
+  "offset": 85991,
+  "kind": "ui",
+  "text": "PRADLA"
+ },
+ {
+  "offset": 85998,
+  "kind": "ui",
+  "text": "WECHADLON"
+ },
+ {
+  "offset": 86008,
+  "kind": "ui",
+  "text": "ZAWIERCIE"
+ },
+ {
+  "offset": 86018,
+  "kind": "ui",
+  "text": "ZINDER"
+ },
+ {
+  "offset": 86031,
+  "kind": "ui",
+  "text": "TARNOW"
+ },
+ {
+  "offset": 86038,
+  "kind": "ui",
+  "text": "WOJNICZ"
+ },
+ {
+  "offset": 86046,
+  "kind": "ui",
+  "text": "NOWY KOZCZYN"
+ },
+ {
+  "offset": 86059,
+  "kind": "ui",
+  "text": "BUSKO ZOROJ"
+ },
+ {
+  "offset": 86071,
+  "kind": "ui",
+  "text": "TARNOWSKA"
+ },
+ {
+  "offset": 86081,
+  "kind": "ui",
+  "text": "STOPNICA"
+ },
+ {
+  "offset": 86096,
+  "kind": "ui",
+  "text": "LUBIEN"
+ },
+ {
+  "offset": 86103,
+  "kind": "ui",
+  "text": "TASZOW"
+ },
+ {
+  "offset": 86110,
+  "kind": "ui",
+  "text": "DEBICA"
+ },
+ {
+  "offset": 86117,
+  "kind": "ui",
+  "text": "MIELEC"
+ },
+ {
+  "offset": 86124,
+  "kind": "ui",
+  "text": "WOSNIKI"
+ },
+ {
+  "offset": 86132,
+  "kind": "ui",
+  "text": "CZESTOCHOWA"
+ },
+ {
+  "offset": 86144,
+  "kind": "ui",
+  "text": "KLOBUCK"
+ },
+ {
+  "offset": 86152,
+  "kind": "ui",
+  "text": "RUDNIKI"
+ },
+ {
+  "offset": 86178,
+  "kind": "ui",
+  "text": "KANIECPOL"
+ },
+ {
+  "offset": 86188,
+  "kind": "ui",
+  "text": "SW.ANNA"
+ },
+ {
+  "offset": 86208,
+  "kind": "ui",
+  "text": "SZCZEKOCINY"
+ },
+ {
+  "offset": 86232,
+  "kind": "ui",
+  "text": "LORUSZO"
+ },
+ {
+  "offset": 86240,
+  "kind": "ui",
+  "text": "WILOSZCZOWA"
+ },
+ {
+  "offset": 86252,
+  "kind": "ui",
+  "text": "SZCZEKOINY"
+ },
+ {
+  "offset": 86263,
+  "kind": "ui",
+  "text": "WODISLAW"
+ },
+ {
+  "offset": 86272,
+  "kind": "ui",
+  "text": "PINCZO"
+ },
+ {
+  "offset": 86279,
+  "kind": "ui",
+  "text": "CHMIEINIK"
+ },
+ {
+  "offset": 86295,
+  "kind": "ui",
+  "text": "NAGLOWICE"
+ },
+ {
+  "offset": 86305,
+  "kind": "ui",
+  "text": "JEDRREZELOW"
+ },
+ {
+  "offset": 86317,
+  "kind": "ui",
+  "text": "KIELCE"
+ },
+ {
+  "offset": 86324,
+  "kind": "ui",
+  "text": "MOROWICA"
+ },
+ {
+  "offset": 86333,
+  "kind": "ui",
+  "text": "LOPUSZNO"
+ },
+ {
+  "offset": 86347,
+  "kind": "ui",
+  "text": "CHECINY"
+ },
+ {
+  "offset": 87866,
+  "kind": "dialogue",
+  "text": "WELL, WE'RE OFF TO A GOOD START.  THE HUMVEE WILL COME IN VERY HANDY.  BUT A HUMVEE ALONE CAN'T DEFEAT CZARNY'S BLACK LEGION FORCES.  IF WE'RE GOING TO WAGE WAR - A WAR WE CAN WIN - WE HAVE TO ACQUIRE POWERFUL TANKS AND NUMEROUS SUPPLIES. I'M AFRAID THIS IS ONLY THE BEGINNING.  WE HAVE A LONG, DIFFICULT ROAD TO TRAVEL IF WE'RE GOING TO LIBERATE POLAND."
+ },
+ {
+  "offset": 88221,
+  "kind": "dialogue",
+  "text": "THOUGH WE'RE MAKING PROGRESS, CZARNY SEEMS TO BE GROWING MORE POWERFUL.  HIS BLACK LEGION FORCES HAVE FOUND ABUNDANT SUPPLY DUMPS IN NORTHERN POLAND.  I MUST WARN YOUR PLATOON TO AVOID THE CITY CHECINY.  CZARNY IS BASED THERE AND HE HAS THE CITY FORTIFIED WITH IMPENETRABLE TROOP FORCE. DON'T GO WITHIN 12 KM OF CHECINY OR YOU'LL WIND UP DEAD, AND THE FATE OF POLAND WILL BE SEALED."
+ },
+ {
+  "offset": 88604,
+  "kind": "dialogue",
+  "text": "CZARNY'S FORCES ARE AWARE OF YOUR PRESENCE.  THE HEAT IN THE KITCHEN IS REALLY GOING TO SOAR NOW.  BE PREPARED FOR ATTACKS AT ALL TIMES.  MAKE SURE YOU HAVE A SKILLED FIGHTER WITH YOU WHENEVER YOU TRAVEL.  THE BEST WEAPONS TO USE IN THE FIELD ARE M60'S AND GRENADE LAUNCHERS.  MAYBE YOU WILL EVEN GET LUCKY AND RETRIEVE A M2HB.  THOSE MACHINEGUNS ARE DEADLY.  THEY WILL TEAR THROUGH ANYTHING!  BE ON YOUR TOES AND GOOD LUCK."
+ },
+ {
+  "offset": 89029,
+  "kind": "dialogue",
+  "text": "I HAVE SERIOUS DOUBTS ABOUT YOUR LEADERSHIP ABILITIES.  YOU'RE GETTING EATEN ALIVE.  THIS IS NOT SOME KIND OF GAME; THIS IS WAR - LIFE AND DEATH!  YOU HAVE A DIVERSE GROUP OF SOLDIERS IN YOUR PLATOON.  THINK BEFORE YOU JUST THROW THEM OUT THERE.  BE AWARE OF WHERE THEIR SKILLS CAN BE USED MOST EFFECTIVELY, ARM THEM CAREFULLY, AND USE STRATEGY WHEN YOU'RE FIGHTING.  NOW GET YOUR HEAD IN THE BALL GAME BEFORE YOU GET YOURSELF KILLED.  WE CAN'T LET POLAND FALL INTO CZARNY'S HANDS!"
+ },
+ {
+  "offset": 89511,
+  "kind": "dialogue",
+  "text": "I HAVE VERY BAD NEWS.  YOU SEEM TO BE FARING WELL, BUT ONE OF OUR OTHER SQUADS WASN'T SO LUCKY.  CZARNY CAPTURED A GROUP OF SPECIAL FORCES SOLDIERS FROM THE BRAVO COMPANY.  INSTEAD OF INCARCERATING THEM AS PRISONERS OF WAR, HE USED THEM AS A PROPAGANDA TOOL TO MOTIVATE THE CITIZENS OF HIS TERRITORIES.  THIS IS AWFUL, SO BE PREPARED.  CZARNY HAD THE BRIGADE MARCHED INTO THE CENTER OF CHECINY, AND UNDER HIS COMMAND, THE MEMBERS OF BRAVO COMPANY WERE CASTRATED AND BURNED ALIVE AT THE STAKE.  NOW IF THAT DOESN'T MOTIVATE YOU TO STOP THIS MANIAC, I DON'T KNOW WHAT WILL!  AVENGE THE BRAVO COMPANY, AND FREE POLAND."
+ },
+ {
+  "offset": 90127,
+  "kind": "dialogue",
+  "text": "YOU'RE DOING A FINE JOB.  THOUGH YOU'VE STRUGGLED, YOU'VE PROVEN YOUR WORTH AND SENT A CLEAR MESSAGE TO CZARNY AND THE BLACK LEGION.  WORD ABOUT THE COURAGE AND STRENGTH OF YOUR PLATOON HAS REACHED THE BARON.  MY INTELLIGENCE SOURCES HAVE RECEIVED A MESSAGE FROM CZARNY.  HE SAID THAT IF YOU AND YOUR PLATOON DON'T SURRENDER, HE'LL GATHER EVERY CHILD IN THE CITY LOPUSZNO AND EXECUTE THEM.  I DON'T BELIEVE A WORD OF IT.  IT'S JUST A TRAP THAT HE'S SETTING FOR YOU.  HE HOPES YOU'LL MARCH THERE AT ONCE SO HE CAN AMBUSH YOU WITH OVERWHELMING FORCE.  AT THIS TIME, WE'RE NOT TAKING HIS THREAT SERIOUSLY.  EVEN CZARNY IS NOT EVIL ENOUGH TO MURDER CHILDREN.  LET'S JUST KEEP TO OUR PLAN.  WE'RE MAKING STEADY PROGRESS."
+ },
+ {
+  "offset": 90843,
+  "kind": "dialogue",
+  "text": "NOW CZARNY SEEMS TO BE VENTING HIS WRATH ON AMERICANS.  ANY AMERICAN THAT THE BLACK LEGION CAPTURES IS AUTOMATICALLY SENTENCED TO DEATH AND EXECUTED IN THE CHECINY TOWN SQUARE.  INTELLIGENCE SOURCES SAY THAT CZARNY BLAMES THE AMERICANS FOR THE PERMANENT DISFIGUREMENT OF HIS FACE.  THE EXTERMINATION OF THE AMERICANS IS DISHEARTENING NEWS, BUT WE CAN'T ABANDON OUR CURRENT PLANS.  THE AMERICANS ARE MARTYRS FOR OUR CAUSE.  THE ONLY WAY WE CAN END CZARNY'S RULE IS TO SLOWLY GNAW AWAY AT HIM.  IF YOU TRY TO RESCUE AMERICANS IN CHECINY, YOU'LL NEVER SURVIVE.  WE MUST CONCENTRATE ON OUR CURRENT PLAN OF ACTION, THOUGH ITS MADDENING TO SIMPLY TURN YOUR BACK ON SUCH TYRANNY.  STAY FOCUSED AND CZARNY WILL FALL; GET EMOTIONAL AND CARELESS AND YOU, AND POLAND, ARE DOOMED."
+ },
+ {
+  "offset": 91612,
+  "kind": "dialogue",
+  "text": "CZARNY'S BLACK LEGION, COMMANDED BY GENERAL ANDREKOV, IS STEADILY CONQUERING NORTHERN TERRITORIES.  FOR EACH CITY THAT'S OVERRUN, MORE AND MORE WEAPONS AND SUPPLIES ARE BEING STOCKPILED IN CZARNY'S ARSENAL.  IF WE'RE GOING TO CHALLENGE AND DEFEAT CZARNY, WE MUST BEGIN GAINING THE ALLEGIANCE OF THE CITIES THAT SEPARATE THE NORTHERN AND SOUTHERN TERRITORIES.  IF WE CAN GAIN THE ALLEGIANCE OF CRITICAL TERRITORIES THAT ARE NEUTRAL, WE COULD STRENGTHEN OUR OWN POWER BASE AND WEAKEN CZARNY'S GRIP ON POLAND.  WE'VE AMASSED VEHICLES AND SUPPLIES, NOW WE MUST FLY THE FLAG OF OPPOSITION IN NEUTRAL CITIES - PEACEFULLY!"
+ },
+ {
+  "offset": 92228,
+  "kind": "dialogue",
+  "text": "CZARNY'S FORCES ARE WEAKENING.  AS WE ADD TERRITORIES AND INVADE FORMER CZARNY STRONGHOLDS, MY INTELLIGENCE SOURCES SAY CZARNY'S REGIME IS CRUMBLING.  GENERAL ANDREKOV HAS BEEN CALLED BACK TO CHECINY FOR EMERGENCY STRATEGY MEETINGS WITH BARON CZARNY.  WE HAVE THE BLACK LEGION ON THE ROPES.  IT'S TIME TO FINISH THEM OFF ONCE AND FOR ALL.  LET'S BEGIN TAKING BACK WHAT CZARNY STOLE - NORTHERN POLAND!"
+ },
+ {
+  "offset": 92629,
+  "kind": "dialogue",
+  "text": "I HAVE HORRIBLE, SHOCKING NEWS TO REPORT, SO PLEASE BE PREPARED.  MY INTELLIGENCE SOURCES SAY THAT CZARNY AND GENERAL ANDREKOV CARRIED OUT THEIR THREAT TO EXTERMINATE ALL CHILDREN IN LOPUSZNO.  CZARNY RELEASED A VIDEO TAPE OF THE EXECUTIONS AS A FINAL DEMAND FOR OUR SURRENDER.  IT WAS ABSOLUTELY BRUTAL - ROW AFTER ROW OF POOR, TERRIFIED CHILDREN BEING SHOT AND CARRIED AWAY LIKE RAG DOLLS.  MANY OF CZARNY'S TROOPS WERE ABHORRED BY THE HIDEOUS EXECUTIONS AND HAVE DESERTED.  CZARNY AND GENERAL ANDREKOV HAVE CLEARLY GONE INSANE.  THEY'RE LIKE A PAIR OF RABID DOGS PINNED IN A CORNER.  WE MUST STOP THEM NOW BEFORE THEY CARRY OUT OTHER THREATS. THEY SAY THEY'LL BEGIN LEVELING CITIES UNLESS WE GIVE UP, BUT IT'S CLEAR THEY NO LONGER HAVE THE STRENGTH. THEY'RE FINISHED.  LET'S BURY THE BASTARDS!"
+ },
+ {
+  "offset": 93426,
+  "kind": "dialogue",
+  "text": "I RECEIVED AN INTELLIGENCE REPORT THAT SAYS GENERAL ANDREKOV IS OUT OF THE PICTURE.  I'M NOT SURE WHAT HAPPENED, BUT APPARENTLY THERE'S BEEN SOME SORT OF FALLOUT BETWEEN CZARNY AND ANDREKOV.  WHETHER ANDREKOV IS DEAD OR ALIVE, OR WHETHER THIS IS JUST A PLOY TO THROW US OFF, IS UNKNOWN AT THIS TIME.  BUT IT IS CLEAR THAT OUR PROGRESS HAS RATTLED THEM."
+ },
+ {
+  "offset": 93779,
+  "kind": "dialogue",
+  "text": "I JUST RECEIVED A REPORT THAT I CAN'T BELIEVE.  CZARNY HAS AMASSED WHAT IS LEFT OF THE BLACK LEGION AND IS PREPARING TO LAUNCH A FINAL ATTACK ON KRAKOW!  IT'S EITHER AN ACT OF SUICIDE OR THE MOST BOLD MILITARY ACTION EVER TAKEN.  CZARNY MUST FEEL HE STILL HAS THE FIREPOWER TO DEFEAT YOU.  YOU MUST PROVE THAT HE'S WRONG.  THIS IS GOING TO BE THE MOST BRUTAL BATTLE OF ALL."
+ },
+ {
+  "offset": 94344,
+  "kind": "ui",
+  "text": "GAMEDATA\\FONT.LY"
+ },
+ {
+  "offset": 94361,
+  "kind": "ui",
+  "text": "(MORE)"
+ },
+ {
+  "offset": 94368,
+  "kind": "ui",
+  "text": "ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789>@"
+ },
+ {
+  "offset": 94426,
+  "kind": "format",
+  "text": "GMALLOC: Error allocating %u bytes (%lu left)"
+ },
+ {
+  "offset": 94472,
+  "kind": "format",
+  "text": "GFREE: Attempting to free unallocated pointer (%p)"
+ },
+ {
+  "offset": 94524,
+  "kind": "format",
+  "text": "Invalid compression type %x"
+ },
+ {
+  "offset": 94553,
+  "kind": "ui",
+  "text": "No EGA translations available."
+ },
+ {
+  "offset": 94584,
+  "kind": "ui",
+  "text": "No Tandy translations available."
+ },
+ {
+  "offset": 94624,
+  "kind": "format",
+  "text": "Error reading header for %s."
+ },
+ {
+  "offset": 94653,
+  "kind": "ui",
+  "text": "Error reading compressed data."
+ },
+ {
+  "offset": 94684,
+  "kind": "ui",
+  "text": "Error reading color tables."
+ },
+ {
+  "offset": 94712,
+  "kind": "format",
+  "text": "LOADPIC: Unable to open picture %s"
+ },
+ {
+  "offset": 94748,
+  "kind": "ui",
+  "text": "NULL pointer passed to LoadPictureFromLibrary."
+ },
+ {
+  "offset": 94795,
+  "kind": "format",
+  "text": "LoadPictureLibrary:  Can't find file %s."
+ },
+ {
+  "offset": 94837,
+  "kind": "format",
+  "text": "Error reading header for Library %s."
+ },
+ {
+  "offset": 94875,
+  "kind": "format",
+  "text": "Error reading header records from library %s."
+ },
+ {
+  "offset": 94922,
+  "kind": "ui",
+  "text": "NULL pointer passed to LoadPictureFromLibrary."
+ },
+ {
+  "offset": 94969,
+  "kind": "ui",
+  "text": "Attempt to read from closed image library."
+ },
+ {
+  "offset": 95012,
+  "kind": "format",
+  "text": "Disk containing library %s has been removed."
+ },
+ {
+  "offset": 95057,
+  "kind": "format",
+  "text": "LoadPictureFromLibrary: Unable to open library %s"
+ },
+ {
+  "offset": 95108,
+  "kind": "format",
+  "text": "Image %s not in library %s."
+ },
+ {
+  "offset": 95164,
+  "kind": "ui",
+  "text": "QWERTYUIOP[]"
+ },
+ {
+  "offset": 95178,
+  "kind": "ui",
+  "text": "ASDFGHJKL;'`"
+ },
+ {
+  "offset": 95191,
+  "kind": "ui",
+  "text": "\\ZXCVBNM,./"
+ },
+ {
+  "offset": 95342,
+  "kind": "ui",
+  "text": "REPEAT... EXOR 1 CALLING"
+ },
+ {
+  "offset": 95368,
+  "kind": "dialogue",
+  "text": ".  I HAVE AN IMPORTANT MISSION THAT NEEDS YOUR IMMEDIATE ATTENTION.  THE CITY OF"
+ },
+ {
+  "offset": 95450,
+  "kind": "ui",
+  "text": "IS IN DESPERATE NEED OF VALUABLE SUPPLIES SUCH AS"
+ },
+ {
+  "offset": 95502,
+  "kind": "dialogue",
+  "text": ".  THEY HAVE NO MEANS OF TRANSPORTING THE CARGO SO IT'S UP TO YOU TO TRAVEL TO THE CITY OF"
+ },
+ {
+  "offset": 95594,
+  "kind": "dialogue",
+  "text": "WITH A 2 1/2 TON TRUCK AND GATHER A SHIPMENT OF SUPPLIES FOR THE CITIZENS OF"
+ },
+ {
+  "offset": 95673,
+  "kind": "ui",
+  "text": ".  IT'S CRITICAL THAT WE GET THE SUPPLIES INTO THE HANDS OF"
+ },
+ {
+  "offset": 95734,
+  "kind": "dialogue",
+  "text": "'S LEADER AT ONCE.  HURRY, BUT AS ALWAYS, BE CAREFUL.  EXOR 1, OVER AND OUT."
+ },
+ {
+  "offset": 95811,
+  "kind": "ui",
+  "text": "CALLING"
+ },
+ {
+  "offset": 95820,
+  "kind": "dialogue",
+  "text": ".  COME IN, THIS IS EXOR 1.  MY INTELLIGENCE OFFICERS HAVE INFORMED ME OF A GRAVE SHORTAGE OF SUPPLIES IN THE CITY OF"
+ },
+ {
+  "offset": 95939,
+  "kind": "ui",
+  "text": ".  THE POPULATION NEEDS A LARGE AMOUNT OF"
+ },
+ {
+  "offset": 95982,
+  "kind": "dialogue",
+  "text": ".  THE ONLY WAY WE CAN TRANSPORT A SHIPMENT THAT LARGE IS BY TRUCK.  YOU MUST TRAVEL TO THE CITY OF"
+ },
+ {
+  "offset": 96083,
+  "kind": "dialogue",
+  "text": ", WHERE THERE IS AN ABUNDANCE OF SUPPLIES, AND TRANSPORT THE NECESSARY ITEMS TO"
+ },
+ {
+  "offset": 96164,
+  "kind": "ui",
+  "text": ".  WE HAVE TO GET SUPPLIES TO THE LEADER OF"
+ },
+ {
+  "offset": 96209,
+  "kind": "dialogue",
+  "text": "BEFORE CZARNY ATTACKS AGAIN.  HURRY, TIME IS OF THE ESSENCE.  EXOR 1, OUT."
+ },
+ {
+  "offset": 96337,
+  "kind": "ui",
+  "text": "[, DO YOU COPY?... REPEAT... THIS IS EXOR 1 CALLING"
+ },
+ {
+  "offset": 96390,
+  "kind": "dialogue",
+  "text": ".  ONE OF MY MOST RELIABLE INTELLIGENCE SOURCES HAS INFORMED ME THAT THE CITY OF"
+ },
+ {
+  "offset": 96472,
+  "kind": "ui",
+  "text": "IS IN DESPERATE NEED OF"
+ },
+ {
+  "offset": 96498,
+  "kind": "dialogue",
+  "text": ".  IT SEEMS AS THOUGH CZARNY'S FORCES RECENTLY RAIDED THE TOWN, TAKING EVERYTHING THAT WASN'T NAILED DOWN.  WE CAN'T LET THE CITIZENS DOWN!  TRAVEL TO THE CITY OF"
+ },
+ {
+  "offset": 96662,
+  "kind": "ui",
+  "text": "AND GATHER ANY EXCESS"
+ },
+ {
+  "offset": 96686,
+  "kind": "ui",
+  "text": "STORES, THEN TAKE THE SUPPLIES TO"
+ },
+ {
+  "offset": 96722,
+  "kind": "dialogue",
+  "text": "AND DELIVER THEM TO THE VILLAGE LEADER.  GOOD LUCK.  THIS IS EXOR 1, SIGNING OFF."
+ },
+ {
+  "offset": 96805,
+  "kind": "dialogue",
+  "text": ", THIS IS EXOR 1 WITH AN IMPORTANT TRANSMISSION.  APPARENTLY, THE CITY OF"
+ },
+ {
+  "offset": 96880,
+  "kind": "dialogue",
+  "text": "WAS RAIDED BY ONE OF CZARNY'S INFANTRY UNITS.  ALL OF THE CITY'S VALUABLE SUPPLIES WERE STOLEN.  NOW THERE IS A CRITICAL SHORTAGE OF"
+ },
+ {
+  "offset": 97015,
+  "kind": "ui",
+  "text": ".  I'VE LOCATED A SMALL GROUP IN THE CITY OF"
+ },
+ {
+  "offset": 97061,
+  "kind": "ui",
+  "text": "THAT IS WILLING TO GIVE THE PEOPLE OF"
+ },
+ {
+  "offset": 97101,
+  "kind": "dialogue",
+  "text": "THE NEEDED SUPPLIES.  IT'S UP TO YOU TO TRAVEL TO THE CITY OF"
+ },
+ {
+  "offset": 97165,
+  "kind": "dialogue",
+  "text": "AND ACQUIRE THESE SUPPLIES.  AFTER YOU'VE ACCOMPLISHED THAT, JOURNEY TO"
+ },
+ {
+  "offset": 97239,
+  "kind": "dialogue",
+  "text": "AND DISTRIBUTE THE GOODS TO THE VILLAGE LEADER.  GOOD LUCK AND BE CAREFUL.  EXOR 1, SIGNING OFF."
+ },
+ {
+  "offset": 97393,
+  "kind": "ui",
+  "text": "_COME IN"
+ },
+ {
+  "offset": 97403,
+  "kind": "ui",
+  "text": "... REPEAT... THIS IS EXOR 1 CALLING"
+ },
+ {
+  "offset": 97441,
+  "kind": "ui",
+  "text": ".  COME IN"
+ },
+ {
+  "offset": 97453,
+  "kind": "dialogue",
+  "text": ".  VALUABLE, SECRET INFORMATION CONCERNING OUR CAUSE IS BEING LEAKED TO CZARNY'S INTELLIGENCE OFFICERS.  A CZARNY SPY HAS INFILTRATED OUR INNER CIRCLE.  WE'VE DEDUCED THAT THE SPY IS WORKING OUT OF THE CITY OF"
+ },
+ {
+  "offset": 97664,
+  "kind": "dialogue",
+  "text": ".  I WANT YOU TO GO THERE AS QUICKLY AS POSSIBLE AND INVESTIGATE THIS MATTER FURTHER.  IF YOU CAN DISCLOSE THE AGENTS IDENTITY, ELIMINATE HIM AND REPORT TO THE CITY LEADER."
+ },
+ {
+  "offset": 97839,
+  "kind": "dialogue",
+  "text": ", THIS IS URGENT.  USE EXTREME CAUTION IN YOUR SEARCH AND GOOD LUCK!  EXOR 1, OVER AND OUT."
+ },
+ {
+  "offset": 97931,
+  "kind": "ui",
+  "text": "EXOR 1 CALLING"
+ },
+ {
+  "offset": 97947,
+  "kind": "dialogue",
+  "text": ".  MY INTELLIGENCE OFFICERS AND I HAVE CONCLUDED THAT THERE IS A SPY WORKING OUT OF THE CITY OF"
+ },
+ {
+  "offset": 98044,
+  "kind": "dialogue",
+  "text": ".  I WANT YOU TO TRAVEL THERE AT ONCE AND INVESTIGATE THE POSSIBILITY THAT A TRAITOR IS INDEED OPERATING THERE.  WE CAN'T AFFORD TO LOSE ANY MORE OF OUR SECRETS TO CZARNY.  IF YOU MANAGE TO UNCOVER THE SPY'S IDENTITY, LIQUIDATE HIM!  YOU ARE THEN TO REPORT TO THE CITY LEADER.  GOOD HUNTING AND GOOD LUCK,"
+ },
+ {
+  "offset": 98351,
+  "kind": "ui",
+  "text": "!  EXOR 1, SIGNING OFF."
+ },
+ {
+  "offset": 98410,
+  "kind": "ui",
+  "text": "_cCOME IN"
+ },
+ {
+  "offset": 98421,
+  "kind": "dialogue",
+  "text": ", THIS IS EXOR 1 CALLING.  I'VE JUST RECEIVED WORD THAT A HOSTAGE CRISIS MAY HAVE ERUPTED IN THE CITY OF"
+ },
+ {
+  "offset": 98527,
+  "kind": "dialogue",
+  "text": ".  I HAVEN'T RECEIVED A CONFIRMATION OF THIS REPORT, BUT I WANT YOU TO JOURNEY THERE, REPORT TO THE LEADER AND GATHER INFORMATION ON THE SITUATION.  IF THERE IS A HOSTAGE CRISIS, IT'S UP TO YOU TO PUT YOUR SKILLS TO USE AND END IT QUICKLY.  GOOD LUCK!  EXOR 1, OVER AND OUT."
+ },
+ {
+  "offset": 98802,
+  "kind": "ui",
+  "text": "THIS IS EXOR 1 CALLING"
+ },
+ {
+  "offset": 98826,
+  "kind": "dialogue",
+  "text": ".  I HAVE AN UNCONFIRMED REPORT THAT ONE OF CZARNY'S BLACK LEGION TERRORIST SQUADS HAS TAKEN HOSTAGES IN THE CITY OF"
+ },
+ {
+  "offset": 98944,
+  "kind": "dialogue",
+  "text": ".  YOU'RE THE BEST PERSON TO HANDLE THIS DELICATE MISSION.  TRAVEL TO"
+ },
+ {
+  "offset": 99015,
+  "kind": "dialogue",
+  "text": "AND REPORT TO THE CITY LEADER TO ASSESS THE SITUATION.  IF THERE ARE HOSTAGES, DO WHAT YOU NEED TO DO TO RESCUE THEM.  BE CAREFUL THOUGH, THERE'S BOUND TO BE TROUBLE ANYWHERE THERE MAY BE TERRORISTS.  EXOR 1, OUT."
+ },
+ {
+  "offset": 99253,
+  "kind": "ui",
+  "text": "eEXOR 1 CALLING"
+ },
+ {
+  "offset": 99270,
+  "kind": "dialogue",
+  "text": ".  I'VE JUST RECEIVED A REPORT THAT A NUMBER OF CZARNY'S SOLDIERS AND ASSASSINS ARE HIDING IN THE CITY OF"
+ },
+ {
+  "offset": 99377,
+  "kind": "dialogue",
+  "text": ".  TRAVEL THERE AT ONCE AND ASSESS THE SITUATION.  I DON'T THINK I HAVE TO TELL YOU WHAT TO DO IF YOU FIND THE SCOUNDRELS - EXTERMINATE THEM BEFORE THEY CAN WREAK MORE HAVOC ON POLAND.  THE CITY LEADER WISHES TO SPEAK WITH YOU ABOUT ANY HOSTILES THAT YOU LOCATE, SO REPORT TO HIM ONCE YOU HAVE ELIMINATED ALL THREATS.  THIS IS EXOR 1, OVER AND OUT."
+ },
+ {
+  "offset": 99726,
+  "kind": "dialogue",
+  "text": ", THIS IS EXOR 1 WITH A LATE-BREAKING REPORT.  RELIABLE SOURCES STATE THAT SEVERAL MEMBERS OF CZARNY'S MERCENARY AND ASSASSIN FORCE ARE HIDING IN THE CITY OF"
+ },
+ {
+  "offset": 99885,
+  "kind": "dialogue",
+  "text": ".  IF ANYONE CAN FIND THEM, IT HAS TO BE YOU.  TRAVEL THERE AT ONCE AND SEEK THEM OUT.  IF YOU FIND THEM, KILL THEM.  YOU ARE THEN TO REPORT TO THE CITY LEADER.  KEEP IN MIND THAT THESE ARE THE SAME TERRORISTS THAT KILL INNOCENT WOMEN AND CHILDREN.  SO REMEMBER, BE CAREFUL"
+ },
+ {
+  "offset": 100160,
+  "kind": "dialogue",
+  "text": "; THESE MARAUDERS ARE CZARNY'S CREAM OF THE CROP.  EXOR 1, OVER AND OUT."
+ },
+ {
+  "offset": 100254,
+  "kind": "dialogue",
+  "text": "pj, THIS IS EXOR 1.  CZARNY'S FORCES HAVE SURPRISE-ATTACKED THE CITY OF"
+ },
+ {
+  "offset": 100327,
+  "kind": "dialogue",
+  "text": ".  CASUALTIES ARE HIGH AND INJURIES ARE NUMEROUS.  THE CITIZENS DON'T HAVE THE MEDICAL SUPPLIES OR SKILL TO TREAT THE INJURED, SO IT'S UP TO YOU TO TRAVEL TO"
+ },
+ {
+  "offset": 100486,
+  "kind": "dialogue",
+  "text": "AND HELP THEM ADMINISTER CARE TO THE WOUNDED.  THE CITY LEADER WISHES TO MEET WITH YOU AFTER THE WOUNDED HAVE BEEN TENDED TO.  USE EXTREME CAUTION, YOU DON'T KNOW WHO COULD BE HIDING THERE.  EXOR 1, OVER AND OUT."
+ },
+ {
+  "offset": 100700,
+  "kind": "ui",
+  "text": "REPEAT...EXOR 1 CALLING"
+ },
+ {
+  "offset": 100725,
+  "kind": "ui",
+  "text": ".  WE HAVE A CRISIS SITUATION ERUPTING IN THE CITY OF"
+ },
+ {
+  "offset": 100780,
+  "kind": "dialogue",
+  "text": ".  CZARNY'S FORCES ATTACKED THE UNSUSPECTING TOWN WITH BRUTAL FORCE.  CASUALTIES WERE HIGH, BUT THE MAJOR PROBLEM IS THE NUMBER OF WOUNDED CITIZENS WHO ARE SUFFERING."
+ },
+ {
+  "offset": 100949,
+  "kind": "dialogue",
+  "text": "DOESN'T HAVE ADEQUATE SUPPLIES OR SKILLED MEDICS TO TREAT THE INJURED.  YOU MUST TRAVEL THERE AT ONCE TO HELP CARE FOR THE WOUNDED.  REPORT TO THE CITY LEADER IMMEDIATELY AFTER YOU HAVE ADMINISTERED AID TO THE INJURED.  EXOR 1, OUT."
+ },
+ {
+  "offset": 101209,
+  "kind": "ui",
+  "text": "mCOME IN,"
+ },
+ {
+  "offset": 101220,
+  "kind": "dialogue",
+  "text": ", THIS IS EXOR 1.  I'VE JUST RECEIVED A DISTRESSING REPORT FROM THE CITY OF"
+ },
+ {
+  "offset": 101297,
+  "kind": "dialogue",
+  "text": ".  THE CITY LEADER BELIEVES THAT THE PEOPLE HAVE BEEN INFECTED WITH"
+ },
+ {
+  "offset": 101366,
+  "kind": "dialogue",
+  "text": ".  IT IS SPREADING AT AN ALARMING RATE, AND THE POPULATION IS STEADILY PERISHING.  YOU MUST TRAVEL TO"
+ },
+ {
+  "offset": 101469,
+  "kind": "dialogue",
+  "text": ", CURE ALL OF THE INFECTED CITIZENS AND STOP THE EPIDEMIC FROM SPREADING.  THE LEADER OF"
+ },
+ {
+  "offset": 101559,
+  "kind": "dialogue",
+  "text": "REQUESTS THAT YOU CONTACT HIM WHEN THE MISSION IS COMPLETED.  EXOR 1, OVER AND OUT."
+ },
+ {
+  "offset": 101644,
+  "kind": "ui",
+  "text": "EXOR 1 CALLING"
+ },
+ {
+  "offset": 101660,
+  "kind": "ui",
+  "text": ".  A DANGEROUS AND DEADLY EPIDEMIC KNOWN AS"
+ },
+ {
+  "offset": 101705,
+  "kind": "ui",
+  "text": "HAS SURFACED IN THE CITY OF"
+ },
+ {
+  "offset": 101735,
+  "kind": "dialogue",
+  "text": "AND IS RAPIDLY SPREADING. THE DISEASE IS HIGHLY CONTAGIOUS AND THE POPULATION IS DROPPING LIKE FLIES.  THE CITY DESPERATELY NEEDS OUR HELP AND IT'S UP TO YOU TO CURE THE POPULATION OF THE DISEASE AND STOP THE EPIDEMIC FROM SPREADING FURTHER."
+ },
+ {
+  "offset": 101980,
+  "kind": "dialogue",
+  "text": ", BE EXTREMELY CAREFUL, THE DISEASE IS A GENUINE KILLER.  I CAN'T AFFORD TO LOSE YOU OR YOUR PLATOON.  REPORT TO THE LEADER OF THE CITY AFTER YOU HAVE ASSISSTED THE SICK.  GOOD LUCK! EXOR 1, OUT."
+ },
+ {
+  "offset": 102215,
+  "kind": "ui",
+  "text": "qEXOR 1 TO"
+ },
+ {
+  "offset": 102227,
+  "kind": "ui",
+  "text": ".  AS I'M SURE YOU'RE AWARE, THE LEADERS OF THE CITY"
+ },
+ {
+  "offset": 102281,
+  "kind": "dialogue",
+  "text": "WERE DEPOSED AFTER A COUP LED BY CZARNY'S POLITICAL PUPPETS.  NOW THE DEPOSED LEADERS ARE PLANNING THEIR RETURN FROM EXILE.  I WANT YOU TO TRAVEL TO"
+ },
+ {
+  "offset": 102432,
+  "kind": "dialogue",
+  "text": "AND SPEAK TO THE OUSTED LEADERS.  PERHAPS WE CAN HELP THEM ELIMINATE ANY THREATS IN"
+ },
+ {
+  "offset": 102518,
+  "kind": "dialogue",
+  "text": "SO THEY CAN RETURN TO POWER.  EXOR 1 SIGNING OFF, OVER AND OUT."
+ },
+ {
+  "offset": 102583,
+  "kind": "dialogue",
+  "text": ", THIS IS EXOR 1 WITH AN IMPORTANT MISSION FOR YOUR PLATOON.  AS YOU'VE PROBABLY HEARD, THE GOVERNMENT OF"
+ },
+ {
+  "offset": 102690,
+  "kind": "dialogue",
+  "text": "WAS OVERTHROWN BY CZARNY'S FORCES AFTER A BLOODY ATTACK.  THE LEADERS FLED AND ARE NOW IN EXILE IN THE CITY OF"
+ },
+ {
+  "offset": 102803,
+  "kind": "dialogue",
+  "text": ".  NOW THEY ARE PLANNING THEIR RETURN TO POWER.  I WANT YOU TO TRAVEL TO"
+ },
+ {
+  "offset": 102877,
+  "kind": "dialogue",
+  "text": "AND MEET WITH THE EXILED LEADERS.  PERHAPS YOU CAN JOURNEY TO"
+ },
+ {
+  "offset": 102941,
+  "kind": "dialogue",
+  "text": "FOR THEM AND REMOVE ANY POTENTIAL THREATS, THUS PAVING THE PATH FOR THEIR VICTORIOUS RETURN.  GOOD LUCK!  EXOR 1, OVER AND OUT."
+ },
+ {
+  "offset": 103106,
+  "kind": "ui",
+  "text": "MuEXOR 1 CALLING"
+ },
+ {
+  "offset": 103124,
+  "kind": "ui",
+  "text": ", COME IN"
+ },
+ {
+  "offset": 103135,
+  "kind": "ui",
+  "text": ".  OUR ALLIES IN THE CITY OF"
+ },
+ {
+  "offset": 103165,
+  "kind": "dialogue",
+  "text": "HAVE UNCOVERED A SUPPLY DUMP THAT HAS BEEN BURIED FOR YEARS.  THE LEADERS HAVE OFFERED THE SUPPLIES TO US FOR USE AGAINST CZARNY'S LEGIONS.  I NEED YOU TO JOURNEY TO"
+ },
+ {
+  "offset": 103333,
+  "kind": "dialogue",
+  "text": "IN OUR 2 1/2 TON TRUCK AND RECOVER THESE SUPPLIES SO WE CAN USE THEM FOR OUR OPERATIONS.  THE SUPPLIES HAVE BEEN MOVED INTO ONE OF THE CITY BUILDINGS FOR SAFE KEEPING.  BRING THE SUPPLIES BACK TO KRAKOW.  EXOR 1, OVER AND OUT."
+ },
+ {
+  "offset": 103561,
+  "kind": "dialogue",
+  "text": ", PLEASE REPORT.  THIS IS EXOR 1.  I'VE BEEN IN CLOSE CONTACT WITH THE LEADERS OF THE CITY"
+ },
+ {
+  "offset": 103653,
+  "kind": "dialogue",
+  "text": ".  THEY HAVE UNCOVERED A BURIED SUPPLY DUMP THAT MUST HAVE BEEN USED YEARS AGO.  THE LEADERS HAVE OFFERED TO SHARE THE SUPPLIES WITH US, SO I NEED YOU TO TRAVEL TO"
+ },
+ {
+  "offset": 103818,
+  "kind": "dialogue",
+  "text": "AS QUICKLY AS POSSIBLE TO PICK UP THE SUPPLIES AND RETURN THEM TO KRAKOW.  YOU BETTER TAKE OUR TRUCK.  THE SUPPLIES ARE IN ONE OF THE CITY'S BUILDINGS.  EXOR 1, SIGNING OFF."
+ },
+ {
+  "offset": 104023,
+  "kind": "dialogue",
+  "text": "xMAYDAY... THIS IS EXOR 1 CALLING ALL FRIENDLY FORCES.  CZARNY HAS LAUNCHED AN ATTACK ON KRAKOW.  CURRENT ESTIMATES OF THE SIZE OF THE ATTACKING FORCE INDICATE %d VEHICLES SUPPORTED BY %d TROOPS.  ALL FRIENDLY FORCES, PLEASE ASSIST..."
+ },
+ {
+  "offset": 104318,
+  "kind": "ui",
+  "text": "I'VE RECIEVED A CALL FROM THE LEADER OF"
+ },
+ {
+  "offset": 104359,
+  "kind": "dialogue",
+  "text": ".  HE SAID THAT SOME BLACK LEGION TANK FORCES HAVE BEEN CAUSING PROBLEMS LATELY.  HE ASKED FOR OUR HELP IN RIDDING THE CITY OF THIS VEHICLE, AND I SAID THAT SOMEONE WOULD BE RIGHT OVER.  I NEED YOU TO TRAVEL TO"
+ },
+ {
+  "offset": 104571,
+  "kind": "ui",
+  "text": "AND DEAL WITH THE SITUATION."
+ },
+ {
+  "offset": 104603,
+  "kind": "dialogue",
+  "text": ", REPORT TO THE CITY LEADER AFTER DESTROYING THE VEHICLE.  YOU ARE DISMISSED."
+ },
+ {
+  "offset": 104695,
+  "kind": "ui",
+  "text": "{1 KILOMETER NORTH OF THE CITY"
+ },
+ {
+  "offset": 104726,
+  "kind": "ui",
+  "text": "1 KILOMETER EAST OF THE CITY"
+ },
+ {
+  "offset": 104755,
+  "kind": "ui",
+  "text": "1 KILOMETER SOUTH OF THE CITY"
+ },
+ {
+  "offset": 104785,
+  "kind": "ui",
+  "text": "1 KILOMETER WEST OF THE CITY"
+ },
+ {
+  "offset": 104814,
+  "kind": "ui",
+  "text": "WITHIN CITY LIMITS"
+ },
+ {
+  "offset": 104833,
+  "kind": "ui",
+  "text": "REPEAT ... EXOR 1 CALLING"
+ },
+ {
+  "offset": 104860,
+  "kind": "dialogue",
+  "text": ".  COME IN, WE HAVE AN EMERGENCY ON OUR HANDS.  INTELLIGENCE CONFIRMS THAT CZARNY'S FORCES ARE ATTACKING THE CITY OF"
+ },
+ {
+  "offset": 104978,
+  "kind": "dialogue",
+  "text": ".  GO THERE AND ASSIST IN THE DEFENSE OF THE CITY.  YOU MUST TRAVEL TO"
+ },
+ {
+  "offset": 105050,
+  "kind": "dialogue",
+  "text": "IMMEDIATELY AND HELP THE CITIZENS DEFEND THE CITY.  YOUR RESPONSIBILITY IS THE AREA"
+ },
+ {
+  "offset": 105136,
+  "kind": "dialogue",
+  "text": ".  IF YOU ARE SUCCESSFUL IN COMPLETING THE OBJECTIVE, REPORT TO THE CITY LEADER FOR FURTHER INSTRUCTIONS."
+ },
+ {
+  "offset": 105244,
+  "kind": "dialogue",
+  "text": ", YOU KNOW THE PAIN AND SUFFERING THAT CZARNY INFLICTS ON CITIZENS AFTER HE HAS TAKEN THEM AS PRISONERS.  WE CAN'T AFFORD TO LOSE THE CITY TO CZARNY.  GOOD LUCK!  EXOR 1, OVER AND OUT."
+ },
+ {
+  "offset": 105429,
+  "kind": "dialogue",
+  "text": ", THIS IS EXOR 1 WITH AN EMERGENCY CRISIS THAT NEEDS YOUR IMMEDIATE ATTENTION.  INTELLIGENCE REPORTS INDICATE THAT THE CITY OF"
+ },
+ {
+  "offset": 105557,
+  "kind": "dialogue",
+  "text": "WILL SOON BE ATTACKED BY CZARNY'S FORCES.  THE CITY CANNOT DEFEND ITSELF AGAINST THE BLACK LEGION, SO IT'S UP TO YOU TO GO THERE AND HELP THEM TURN AWAY THE ATTACK.  YOU MUST HURRY TO GET THERE AND SET UP DEFENSES"
+ },
+ {
+  "offset": 105773,
+  "kind": "dialogue",
+  "text": "BEFORE THE BLACK LEGION ARRIVES AND CONQUERS THE VILLAGE.  WE CAN'T AFFORD TO LET THAT HAPPEN.  AFTER DEFEATING THE LEGION, SEE THE CITY LEADER.  GOOD LUCK,"
+ },
+ {
+  "offset": 105932,
+  "kind": "ui",
+  "text": ".  WE'RE ALL COUNTING ON YOU!  EXOR 1, OUT."
+ },
+ {
+  "offset": 105976,
+  "kind": "ui",
+  "text": "REPEAT... EMERGENCY... EXOR 1 CALLING"
+ },
+ {
+  "offset": 106015,
+  "kind": "dialogue",
+  "text": "!  I HAVE AN EMERGENCY CRISIS THAT ONLY YOU AND YOUR PLATOON CAN MANAGE.   CZARNY'S BLACK LEGION ARMY IS MOVING TOWARD THE CITY OF"
+ },
+ {
+  "offset": 106147,
+  "kind": "dialogue",
+  "text": ".  THAT CAN ONLY MEAN THAT CZARNY PLANS TO ATTACK THE VILLAGE AND CLAIM IT FOR HIS OWN.  THAT CANNOT HAPPEN!  YOU MUST JOURNEY TO"
+ },
+ {
+  "offset": 106278,
+  "kind": "dialogue",
+  "text": "AT ONCE AND HELP THE CITIZENS DEFEND THEIR CITY.  SET UP YOUR DEFENSES"
+ },
+ {
+  "offset": 106351,
+  "kind": "dialogue",
+  "text": ", AND REPORT THE BATTLE RESULTS TO THE CITY LEADER.  IT'S UP TO YOU TO SAVE THEM.  GOOD LUCK.  EXOR 1, OVER AND OUT."
+ },
+ {
+  "offset": 106534,
+  "kind": "ui",
+  "text": "COME IN"
+ },
+ {
+  "offset": 106543,
+  "kind": "dialogue",
+  "text": ".  I HAVE A CLASSIFIED MISSION FOR YOUR SQUAD.  TAKE A TEAM OF YOUR BEST PERSONNEL TO THE CITY OF"
+ },
+ {
+  "offset": 106642,
+  "kind": "dialogue",
+  "text": "AND ELIMINATE ANY OPPOSING FORCES.  NO ONE BUT YOURSELF, YOUR SQUAD, AND THE CITY LEADER ARE TO KNOW ANYTHING ABOUT THIS.  THE LEADER OF"
+ },
+ {
+  "offset": 106781,
+  "kind": "dialogue",
+  "text": "HAS AGREED TO JOIN OUR CAUSE IF WE CAN ACCOMPLISH THIS OBJECTIVE IN A SUBDUED MANNER.  WE MUST OBTAIN THIS CITY'S ALLEGIANCE, SO LETS DO OUR BEST.  THIS IS EXOR 1, OUT."
+ },
+ {
+  "offset": 106951,
+  "kind": "ui",
+  "text": "...PLEASE RESPOND."
+ },
+ {
+  "offset": 106972,
+  "kind": "ui",
+  "text": ", THIS IS EXOR 1, PLEASE RESPOND.  THE CITY OF"
+ },
+ {
+  "offset": 107020,
+  "kind": "dialogue",
+  "text": "IS CURRENTLY UNDER THE CONTROL OF BARON CZARNY.  THE LEADER OF THE CITY HAS ASKED THAT WE STEP IN AND ASSIST THEM IN BREAKING AWAY FROM THE BARON'S CLUTCHES.  I NEED YOU TO TRAVEL TO"
+ },
+ {
+  "offset": 107205,
+  "kind": "dialogue",
+  "text": "AND SEE WHAT YOU CAN DO TO HELP THEM.  USE EXTREME CAUTION, I'M SURE CZARNY HAS TROOPS STATIONED OUTSIDE THE CITY LIMITS AS WELL AS IN THE CITY.  GOOD LUCK,"
+ },
+ {
+  "offset": 107364,
+  "kind": "ui",
+  "text": ".  EXOR 1, OVER AND OUT."
+ },
+ {
+  "offset": 107422,
+  "kind": "ui",
+  "text": "EXOR 1 CALLING"
+ },
+ {
+  "offset": 107438,
+  "kind": "ui",
+  "text": "... COME IN"
+ },
+ {
+  "offset": 107451,
+  "kind": "dialogue",
+  "text": ".  I'VE JUST RECEIVED A TIP THAT COULD POSSIBLY BE A GOLD MINE FOR OUR CAUSE.  RUMORS ARE CIRCULATING ABOUT A DOWNED VEHICLE AROUND THE CITY OF"
+ },
+ {
+  "offset": 107596,
+  "kind": "dialogue",
+  "text": ".  IF YOU CAN GET THERE QUICKLY, YOU MAY BE ABLE TO REPAIR THE VEHICLE AND ADD IT TO OUR POOL.  I'M SURE YOU WON'T BE THE ONLY ONE LOOKING FOR IT.  SOMEONE PARKED IT THERE, AND THEY'LL BE BACK, SO BE ON YOUR TOES AND BE WELL PREPARED FOR HOSTILE ENCOUNTERS.  I DON'T THINK I HAVE TO TELL YOU HOW IMPORTANT THIS COULD BE FOR OUR SIDE"
+ },
+ {
+  "offset": 107930,
+  "kind": "ui",
+  "text": ".  GOOD LUCK!  EXOR 1, OUT."
+ },
+ {
+  "offset": 107958,
+  "kind": "ui",
+  "text": "CALLING"
+ },
+ {
+  "offset": 107967,
+  "kind": "dialogue",
+  "text": ", THIS IS EXOR 1.  ONE OF OUR OPERATIVES HAS JUST REPORTED THAT HE HAS LOCATED A DOWNED"
+ },
+ {
+  "offset": 108056,
+  "kind": "ui",
+  "text": "IN THE CITY OF"
+ },
+ {
+  "offset": 108073,
+  "kind": "dialogue",
+  "text": ".  I DON'T NEED TO TELL YOU HOW IMPORTANT THIS VEHICLE IS TO OUR CAUSE.  INVESTIGATE THIS REPORT AT ONCE.  BE WARY THOUGH, THERE ARE BOUND TO BE OPPOSING FORCES GUNNING FOR THE VEHICLE.  GOOD LUCK.  EXOR 1, SIGNING OFF.  OVER AND OUT."
+ },
+ {
+  "offset": 108370,
+  "kind": "ui",
+  "text": "_C_FILE_INFO="
+ },
+ {
+  "offset": 109049,
+  "kind": "ui",
+  "text": "ppxxxx"
+ },
+ {
+  "offset": 109073,
+  "kind": "ui",
+  "text": "(null)"
+ },
+ {
+  "offset": 109198,
+  "kind": "ui",
+  "text": "SunMonTueWedThuFriSat"
+ },
+ {
+  "offset": 109220,
+  "kind": "ui",
+  "text": "JanFebMarAprMayJunJulAugSepOctNovDec"
+ },
+ {
+  "offset": 109550,
+  "kind": "ui",
+  "text": "<<NMSG>>"
+ },
+ {
+  "offset": 109560,
+  "kind": "ui",
+  "text": "R6000\r\n- stack overflow"
+ },
+ {
+  "offset": 109588,
+  "kind": "ui",
+  "text": "R6003\r\n- integer divide by 0"
+ },
+ {
+  "offset": 109621,
+  "kind": "ui",
+  "text": "R6009\r\n- not enough space for environment"
+ },
+ {
+  "offset": 109672,
+  "kind": "ui",
+  "text": "run-time error"
+ },
+ {
+  "offset": 109690,
+  "kind": "ui",
+  "text": "R6002\r\n- floating-point support not loaded"
+ },
+ {
+  "offset": 109737,
+  "kind": "ui",
+  "text": "R6001\r\n- null pointer assignment"
+ },
+ {
+  "offset": 110076,
+  "kind": "ui",
+  "text": "KV$Qwo"
+ },
+ {
+  "offset": 110084,
+  "kind": "ui",
+  "text": "=[g`i+F`jugw}#/!"
+ },
+ {
+  "offset": 110102,
+  "kind": "ui",
+  "text": "S`~t~bma|'.f-#38"
+ },
+ {
+  "offset": 110120,
+  "kind": "ui",
+  "text": ")?\"-Abi{gtic"
+ },
+ {
+  "offset": 110140,
+  "kind": "ui",
+  "text": "MHEBBDPB^H"
+ },
+ {
+  "offset": 110206,
+  "kind": "ui",
+  "text": "k}gwj2"
+ },
+ {
+  "offset": 110222,
+  "kind": "ui",
+  "text": "kUdfsbl2,w"
+ },
+ {
+  "offset": 110253,
+  "kind": "ui",
+  "text": "92wabfx"
+ },
+ {
+  "offset": 110284,
+  "kind": "ui",
+  "text": "ODA*\nOAUC"
+ },
+ {
+  "offset": 110301,
+  "kind": "format",
+  "text": "PGRT%SJLO"
+ },
+ {
+  "offset": 110313,
+  "kind": "ui",
+  "text": "J,HEMM'HPIAG"
+ },
+ {
+  "offset": 110363,
+  "kind": "ui",
+  "text": "0\\KCH+^A2\rp<@"
+ },
+ {
+  "offset": 110377,
+  "kind": "ui",
+  "text": "E)XFTDCj"
+ },
+ {
+  "offset": 110396,
+  "kind": "ui",
+  "text": "HTCK\\[SOSgC"
+ },
+ {
+  "offset": 110409,
+  "kind": "ui",
+  "text": "Q[ZAI'*"
+ },
+ {
+  "offset": 110459,
+  "kind": "ui",
+  "text": "w:]7EM&R"
+ },
+ {
+  "offset": 110503,
+  "kind": "ui",
+  "text": "VI$KED"
+ },
+ {
+  "offset": 110559,
+  "kind": "ui",
+  "text": "^ES_FL"
+ },
+ {
+  "offset": 110602,
+  "kind": "ui",
+  "text": "nYY8VDCF wV,#"
+ },
+ {
+  "offset": 110696,
+  "kind": "ui",
+  "text": "FP+NTlFJ@"
+ },
+ {
+  "offset": 110979,
+  "kind": "ui",
+  "text": "^BrnL"
+ },
+ {
+  "offset": 111072,
+  "kind": "ui",
+  "text": "+ZSTP\\"
+ },
+ {
+  "offset": 111187,
+  "kind": "ui",
+  "text": "(wvJN)H"
+ },
+ {
+  "offset": 111230,
+  "kind": "ui",
+  "text": "XBEOKK::"
+ },
+ {
+  "offset": 111251,
+  "kind": "ui",
+  "text": "v/^hc{fl"
+ },
+ {
+  "offset": 111260,
+  "kind": "ui",
+  "text": "Cosmgg!"
+ },
+ {
+  "offset": 111269,
+  "kind": "ui",
+  "text": "rv.wiye)is& 47Z;"
+ },
+ {
+  "offset": 111373,
+  "kind": "format",
+  "text": "UGFP%v"
+ },
+ {
+  "offset": 111905,
+  "kind": "ui",
+  "text": "1xBKYKD["
+ },
+ {
+  "offset": 111956,
+  "kind": "ui",
+  "text": "e\rgyif"
+ },
+ {
+  "offset": 111991,
+  "kind": "ui",
+  "text": "8K\\YT&S^Q"
+ },
+ {
+  "offset": 112006,
+  "kind": "format",
+  "text": "rck-xd*fxbh%bj"
+ },
+ {
+  "offset": 112273,
+  "kind": "ui",
+  "text": "EpKB0NM"
+ },
+ {
+  "offset": 112317,
+  "kind": "ui",
+  "text": "A^ZyQf"
+ },
+ {
+  "offset": 112356,
+  "kind": "ui",
+  "text": "RJ \\<-ZKE"
+ },
+ {
+  "offset": 112403,
+  "kind": "ui",
+  "text": "J<zveZD^"
+ },
+ {
+  "offset": 113110,
+  "kind": "ui",
+  "text": "PFVQ<L"
+ },
+ {
+  "offset": 113436,
+  "kind": "ui",
+  "text": "VE2ASU'Xd"
+ },
+ {
+  "offset": 113474,
+  "kind": "ui",
+  "text": "vwKBYX\n=&0"
+ },
+ {
+  "offset": 114573,
+  "kind": "ui",
+  "text": "EIONM!"
+ },
+ {
+  "offset": 114593,
+  "kind": "ui",
+  "text": "zIIOV\\w"
+ },
+ {
+  "offset": 114657,
+  "kind": "ui",
+  "text": "mEqeAYBFw"
+ },
+ {
+  "offset": 114830,
+  "kind": "ui",
+  "text": "mGIOXSYI"
+ },
+ {
+  "offset": 115313,
+  "kind": "ui",
+  "text": "qN^W@@\\*V[C"
+ },
+ {
+  "offset": 115335,
+  "kind": "ui",
+  "text": "Ze{zrvq$ncqd"
+ },
+ {
+  "offset": 115614,
+  "kind": "ui",
+  "text": ",XOTv-"
+ },
+ {
+  "offset": 115824,
+  "kind": "ui",
+  "text": "Z+XWFf"
+ },
+ {
+  "offset": 116095,
+  "kind": "ui",
+  "text": "q#L.HT"
+ },
+ {
+  "offset": 116104,
+  "kind": "ui",
+  "text": "l>/6TS~r,3"
+ },
+ {
+  "offset": 116186,
+  "kind": "ui",
+  "text": "q]ZPZD"
+ },
+ {
+  "offset": 116246,
+  "kind": "ui",
+  "text": "KO]&vdcf3"
+ },
+ {
+  "offset": 116574,
+  "kind": "ui",
+  "text": "WYJY)K"
+ },
+ {
+  "offset": 116626,
+  "kind": "ui",
+  "text": "> NAM\nKZhl"
+ },
+ {
+  "offset": 116819,
+  "kind": "ui",
+  "text": "]!uBE0R"
+ },
+ {
+  "offset": 116830,
+  "kind": "ui",
+  "text": "OIrCZE"
+ },
+ {
+  "offset": 118019,
+  "kind": "ui",
+  "text": "JwJ'BN"
+ },
+ {
+  "offset": 118040,
+  "kind": "ui",
+  "text": "\\NMF,GON"
+ },
+ {
+  "offset": 118180,
+  "kind": "ui",
+  "text": "DHF'JGN"
+ },
+ {
+  "offset": 118344,
+  "kind": "ui",
+  "text": "G:@FCEi"
+ },
+ {
+  "offset": 118440,
+  "kind": "ui",
+  "text": "O/hQ`P"
+ },
+ {
+  "offset": 118513,
+  "kind": "ui",
+  "text": "/K:hCG"
+ },
+ {
+  "offset": 119097,
+  "kind": "ui",
+  "text": "}:DNM G"
+ },
+ {
+  "offset": 119278,
+  "kind": "ui",
+  "text": "!e=PA[2J"
+ },
+ {
+  "offset": 119886,
+  "kind": "ui",
+  "text": "#h!VC&b=g"
+ },
+ {
+  "offset": 119953,
+  "kind": "format",
+  "text": "%JSYaZ"
+ },
+ {
+  "offset": 120063,
+  "kind": "ui",
+  "text": "$HX\\EEJ"
+ },
+ {
+  "offset": 120246,
+  "kind": "ui",
+  "text": ".E#T=WG"
+ },
+ {
+  "offset": 120737,
+  "kind": "ui",
+  "text": "XEH{\"Q"
+ },
+ {
+  "offset": 120957,
+  "kind": "ui",
+  "text": "KUNHHQ*O["
+ },
+ {
+  "offset": 120978,
+  "kind": "ui",
+  "text": ";N@NLNHNLN"
+ },
+ {
+  "offset": 121026,
+  "kind": "ui",
+  "text": "]OE?$Fps"
+ },
+ {
+  "offset": 121037,
+  "kind": "ui",
+  "text": "}.l`gejisokc#'t"
+ },
+ {
+  "offset": 121054,
+  "kind": "ui",
+  "text": "0mwyix*!-k"
+ },
+ {
+  "offset": 121084,
+  "kind": "ui",
+  "text": "Jd`.k~no)}i;"
+ },
+ {
+  "offset": 121097,
+  "kind": "ui",
+  "text": "muk.}c"
+ },
+ {
+  "offset": 121118,
+  "kind": "ui",
+  "text": "60s`3*{tojj6"
+ },
+ {
+  "offset": 121146,
+  "kind": "ui",
+  "text": "~jdzdx"
+ },
+ {
+  "offset": 121241,
+  "kind": "ui",
+  "text": "{kZLn(CaQZ'E0"
+ },
+ {
+  "offset": 121321,
+  "kind": "ui",
+  "text": "7cdi`c"
+ },
+ {
+  "offset": 121329,
+  "kind": "ui",
+  "text": "^+Oczc?YlYl]"
+ },
+ {
+  "offset": 121395,
+  "kind": "ui",
+  "text": "Z\\VX`8EFA]WV"
+ },
+ {
+  "offset": 121421,
+  "kind": "ui",
+  "text": "LUVNZIDD$))"
+ },
+ {
+  "offset": 121508,
+  "kind": "ui",
+  "text": "ABYZAH"
+ },
+ {
+  "offset": 121528,
+  "kind": "ui",
+  "text": "/GEVU0"
+ },
+ {
+  "offset": 121557,
+  "kind": "ui",
+  "text": "T$wt[M"
+ },
+ {
+  "offset": 121921,
+  "kind": "ui",
+  "text": "IFX^9iH"
+ },
+ {
+  "offset": 122053,
+  "kind": "ui",
+  "text": "^vAlD2"
+ },
+ {
+  "offset": 122135,
+  "kind": "ui",
+  "text": "QN\rLq7="
+ },
+ {
+  "offset": 122314,
+  "kind": "ui",
+  "text": "DShS>X"
+ },
+ {
+  "offset": 122781,
+  "kind": "ui",
+  "text": "G.TVV!"
+ },
+ {
+  "offset": 123067,
+  "kind": "ui",
+  "text": "KeMB.o"
+ },
+ {
+  "offset": 123077,
+  "kind": "ui",
+  "text": "SR\"=W?N$7"
+ },
+ {
+  "offset": 123352,
+  "kind": "ui",
+  "text": "$w$NBs"
+ },
+ {
+  "offset": 123565,
+  "kind": "ui",
+  "text": "TJMO[9P"
+ },
+ {
+  "offset": 123598,
+  "kind": "ui",
+  "text": "]k4XKz`"
+ },
+ {
+  "offset": 124074,
+  "kind": "ui",
+  "text": "VIrRHX"
+ },
+ {
+  "offset": 124124,
+  "kind": "ui",
+  "text": "a<P9hGO]_"
+ },
+ {
+  "offset": 124408,
+  "kind": "ui",
+  "text": "5&fcC<rd'C/jS"
+ },
+ {
+  "offset": 124497,
+  "kind": "ui",
+  "text": "\"HLuHMV"
+ },
+ {
+  "offset": 124894,
+  "kind": "ui",
+  "text": "CAMPHo"
+ },
+ {
+  "offset": 125430,
+  "kind": "ui",
+  "text": "I\n{hI\")bi("
+ },
+ {
+  "offset": 125519,
+  "kind": "ui",
+  "text": "[\"uN{ey"
+ },
+ {
+  "offset": 125695,
+  "kind": "ui",
+  "text": "C4UFGW"
+ },
+ {
+  "offset": 125719,
+  "kind": "ui",
+  "text": "VNxN&y"
+ },
+ {
+  "offset": 126536,
+  "kind": "ui",
+  "text": "[rhHkmVt"
+ },
+ {
+  "offset": 126546,
+  "kind": "ui",
+  "text": "uXkiXc"
+ },
+ {
+  "offset": 126553,
+  "kind": "ui",
+  "text": "OznUdp"
+ },
+ {
+  "offset": 126564,
+  "kind": "ui",
+  "text": "~IkoAjxHxu"
+ },
+ {
+  "offset": 126581,
+  "kind": "ui",
+  "text": "gK|oTcuK`vO"
+ },
+ {
+  "offset": 126653,
+  "kind": "ui",
+  "text": "10EGZO98"
+ },
+ {
+  "offset": 126671,
+  "kind": "ui",
+  "text": "0|zlo`*f~btchlu"
+ },
+ {
+  "offset": 126707,
+  "kind": "ui",
+  "text": "ykk-nr*3"
+ },
+ {
+  "offset": 126718,
+  "kind": "ui",
+  "text": "`!4!iiq$f"
+ },
+ {
+  "offset": 126730,
+  "kind": "ui",
+  "text": "zieHyH#dnm0."
+ },
+ {
+  "offset": 126817,
+  "kind": "ui",
+  "text": "q|}dkk"
+ },
+ {
+  "offset": 127005,
+  "kind": "ui",
+  "text": ",x,o,f,],T,K,B,9,0,',"
+ },
+ {
+  "offset": 127101,
+  "kind": "ui",
+  "text": "=~=z=v=r=n=j=f=b=^=Z=V=R=N=J=F=B=>=:=6=2=.=*=&=\"="
+ },
+ {
+  "offset": 127229,
+  "kind": "ui",
+  "text": "<~<z<v<r<n<j<f<b<^<Z<V<R<N<J<F<B<><:<6<2<.<*<&<\"<"
+ },
+ {
+  "offset": 127407,
+  "kind": "ui",
+  "text": ">~>z>v>r>n>j>f>b>^>Z>V>R>N>J>F>B>>>:>6>2>.>*>&>\">"
+ },
+ {
+  "offset": 127501,
+  "kind": "ui",
+  "text": "?}?t?b?Y?P?G?>?"
+ },
+ {
+  "offset": 127575,
+  "kind": "ui",
+  "text": "@~@z@v@r@n@j@f@b@^@Z@V@R@N@J@F@B@>@:@6@2@.@*@&@\"@"
+ },
+ {
+  "offset": 127708,
+  "kind": "format",
+  "text": "II@I7I.I%I"
+ }
+]

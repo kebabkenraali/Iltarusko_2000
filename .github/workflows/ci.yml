@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: windows-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Godot 4.7.2
+        run: |
+          $ProgressPreference = "SilentlyContinue"
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_win64.exe.zip" -OutFile godot.zip
+          Expand-Archive godot.zip -DestinationPath godot
+          Get-ChildItem godot -Filter "Godot*.exe" | Select-Object -First 1 | ForEach-Object { echo "GODOT_PATH=$($_.FullName)" >> $env:GITHUB_ENV }
+
+      - name: Run headless test suite
+        run: |
+          & $env:GODOT_PATH --headless --path godot --script tests/test_campaign.gd
+          & $env:GODOT_PATH --headless --path godot --script tests/test_chargen_rules.gd
+          & $env:GODOT_PATH --headless --path godot --script tests/test_vehicle.gd
+          & $env:GODOT_PATH --headless --path godot --script tests/test_economy.gd
+          & $env:GODOT_PATH --headless --path godot --script tests/test_spotted.gd
+          & $env:GODOT_PATH --headless --path godot --script tests/test_reaction_morale.gd
+          & $env:GODOT_PATH --headless --path godot --script tests/test_tank_hunt.gd
+          & $env:GODOT_PATH --headless --path godot --script tests/test_performance.gd
+          $env:T2K_FOGGED = "1"
+          & $env:GODOT_PATH --headless --path godot --script tests/test_balance.gd
+          & $env:GODOT_PATH --path godot -- --test=save
+          & $env:GODOT_PATH --path godot -- --test=save_errors
+          & $env:GODOT_PATH --path godot -- --test=fullgame

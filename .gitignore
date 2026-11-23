@@ -1,0 +1,11 @@
+# Remake repository: docs, tools, and Godot project.
+# Large generated data stays out of version control.
+assets_original/
+assets_ai/
+backup_2026-11-03/
+palettes/
+tools/.venv_ai/
+__pycache__/
+*.pyc
+# Original game assets (copyrighted) - extract from your own copy
+godot/original/
