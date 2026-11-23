@@ -166,11 +166,44 @@ def voc_to_wav(path, out_wav):
     return True
 
 
+def copy_reference_png(ref_root, lib, name, dest_dir):
+    """Use a previously extracted PNG as the sprite payload's picture.
+
+    This is a FALLBACK, not the token codec: the .LB member still tells us the
+    exact sprite name, and the reference directory supplies its decoded pixels.
+    Prefers an *_rgba.png (already has transparency); otherwise converts the
+    indexed picture by turning the game's magenta chroma key transparent.
+    """
+    from PIL import Image
+
+    base = os.path.join(ref_root, "graphics", lib, name)
+    src = base + "_rgba.png"
+    if not os.path.isfile(src):
+        src = base + ".png"
+    if not os.path.isfile(src):
+        return False
+    os.makedirs(dest_dir, exist_ok=True)
+    dst = os.path.join(dest_dir, name + ".png")
+    im = Image.open(src)
+    if im.mode == "RGBA":
+        im.save(dst)
+    else:
+        rgb = im.convert("RGB")
+        data = []
+        for r, g, b in rgb.getdata():
+            data.append((0, 0, 0, 0) if (r, g, b) == (255, 85, 255) else (r, g, b, 255))
+        out = Image.new("RGBA", rgb.size)
+        out.putdata(data)
+        out.save(dst)
+    return True
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--game", help="directory containing GAMEDATA/ANIMS.LB etc.")
     ap.add_argument("--out", default="godot/original", help="output directory")
+    ap.add_argument("--reference-dir", help="directory with already extracted graphics/<LIB>/*.png; used as a sprite fallback")
     ap.add_argument("--verify", action="store_true", help="only report, write nothing")
     args = ap.parse_args()
 
@@ -186,6 +219,7 @@ def main():
         if not os.path.isfile(path):
             continue
         members = {}
+        pngs = 0
         for name, data in read_lb(path):
             info = sprite_header(data)
             members[name] = info or {"length": len(data)}
@@ -194,8 +228,11 @@ def main():
                 os.makedirs(dest, exist_ok=True)
                 with open(os.path.join(dest, name + ".bin"), "wb") as fh:
                     fh.write(data)
+                if args.reference_dir and copy_reference_png(args.reference_dir, lib, name, dest):
+                    pngs += 1
         manifest["archives"][lib] = members
-        print(f"{lib}.LB: {len(members)} members")
+        extra = f" (+{pngs} PNG from reference)" if pngs else ""
+        print(f"{lib}.LB: {len(members)} members{extra}")
 
     art = os.path.join(game, "ART")
     if os.path.isdir(art):

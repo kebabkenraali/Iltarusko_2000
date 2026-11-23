@@ -40,7 +40,9 @@ The extractor reads **only your own copy** of the 1991 DOS game and writes:
 | `GAMEDATA/*.LB` | 296 raw sprite payloads as `.bin` + `_meta.json` |
 | `GAMEDATA/*.CMF` | music copied as-is (AdLib format) |
 
-**Known limitation:** the `.LB` sprites use the game's own token compression. The extractor recovers the raw payloads and their headers but does not yet decode them into PNG pixels, so the game is not fully playable from this output alone. The private decoder from the original project was never published. Contributions that crack the token format are very welcome.
+**Known limitation:** the `.LB` sprites use the game's own token compression. The extractor recovers the raw payloads and their headers but does not yet decode the tokens into PNG pixels algorithmically. The private decoder from the original project was never published. Contributions that crack the token format are very welcome.
+
+**Working fallback:** if you already have a directory with previously extracted sprite PNGs, pass `--reference-dir <path>` to `extract_original.py`; each `.LB` member is then mapped to its decoded PNG (magenta becomes transparent). The installer auto-detects `..\remake\godot\original` or the environment variable `T2K_REFERENCE_DIR` and copies the complete reference asset tree. With a reference directory the produced package is fully playable; without one the sprites stay blank.
 
 ## Install / package a playable copy
 Run the PowerShell installer:

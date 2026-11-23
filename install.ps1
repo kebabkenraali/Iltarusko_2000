@@ -53,8 +53,18 @@ $extractor = Join-Path $root 'tools\extract_original.py'
 if (-not (Test-Path $extractor)) { throw "Purkutyökalu puuttuu: $extractor" }
 
 Write-Step 'Puretaan assetit alkuperäisestä pelistä'
-& $python $extractor --game $GamePath --out (Join-Path $gameDir 'original')
+$reference = Join-Path (Split-Path $root -Parent) 'remake\godot\original'
+if (-not (Test-Path $reference)) { $reference = $env:T2K_REFERENCE_DIR }
+$refArgs = @()
+if ($reference -and (Test-Path $reference)) {
+    Write-Host "Käytetään valmiita sprite-PNG:tä: $reference" -ForegroundColor Green
+    $refArgs = @('--reference-dir', $reference)
+}
+& $python $extractor --game $GamePath --out (Join-Path $gameDir 'original') @refArgs
 if ($LASTEXITCODE -ne 0) { throw 'Assetien purku epäonnistui.' }
+if ($reference -and (Test-Path $reference)) {
+    Copy-Item (Join-Path $reference '*') (Join-Path $gameDir 'original') -Recurse -Force
+}
 
 $sprites = @(Get-ChildItem (Join-Path $gameDir 'original\graphics\ANIMS') -Filter '*.png' -ErrorAction SilentlyContinue).Count
 if ($sprites -lt 10) {
