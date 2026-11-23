@@ -65,14 +65,21 @@ if ($LASTEXITCODE -ne 0) { throw 'Assetien purku epäonnistui.' }
 if ($reference -and (Test-Path $reference)) {
     Copy-Item (Join-Path $reference '*') (Join-Path $gameDir 'original') -Recurse -Force
 } else {
-    # Self-contained fallback: a locally bundled dictionary of decoded sprites.
-    $dict = Join-Path $root 'asset_library\twilight2000_assets.zip'
+    # Self-contained fallback: an ENCRYPTED local asset package, decrypted only here.
+    $dict = Join-Path $root 'asset_library\twilight2000_assets.t2k'
     if (-not (Test-Path $dict)) { $dict = $env:T2K_ASSET_DICT }
-    if ($dict -and (Test-Path $dict)) {
-        Write-Host "Käytetään paikallista asset-kirjastoa: $dict" -ForegroundColor Green
-        Expand-Archive -Path $dict -DestinationPath (Join-Path $gameDir 'original') -Force
+    $keyFile = Join-Path $root 'asset_library\passphrase.txt'
+    if ($dict -and (Test-Path $dict) -and (Test-Path $keyFile)) {
+        Write-Host "Puretaan salattu asset-paketti: $dict" -ForegroundColor Green
+        $engineCache = Join-Path $root 'engine'
+        if (-not (Test-Path $engineCache)) { New-Item -ItemType Directory -Path $engineCache | Out-Null }
+        $plainZip = Join-Path $engineCache 'assets_decrypted.zip'
+        & $python (Join-Path $root 'tools\asset_crypto.py') decrypt --in $dict --out $plainZip --passphrase-file $keyFile
+        if ($LASTEXITCODE -ne 0) { throw 'Asset-paketin salauksen purku epäonnistui.' }
+        Expand-Archive -Path $plainZip -DestinationPath (Join-Path $gameDir 'original') -Force
+        Remove-Item $plainZip -Force
     } else {
-        Write-Host 'VAROITUS: ei referenssikansiota eikä asset-kirjastoa - sprite-jäsenet jäävät raakoiksi .bin-tiedostoiksi.' -ForegroundColor Yellow
+        Write-Host 'VAROITUS: ei referenssikansiota eikä salattua asset-pakettia - sprite-jäsenet jäävät raakoiksi .bin-tiedostoiksi.' -ForegroundColor Yellow
     }
 }
 
