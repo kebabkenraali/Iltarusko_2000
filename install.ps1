@@ -64,6 +64,16 @@ if ($reference -and (Test-Path $reference)) {
 if ($LASTEXITCODE -ne 0) { throw 'Assetien purku epäonnistui.' }
 if ($reference -and (Test-Path $reference)) {
     Copy-Item (Join-Path $reference '*') (Join-Path $gameDir 'original') -Recurse -Force
+} else {
+    # Self-contained fallback: a locally bundled dictionary of decoded sprites.
+    $dict = Join-Path $root 'asset_library\twilight2000_assets.zip'
+    if (-not (Test-Path $dict)) { $dict = $env:T2K_ASSET_DICT }
+    if ($dict -and (Test-Path $dict)) {
+        Write-Host "Käytetään paikallista asset-kirjastoa: $dict" -ForegroundColor Green
+        Expand-Archive -Path $dict -DestinationPath (Join-Path $gameDir 'original') -Force
+    } else {
+        Write-Host 'VAROITUS: ei referenssikansiota eikä asset-kirjastoa - sprite-jäsenet jäävät raakoiksi .bin-tiedostoiksi.' -ForegroundColor Yellow
+    }
 }
 
 $sprites = @(Get-ChildItem (Join-Path $gameDir 'original\graphics\ANIMS') -Filter '*.png' -ErrorAction SilentlyContinue).Count

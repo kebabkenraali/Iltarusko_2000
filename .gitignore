@@ -9,6 +9,8 @@ __pycache__/
 *.pyc
 # Original game assets (copyrighted) - extract from your own copy
 godot/original/
+# Local-only decoded asset dictionary used by install.ps1 (never publish)
+asset_library/
 # find_game_data build output (the exe is committed)
 tools/find_game_data/bin/
 tools/find_game_data/obj/
