@@ -1,5 +1,6 @@
 using System.IO.Compression;
 using System.Net.Http;
+using System.Windows.Forms;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
@@ -13,12 +14,21 @@ internal static class Program
 
     private static void Say(string s) => Console.WriteLine(s);
 
+    [STAThread]
     private static int Main(string[] args)
     {
         try
         {
             string root = Environment.CurrentDirectory;
-            string game = args.Length > 0 ? args[0] : Environment.GetEnvironmentVariable("T2K_GAME_DIR");
+            string game = Environment.GetEnvironmentVariable("T2K_GAME_DIR");
+            string destArg = Environment.GetEnvironmentVariable("T2K_INSTALL_DIR");
+            for (int i = 0; i < args.Length; i++)
+            {
+                if ((args[i] == "--dest" || args[i] == "-d") && i + 1 < args.Length)
+                    destArg = args[++i];
+                else if (!args[i].StartsWith("-"))
+                    game = args[i];
+            }
             if (string.IsNullOrWhiteSpace(game))
             {
                 Say("Anna alkuperaisen Twilight: 2000 (DOS) -pelin kansio (GAMEDATA-alakansioineen):");
@@ -27,6 +37,10 @@ internal static class Program
             if (string.IsNullOrWhiteSpace(game) || !File.Exists(Path.Combine(game, "GAMEDATA", "ANIMS.LB")))
                 throw new Exception("Alkuperaista pelia ei loytynyt: " + game);
             Say("Kaytetaan pelia: " + game);
+
+            string publish = PickDestination(root, destArg);
+            if (publish == null) { Say("Asennus peruttu."); return 0; }
+            Say("Asennuskansio: " + publish);
 
             string godotDir = Path.Combine(root, "godot");
             string target = Path.Combine(godotDir, "original");
@@ -53,9 +67,7 @@ internal static class Program
             int members = BitConverter.ToUInt16(lb, 0);
             Say("  alkuperainen ANIMS.LB: " + members + " jasenta");
 
-            // 3. Build a clean distributable folder.
-            string publish = Path.Combine(Directory.GetParent(root).FullName, "Iltarusko_2000_game");
-            if (Directory.Exists(publish)) Directory.Delete(publish, true);
+            // 3. Build a clean distributable folder in the chosen destination.
             Directory.CreateDirectory(publish);
             string pubGodot = Path.Combine(publish, "godot");
             Directory.CreateDirectory(pubGodot);
@@ -131,6 +143,76 @@ internal static class Program
             if (name == ".godot") continue;
             CopyDir(d, Path.Combine(dst, name));
         }
+    }
+
+    /// <summary>Ask the destination with a folder picker (or use --dest for unattended runs).</summary>
+    private static string PickDestination(string sourceRoot, string destArg)
+    {
+        bool unattended = !string.IsNullOrWhiteSpace(destArg);
+        string current = destArg;
+        while (true)
+        {
+            if (!unattended)
+            {
+                using var dialog = new FolderBrowserDialog
+                {
+                    Description = "Valitse kansio, johon Iltarusko_2000 asennetaan.",
+                    ShowNewFolderButton = true
+                };
+                if (!string.IsNullOrWhiteSpace(current) && Directory.Exists(current)) dialog.SelectedPath = current;
+                if (dialog.ShowDialog() != DialogResult.OK) return null;
+                current = dialog.SelectedPath;
+            }
+            string error = ValidateDestination(sourceRoot, current);
+            if (error == null)
+            {
+                if (!unattended && Directory.Exists(current) &&
+                    (Directory.GetFiles(current).Length > 0 || Directory.GetDirectories(current).Length > 0))
+                {
+                    var answer = MessageBox.Show(
+                        "Kansio '" + current + "' ei ole tyhjä. Ylikirjoitetaanko pelin tiedostot sinne?",
+                        "Iltarusko 2000", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (answer == DialogResult.No) { unattended = false; continue; }
+                }
+                return current;
+            }
+            if (unattended) throw new Exception("Virheellinen asennuskansio: " + error);
+            MessageBox.Show(error, "Virheellinen kansio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            unattended = false;
+        }
+    }
+
+    private static string ValidateDestination(string sourceRoot, string path)
+    {
+        if (string.IsNullOrWhiteSpace(path)) return "kansiota ei valittu";
+        path = Path.GetFullPath(path);
+        if (!Directory.Exists(path))
+        {
+            try { Directory.CreateDirectory(path); }
+            catch (Exception ex) { return "kansiota ei voi luoda: " + ex.Message; }
+        }
+        string rootFull = Path.GetFullPath(sourceRoot).TrimEnd(Path.DirectorySeparatorChar);
+        string destFull = path.TrimEnd(Path.DirectorySeparatorChar);
+        if (string.Equals(rootFull, destFull, StringComparison.OrdinalIgnoreCase))
+            return "asennuskansio ei voi olla lähdekansio";
+        if (destFull.StartsWith(rootFull + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase))
+            return "asennuskansio ei voi olla lähdekansion sisällä";
+        if (rootFull.StartsWith(destFull + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase))
+            return "lähdekansio ei voi olla asennuskansion sisällä";
+        try
+        {
+            string probe = Path.Combine(path, ".t2k_write_test");
+            File.WriteAllText(probe, "ok");
+            File.Delete(probe);
+        }
+        catch (Exception ex) { return "kansioon ei voi kirjoittaa: " + ex.Message; }
+        try
+        {
+            var drive = new DriveInfo(Path.GetPathRoot(path));
+            if (drive.AvailableFreeSpace < 500L * 1024 * 1024) return "levyllä ei ole tarpeeksi tilaa (tarvitaan ~400 MB)";
+        }
+        catch (Exception ex) { return "levyn tilaa ei voi tarkistaa: " + ex.Message; }
+        return null;
     }
 
     private static byte[] Decrypt(byte[] blob, string passphrase)

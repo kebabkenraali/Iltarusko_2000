@@ -64,9 +64,14 @@ A single-file **`install.exe`** is published as a GitHub Release asset:
     SHA256: https://github.com/kebabkenraali/Iltarusko_2000/releases/download/v1.0.0-installer/install.exe.sha256
 
 Download it, run it from the folder that contains this project, and give it the path to your
-original 1991 Twilight: 2000 DOS game when asked. The exe embeds both the encrypted asset
-package and an obfuscated passphrase, so there is no plaintext passphrase file on disk. It
-downloads Godot 4.7.2 itself and writes a `Kaynnista.bat` that uses the bundled engine.
+original 1991 Twilight: 2000 DOS game when asked. The installer then opens a **folder picker**
+where you choose the installation directory – nothing is typed. The chosen folder is validated
+(writable, enough free space, not the source folder or inside it, and a warning if it is not
+empty). For unattended runs `--dest <path>` can be used instead of the picker.
+
+The exe embeds both the encrypted asset package and an obfuscated passphrase, so there is no
+plaintext passphrase file on disk. It downloads Godot 4.7.2 itself, imports the project and
+writes a `Kaynnista.bat` that uses the bundled engine.
 
 `installer/Secret.cs`, `install.exe`, `installer_out/`, `engine/` and `asset_library/` are
 gitignored local-only build inputs/outputs; only the source is kept in the repository.
