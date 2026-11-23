@@ -25,11 +25,22 @@ cd Iltarusko_2000
 ### 2. Extract game assets
 The game needs graphics, audio, and text data extracted from the original game.
 
-If you have the original game installed, use the extraction tools:
+If you have the original game installed, run the bundled extractor (Python 3.9+, Pillow):
 ```powershell
-# See t2k-native/tools/ for extraction scripts
-# Or use the pre-extracted assets if you have them
+python -m pip install Pillow
+python tools/extract_original.py --game "C:\path\to\original\T2000" --out godot/original
 ```
+
+The extractor reads **only your own copy** of the 1991 DOS game and writes:
+
+| Source | Output |
+|---|---|
+| `ART/*.LBM` | 7 decoded background pictures as PNG |
+| `GAMEDATA/*.VOC` | 25 sound effects converted to WAV |
+| `GAMEDATA/*.LB` | 296 raw sprite payloads as `.bin` + `_meta.json` |
+| `GAMEDATA/*.CMF` | music copied as-is (AdLib format) |
+
+**Known limitation:** the `.LB` sprites use the game's own token compression. The extractor recovers the raw payloads and their headers but does not yet decode them into PNG pixels, so the game is not fully playable from this output alone. The private decoder from the original project was never published. Contributions that crack the token format are very welcome.
 
 Place extracted files in `godot/original/`:
 ```
