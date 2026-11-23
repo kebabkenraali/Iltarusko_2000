@@ -63,6 +63,16 @@ encrypted asset package and an obfuscated passphrase, so there is no plaintext p
 on disk. `installer/Secret.cs`, `install.exe`, `installer_out/`, `engine/` and `asset_library/`
 are gitignored local-only build inputs/outputs.
 
+### Verified install (clean copy, only the original game supplied)
+```
+install.exe C:\Twilight-2000_DOS_EN\gamedata\C\T2000
+  -> 2346 assets decrypted from the embedded package, ANIMS.LB: 60 members read
+  -> Godot 4.7.2 downloaded + SHA256 verified, project imported
+  -> package: 4796 files, 120 ANIMS PNG, godot.exe + Kaynnista.bat
+  -> Godot headless start: exit 0, 0 missing resources / script errors
+  -> 0 plaintext passphrase files
+```
+
 Place extracted files in `godot/original/`:
 ```
 godot/original/
