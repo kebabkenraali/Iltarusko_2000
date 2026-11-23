@@ -58,10 +58,18 @@ copies `godot.exe` into the package and writes a launcher that uses that bundled
 no system-wide Godot installation is needed. The engine ZIP is cached locally in `engine/`
 (gitignored).
 
-A single-file **`install.exe`** is also built locally (from `installer/`). It embeds both the
-encrypted asset package and an obfuscated passphrase, so there is no plaintext passphrase file
-on disk. `installer/Secret.cs`, `install.exe`, `installer_out/`, `engine/` and `asset_library/`
-are gitignored local-only build inputs/outputs.
+A single-file **`install.exe`** is published as a GitHub Release asset:
+
+    https://github.com/kebabkenraali/Iltarusko_2000/releases/download/v1.0.0-installer/install.exe
+    SHA256: https://github.com/kebabkenraali/Iltarusko_2000/releases/download/v1.0.0-installer/install.exe.sha256
+
+Download it, run it from the folder that contains this project, and give it the path to your
+original 1991 Twilight: 2000 DOS game when asked. The exe embeds both the encrypted asset
+package and an obfuscated passphrase, so there is no plaintext passphrase file on disk. It
+downloads Godot 4.7.2 itself and writes a `Kaynnista.bat` that uses the bundled engine.
+
+`installer/Secret.cs`, `install.exe`, `installer_out/`, `engine/` and `asset_library/` are
+gitignored local-only build inputs/outputs; only the source is kept in the repository.
 
 ### Verified install (clean copy, only the original game supplied)
 ```
