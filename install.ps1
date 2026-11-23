@@ -102,21 +102,35 @@ Get-ChildItem (Join-Path $publish 'godot\original') -Recurse -File -Filter '*.bi
 $manifest = Join-Path $publish 'godot\original\manifest.json'
 if (Test-Path $manifest) { Remove-Item $manifest -Force }
 
+# ---------------------------------------------------------------- Godot engine
+Write-Step 'Ladataan Godot 4.7.2 -pelimoottori'
+$engineDir = Join-Path $root 'engine'
+if (-not (Test-Path $engineDir)) { New-Item -ItemType Directory -Path $engineDir | Out-Null }
+$zipPath = Join-Path $engineDir 'Godot_v4.7.2-stable_win64.exe.zip'
+$url = 'https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_win64.exe.zip'
+if (-not (Test-Path $zipPath)) {
+    Write-Host "Ladataan: $url" -ForegroundColor DarkGray
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    Invoke-WebRequest -Uri $url -OutFile $zipPath -UseBasicParsing
+}
+$hash = (Get-FileHash $zipPath -Algorithm SHA256).Hash.ToLower()
+if ($hash -ne '731980f9608d61333e5baf54a2ef17210acc7a538446c0cb9969f002aca1e953') {
+    throw "Godot-zipin SHA256-tarkistus epäonnistui: $hash"
+}
+$tmpEngine = Join-Path $engineDir 'extract'
+if (Test-Path $tmpEngine) { Remove-Item -Recurse -Force $tmpEngine }
+Expand-Archive -Path $zipPath -DestinationPath $tmpEngine -Force
+Copy-Item (Join-Path $tmpEngine 'Godot_v4.7.2-stable_win64.exe') (Join-Path $publish 'godot.exe') -Force
+Remove-Item -Recurse -Force $tmpEngine
+Write-Host "Godot kopioitu: $(Join-Path $publish 'godot.exe')" -ForegroundColor Green
+
 @"
 @echo off
 echo ============================================
 echo  Iltarusko_2000 - Twilight: 2000 Remake
 echo ============================================
 echo.
-where godot >nul 2>nul
-if errorlevel 1 (
-  echo Godotia ei loytynyt PATHista.
-  echo Asenna Godot 4.7.2+ osoitteesta https://godotengine.org/download
-  echo ja lisaa godot.exe PATHiin, tai korvaa tama rivi polulla godot.exe:n.
-  pause
-  exit /b 1
-)
-godot --path "%~dp0godot" %*
+"%~dp0godot.exe" --path "%~dp0godot" %*
 "@ | Set-Content -Encoding ASCII (Join-Path $publish 'Kaynnista.bat')
 
 # ---------------------------------------------------------------- summary
@@ -126,5 +140,6 @@ Write-Step 'Valmis'
 Write-Host "Julkaisukansio : $publish"
 Write-Host "Tiedostoja     : $files"
 Write-Host "Kokoono        : $size MB"
-Write-Host "Jätettiin pois : .git, .godot, .github, docs, tools, tests, *.uid, *.zip, *.exe"
+Write-Host "Jätettiin pois : .git, .godot, .github, docs, tools, tests, *.uid, *.zip"
+Write-Host "Mukana        : godot.exe (Godot 4.7.2), Kaynnista.bat, pelidata ja assetit"
 Write-Host "`nKäynnistä peli: $publish\Kaynnista.bat" -ForegroundColor Green

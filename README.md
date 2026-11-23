@@ -53,7 +53,10 @@ It asks for the folder of your original 1991 DOS game, extracts the assets with 
 and builds a clean **`..\Iltarusko_2000_game`** folder. That folder contains only the playable
 game (`godot\`, `Kaynnista.bat`, `README.md`) – all development files (`.git`, `.godot`, `.github`,
 `docs`, `tools`, `tests`, `.uid` files, ZIPs and executables) are left out. Launch with
-`Kaynnista.bat` (requires Godot 4.7.2+ on PATH).
+`Kaynnista.bat`. The installer downloads Godot 4.7.2 (win64), verifies its SHA256,
+copies `godot.exe` into the package and writes a launcher that uses that bundled engine –
+no system-wide Godot installation is needed. The engine ZIP is cached locally in `engine/`
+(gitignored).
 
 Place extracted files in `godot/original/`:
 ```
