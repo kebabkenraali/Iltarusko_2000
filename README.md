@@ -18,8 +18,8 @@ copy of the 1991 DOS game. Nothing in this repository is a substitute for the or
 
 ### 1. Clone the repository
 ```powershell
-git clone https://github.com/kebabkenraali/Iltarusko_2000.git
-cd Iltarusko_2000
+git clone https://github.com/kebabkenraali/Iltarusko_200.git
+cd Iltarusko_200
 ```
 
 ### 2. Extract game assets
@@ -58,7 +58,7 @@ godot --path godot -- --test=battle
 
 ## Project structure
 ```
-Iltarusko_2000/
+Iltarusko_200/
   godot/              Godot 4.7 project
     project.godot     Project configuration
     scenes/           Main scene (main.tscn)
