@@ -5,6 +5,12 @@ hahmonluonti, esineet ja säännöt säilyvät, mutta käyttöliittymä ja pelat
 nykyaikaan. Uusi grafiikka tehdään tekoälyllä alkuperäisiä kuvia lähtökohtana käyttäen.
 
 > **Tekoälyagentti (LLM):** aloita tästä → `docs/AI_OHJE.md` (tila, säännöt, kuopat, tehtävälista).
+>
+> **HUOMIO 19.11.2026:** Erillinen `t2k-native`-kokeilu (x86-emulaattori alkuperäisen DOS-pelin
+> ajamiseen; `tools/dis86.py`, `docs/RAPORTTI.md`, `SAANNOT_VERTAILU.md`, `MANUAL_CHECK.md`) on
+> **poistettu eikä sen lähteitä ole jäljellä**. Alla olevat viittaukset ovat historiallisia.
+> Kokeilu ei ollut osa peliä eikä sitä jatketa; hyödylliset löydökset (alkuperäisen Enter-bugi,
+> sääntövertailu, manuaalitarkistus) on talletettu tähän dokumenttiin. Älä etsi tai rakenna uudelleen.
 
 Moottori: **Godot 4.4** (projektin `config/features`; ajettu 4.7.2-binäärillä, ks. luku 11). Valittu FOnlinen sijaan, koska peli
 on yksinpeli: FOnline vaatisi palvelin–asiakasrakenteen myös yksinpeliin.
@@ -32,10 +38,11 @@ on yksinpeli: FOnline vaatisi palvelin–asiakasrakenteen myös yksinpeliin.
 | 3D-ajoneuvot | TWI3D.EXE, TWIVCLS/TWIOBS/TWISHP.PIN | purkamatta | – |
 | Fontti | GAMEDATA/FONT.LY | purkamatta | – |
 
-Työkalut (`t2k-native/tools/`): `lb.py` (LB-formaatti), `extract_graphics.py`, `cmf2wav.c`,
-`voc2wav.py`, `extract_text.py`, `extract_data.py`, `items.py`, `dis86.py` (x86-16-disassembler).
-Alkuperäinen peli pyörii natiiviajoympäristössä (`t2k-native`), jonka avulla purettua dataa
-voi verrata peliin (esim. `catchpic=MODULI;OFFSET` kaappaa pelin oman purkajan tuloksen).
+Työkalut (`t2k-native/tools/`, **poistettu 19.11.**): `lb.py` (LB-formaatti), `extract_graphics.py`,
+`cmf2wav.c`, `voc2wav.py`, `extract_text.py`, `extract_data.py`, `items.py`, `dis86.py`
+(x86-16-disassembler). Alkuperäinen peli pyöri natiiviajoympäristössä (`t2k-native`), jonka avulla
+purettua dataa voi verrata peliin (esim. `catchpic=MODULI;OFFSET` kaappaa pelin oman purkajan
+tuloksen). Kokeilu on nyt poistettu — nämä tiedot ovat historiallisia, älä etsi työkaluja.
 
 ### Havaintoja rakenteesta
 - Hahmot ovat koottuja: pää (AFH0–14, 15 päätä × 7 suuntaa), vartalo (AM/AF/EM × 8 suuntaa,
@@ -63,8 +70,9 @@ Modernisoidaan:
 - Yksi klikkaus riittää kaikkialla. Hiiren päällä näkyy vihje, ja oikea nappi peruu.
 - Taktinen taistelu vuoropohjaisena (M5); alkuperäinen reaaliaikainen `combat.gd` on legacy eikä peli käytä sitä.
 - Kartta on samassa suunnassa kuin maasto, ja matkustus kartalta valitsemalla (nopeutus maaseudulla).
-- Pöytäroolipelin säännöt valinnaisina (ks. `t2k-native/docs/SAANNOT_VERTAILU.md`): tähdätty laukaus,
-  coolness under fire, kaatuminen ja kokemuspisteet.
+- Pöytäroolipelin säännöt valinnaisina (vertailu dokumentoitu tässä; entinen
+  `t2k-native/docs/SAANNOT_VERTAILU.md` poistettu 19.11.): tähdätty laukaus, coolness under fire,
+  kaatuminen ja kokemuspisteet.
 - Tasapainotus: kranaattien sirpaleet, M2HB:n läpäisy ja käyttämättömille taidoille käyttö.
 - Tallennus kartalla, toimistossa ja kaupungissa (F5/F9) sekä automaattitallennus kartalle palatessa; ei kesken taistelun eikä sisätilassa.
 
@@ -154,7 +162,7 @@ Kansiossa `godot/remastered/` on 658 tiedostoa (noin 71,5 Mt). CGEN, FACES ja BU
 käyttöön, kun hahmonluonti (M2) ja kaupungit (M3) rakennetaan. `main.art()` löytää ne automaattisesti.
 Testi kuvaa tilat; F2-vertailu on pois päältä (ks. yllä).
 
-- **INTRO (198 kuvaa, M7 – AJO MAHDOLLINEN):** `remaster_set.py intro [N]` (lisätty 7.11.) maalaa ruudut 4×-koossa (denoise 0,3 / refine 0,15, kiinteä siemen), jo maalatut ohitetaan ja `N` pysäyttää N uuden jälkeen. Kansiossa `godot/remastered/INTRO` on vielä 0/198 (aiempi yritys katkesi, tuotokset eivät tallentuneet). Ajo: `python tools/remaster_set.py intro` (vaatii `.venv_ai`-ympäristön ja CUDA-GPU:n). Tekstiruudut saavat mallin oman kirjainasun. Mallitiedosto sd_xl_base_1.0.safetensors puuttuu Pinokion WebUI:n models-kansiosta (todettu 7.11.2026: kansio tyhjä) – se on ladattava uudelleen ennen ajoa.
+- **INTRO (198 kuvaa) – PERUTTU 19.11.2026:** käyttäjän päätöksellä peliin jää **alkuperäinen intro**; uutta introa ei tehdä. `remaster_set.py intro [N]` on edelleen olemassa työkaluna, mutta sitä EI saa ajaa. SDXL-malli `sd_xl_base_1.0.safetensors` ladattiin koneelle 19.11., mutta generointi pysäytettiin heti (0/198 kuvaa; `godot/remastered/INTRO`-kansiota ei ole olemassa). Pelissä `main.remastered = false` ja `ALLOW_AI_ART = false` (F2 on dead), joten aina käytetään alkuperäistä grafiikkaa. Älä käynnistä INTRO-remasteria uudelleen.
 
 ## 4. Etenemissuunnitelma
 1. **M1 Pystyleike:** toimisto (alkuperäinen kuva, klikattavat kohteet), radio-briefing
@@ -611,8 +619,9 @@ efektit 25, tehtävätyypit 12, tekstit 6296 merkkijonoa yhdeksässä moduulissa
 chargen_rules, combat, vehicle ja battle kaikki PASS. Demon `project.godot` vahvistettu
 sisältävän `[debug] file_logging` -asetuksen (virheloki `%APPDATA%\Godot\app_userdata\
 Twilight- 2000 Remake DEMO\logs\godot.log`, 5 rotaatiota) ja `config/name` on
-`Twilight: 2000 Remake DEMO`. SDXL-malli `sd_xl_base_1.0.safetensors` puuttuu yhä —
-INTRO-remaster pysyy estettynä. `remake/godot` puhtaana `4384e89` (M8+M9-työt). Demo-
+`Twilight: 2000 Remake DEMO`. SDXL-malli ladattiin 19.11., mutta INTRO-remaster **peruttiin**
+käyttäjän päätöksellä — alkuperäinen intro jää, uutta ei tehdä (ks. luku 3). `remake/godot`
+puhtaana `4384e89` (M8+M9-työt). Demo-
 LUEMINUT.txt:ssä käynnistys- ja virhelokiohjeet, AI_OHJE luku 7b pitää demo-debugin tiedot.
 
 
@@ -703,8 +712,8 @@ Playability differences, intentional and documented:
   graphs + consumption into balance is the M9 economy round 2 task (AI_OHJE item 1).
 - New conveniences: click-to-move, the bottom icon bar with number keys (ch. 12), quick
   save F5/F9, difficulty NORMAL/STORY, day/night light, zoom.
-- Rules fidelity is tracked on the native side: t2k-native/docs/RAPORTTI.md and
-  SAANNOT_VERTAILU.md.
+- Rules fidelity was tracked on the native side (t2k-native/docs/RAPORTTI.md and
+  SAANNOT_VERTAILU.md) — that experiment was removed 19.11.2026; findings live in this document.
 
 
 ## 15. Conversion backlog from the original strings (gap scan 8.11.2026)
@@ -796,7 +805,8 @@ Still open in this work item:
 - Source read: OpenXcom/OpenXcom (github) src/Battlescape/BattlescapeGame.cpp + friends.
   License: GPL-3.  RULE: ideas and mechanics are taken as a reference only; NO code is
   copied into the remake (copying GPL code would force this project under GPL). The
-  actually binding rules reference remains the 1991 manual + t2k-native verification.
+  actually binding rules reference remains the 1991 manual (the t2k-native verification
+  experiment was removed 19.11.2026).
 - Adopted now: the reserved time units (OpenXCom checkReservedTU). In the remake:
   battle.gd set_reserve toggles a unit's "reserve"; _flood clamps the movement frontier
   so every reachable tile still leaves AP >= COST snap (3). The battle bar gains a
@@ -1135,3 +1145,36 @@ M9 talous 2. kierros valmis (godot `5860e6e`):
 Tests after the change: test_economy, test_balance (T2K_FOGGED=1), test_spotted,
 test_reaction_morale, test_tank_hunt, test_campaign, test_chargen_rules,
 --test=save, --test=computer, --test=fullgame — all PASS.
+
+
+## 27. Inventory INFO/DESCRIPTION — alkuperäiset EQUIP.TXT-kuvaukset (19.11.2026)
+
+Käyttäjän tehtävä: "alkuperäisestä vielä konvertoimatta" -listan viimeinen kohta — EQUIP.json:in
+pitkät esinekuvaukset Inventoryn INFO/DESCRIPTION-valintoihin (manuaali s. 63). Toteutettu
+godot `93b1986`.
+
+**Kuvausindeksin johtaminen.** `GAMEDATA/EQUIP.TXT` alkaa 240 tavun osoitetaulukolla (120 kpl
+16-bit little-endian -offsetia). Taulukko indeksoituu **esineen id:llä**: `hdr[id]` antaa
+kuvauksen tekstiosoitteen tiedostossa. `EQUIP.json` sisältää samat 80 kuvausta tekstijärjestyksessä.
+Yhdistämällä nämä saatiin `data/item_desc_map.json` → `item id → kuvauksen indeksi EQUIP.jsonissa`.
+Tuloksena 71/96 esineestä löytyy kuvaus; loput ovat ammuksia, poistettuja esineitä (AT-5
+Spandrel) tai uusia remake-esineitä (FIELD RATIONS, LARGE CRATE OF SUPPLIES) — niille ei ole
+alkuperäistä kuvausta. Esimerkkejä: M9 → "THE STANDARD SIDEARM FOR U.S. MILITARY FORCES...",
+AKM → "THE MODERN VERSION OF THE UBIQUITOUS AK-47...", UZI → "THE ISRAELI-DESIGNED UZI...".
+
+**Toteutus.**
+- `game_data.gd`: `item_desc`-sanakirja luetaan `item_desc_map.json`:sta `load_all()`:ssa
+  (JSON `null` säilytetään nullina, ei muuteta nollaksi) + `item_description(name)` joka palauttaa
+  alkuperäisen kuvaustekstin tai tyhjän merkkijonon.
+- `tactical.gd _icon_inventory()`: joukkueen yhteenvedon jälkeen valittavat `DESCRIPTION - <esine>`
+  -vaihtoehdot (yksi kullakin joukkueen kantamalle aseelle) + CLOSE. Valinta näyttää kuvauksen
+  `dialog`-kentässä; ESC/CLOSE sulkee.
+- `interior.gd _room_inventory()`: sama `actionbar.choose("INVENTORY", ...)` -valikoilla;
+  kuvaus näytetään `bmsg`-rivillä.
+- Uusi `tests/test_item_desc.gd` (headless PASS) tarkistaa tunnetut kuvaukset ja tyhjän
+  paluuarvon ammuksille/uusille esineille.
+
+**Testit:** kaikki headless-yksiköt (campaign, chargen_rules, economy, performance, battle,
+combat, reserve, action_bar, battle_art, tank_hunt, spotted, reaction_morale, item_desc) PASS;
+ikkunalla `--test=fullgame`, `--test=computer`, `--test=rooms`, `--test=save` läpi ilman
+skriptivirheitä.

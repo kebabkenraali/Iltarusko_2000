@@ -849,16 +849,35 @@ func _icon_radio() -> void:
 ## The character sheets, read-only: wounds, health and what each member carries.
 func _icon_inventory() -> void:
 	var lines: Array = []
+	var gear_names: Array = []
 	for r in main.squad:
 		if r.get("dead", false):
 			lines.append("%s - KILLED IN ACTION" % String(r["name"]))
 			continue
 		var g: Dictionary = r.get("gear", {})
+		var wn := String(g.get("weapon", "(unarmed)"))
 		lines.append("%s - %s // %s // MEDKITS %d" % [
-			String(r["name"]), String(g.get("weapon", "(unarmed)")).to_lower(), Healing.condition(r), int(g.get("medkits", 0))])
+			String(r["name"]), wn.to_lower(), Healing.condition(r), int(g.get("medkits", 0))])
+		if wn.strip_edges() != "" and not gear_names.has(wn):
+			gear_names.append(wn)
+	# The original Inventory icon has INFO/DESCRIPTION choices: read the long text of a
+	# carried item (the game's own EQUIP.TXT, extracted to data/EQUIP.json).
+	var opts: Array = []
+	for nm in gear_names:
+		opts.append(["DESCRIPTION - %s" % nm, _show_item_description.bind(String(nm))])
+	opts.append(["CLOSE", func(): pass])
 	dialog.face = []
 	dialog.squad = main.squad
-	dialog.say(lines, "THE SQUAD")
+	dialog.choose(lines, "THE SQUAD", opts)
+
+## Show the original long description of a gear item, or a plain refusal if none exists.
+func _show_item_description(item_name: String) -> void:
+	var desc: String = main.data.item_description(item_name)
+	if desc == "":
+		desc = "NO DESCRIPTION IS AVAILABLE FOR %s." % item_name.to_upper()
+	dialog.face = []
+	dialog.squad = main.squad
+	dialog.say([desc], item_name.to_upper())
 
 func _icon_combat() -> void:
 	var en := {}

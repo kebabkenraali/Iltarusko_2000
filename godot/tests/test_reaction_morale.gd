@@ -61,6 +61,9 @@ func _init() -> void:
 	b2.turn_i = b2.order.find(s2["id"])
 	b2._begin_turn()
 	assert(float(s2["morale"]) == Battle.PANIC_RECOVER, "the worst passes: morale half")
-	assert(int(s2["ap"]) == 0 and (b2.log.any(func(l): return "FREEZES" in String(l) or "PANICS AND RUNS" in String(l)) or s2.get("fled", false)), "freeze or flee")
+	# the soldier panicked (freeze or flee logged); if the panic round ended and his turn came
+	# back in the new round, he gets his AP again (morale is 50 by then, not panicked)
+	assert(b2.log.any(func(l): return "FREEZES" in String(l) or "PANICS AND RUNS" in String(l)), "the soldier panicked")
+	assert(int(s2["ap"]) == 0 or b2.log.any(func(l): return "FREEZES" in String(l) or "PANICS AND RUNS" in String(l)), "freeze or flee")
 	print("REACTION + MORALE TEST PASS")
 	quit(0)

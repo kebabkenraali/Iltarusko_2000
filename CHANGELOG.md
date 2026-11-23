@@ -1,5 +1,18 @@
 # Changelog - Twilight: 2000 Remake
 
+## 19.11.2026 (vihollisten omat naamat taistelussa)
+
+- **Vihollisten omat naamat taistelun lähetyskuvauksissa:** uusi arkki
+  `FACES/enemies.png` (15 naamaa, 5x3, 48x43-ruutuja, tumma tausta);
+  `Battle.add_man` asettaa jokaisen vihollisen yksikön `u["face"]` (id % 15) ja
+  `battle_view._face_tex` piirtää napit uudestaan — jokaisella vihollisella oma
+  naama, ei jakua squadin kanssa
+- AI-kuvageneraattori oli tasetty ulkoapäin (insufficient balance); naamat
+  generoitu ohjelmallisesti PIL:llä vastaamaan pelin omien FACES-arkkien
+  tyyliä (skin/hair palette)
+- Uusi headless-testi `tests/test_enemy_faces.gd` (PASS): face-arvot, arkki olemassa,
+  naamat erilliset
+
 ## Unreleased (M10)
 
 - export_presets.cfg, README, ARCHITECTURE.md, CHANGELOG, version.txt added

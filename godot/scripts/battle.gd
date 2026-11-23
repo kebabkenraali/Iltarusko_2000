@@ -15,6 +15,7 @@ extends RefCounted
 
 const TILE := 2.0
 const AP_MAX := 10
+const ENEMY_FACE_N := 15            # the enemies' own portraits (FACES/enemies.png): 15 faces
 const LOCS := ["HEAD", "CHEST", "ABDOMEN", "LEFT ARM", "RIGHT ARM", "LEFT LEG", "RIGHT LEG"]
 const DIRS8 := [Vector2i(0, -1), Vector2i(1, -1), Vector2i(1, 0), Vector2i(1, 1), Vector2i(0, 1), Vector2i(-1, 1), Vector2i(-1, 0), Vector2i(-1, -1)]
 const COST := {"move": 1, "move_crouch": 2, "move_prone": 4, "snap": 3, "aimed": 5, "burst": 4, "grenade": 4,
@@ -97,6 +98,8 @@ func add_man(team: String, r: Dictionary, at: Vector2i, ref := -1) -> Dictionary
 		"plan": [], "plan_ap": AP_MAX,        # Jagged Alliance-style planning phase
 		"head": int(r.get("head", r.get("face", 0))), "gender": r.get("gender", "M"),
 		"hungry": bool(r.get("hungry", false))}   # M9: hungry soldiers are slower
+	if team == "enemy":
+		u["face"] = u["id"] % ENEMY_FACE_N        # the enemies' own portraits: FACES/enemies.png
 	next_id += 1
 	var wp: Dictionary = items.get(u["weapon"], {})
 	u["ammo"] = int(wp.get("magazine", 0)) if int(wp.get("magazine", 0)) > 0 else 1

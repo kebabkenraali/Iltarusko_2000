@@ -9,3 +9,15 @@ __pycache__/
 *.pyc
 # Original game assets (copyrighted) - extract from your own copy
 godot/original/
+# find_game_data build output (the exe is committed)
+tools/find_game_data/bin/
+tools/find_game_data/obj/
+tools/find_game_data/*.dll
+# pack_game build output (the exe is committed)
+tools/pack_game/bin/
+tools/pack_game/obj/
+tools/pack_game/*.dll
+# WhereOriginalData build output (the exe is committed)
+tools/WhereOriginalData/bin/
+tools/WhereOriginalData/obj/
+tools/WhereOriginalData/*.dll

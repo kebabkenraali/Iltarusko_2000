@@ -288,7 +288,7 @@ func _put_face(box: TextureRect, lbl: Label, u: Dictionary) -> void:
 		box.texture = null
 		lbl.text = ""
 		return
-	var key := "%s/%s/%s" % [u["team"], u.get("ref", -1), u.get("head", 0)]
+	var key := "%s/%s/%s" % [u["team"], u.get("ref", -1), u.get("face", u.get("head", 0))]
 	if not face_cache.has(key):
 		face_cache[key] = _face_tex(u)
 	box.texture = face_cache[key]
@@ -301,8 +301,20 @@ func _face_tex(u: Dictionary) -> Texture2D:
 		var frames := Portraits.recruit(main.squad[int(u["ref"])])
 		if not frames.is_empty():
 			return frames[0]
-	# the FACES sheets (the original's own close-up portraits): 15 faces of 48x43 per gender.
-	# Nobody on the other side wears the squad's face: skip the taken indexes.
+	# the enemies' own portraits: FACES/enemies.png, one face per unit (the squad's faces
+	# live on other sheets: nobody on the other side shares a face)
+	var p: String = main.art("FACES", "enemies")
+	if ResourceLoader.exists(p):
+		var esheet: Texture2D = load(p)
+		if esheet != null:
+			var n := int(esheet.get_height() / 43.0) * 5     # the sheet: 5 cols x 3 rows of 48x43
+			var j := int(u.get("face", 0)) % n
+			var easetex := AtlasTexture.new()
+			easetex.atlas = esheet
+			easetex.region = Rect2((j % 5) * 48, (j / 5) * 43, 48, 43)
+			return easetex
+	# no enemies sheet yet: fall back to the FACES sheets (the original's close-up portraits):
+	# 15 faces of 48x43 per gender; nobody on the other side wears the squad's face.
 	var g := "F" if u.get("gender", "M") == "F" else "M"
 	var i := int(u.get("head", 0)) % 15
 	var used: Dictionary = _used_faces[g]

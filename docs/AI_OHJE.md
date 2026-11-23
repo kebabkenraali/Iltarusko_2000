@@ -21,7 +21,7 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
 | Demo-synkronointi | `python remake/tools/make_demo.py [--clean]` (kopioi projektin + moottorin, kirjoittaa `Peli.bat` ja `LUEMINUT.txt`; demon oma user:// on "Twilight- 2000 Remake DEMO") |
 | Godot-binääri | `C:\Twilight-2000_DOS_EN\godot\Godot_v4.7.2-stable_win64_console.exe` (HUOM: wrapper käynnistää rinnalla olevan `Godot_v4.7.2-stable_win64.exe`:n — kopioi molemmat jos siirrät) |
 | user:// (kehitys) | `%APPDATA%\Godot\app_userdata\Twilight- 2000 Remake\` (tallennukset, testikuvat `tests\<nimi>\`) |
-| Natiivipuoli (purku, simulointi) | `C:\Twilight-2000_DOS_EN\t2k-native` (tools/, docs/RAPORTTI.md, SAANNOT_VERTAILU.md) |
+| Natiivipuoli (purku, simulointi) | **POISTETTU 19.11.2026.** `t2k-native` oli erillinen x86-emulaattorikokeilu alkuperäisen DOS-pelin ajamiseen; ei osa peliä. Lähteitä ei ole jäljellä. Hyödylliset löydökset talletettu `docs/SUUNNITELMA.md`:hen. Älä etsi tai rakenna uudelleen. |
 | Alkuperäisdata | `remake\assets_original` (graphics 825 png, audio 6+25 wav, text 9 moduulia) |
 
 ## 3. Työskentelysäännöt (tärkeimmät)
@@ -29,14 +29,15 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
 1. **Varmuuskopio ensin:** ennen muokkausta `tiedosto.gd` → `tiedosto.gd.bak_YYYYMMDD` (gitignoroitu).
 2. **Testit ennen commitia:** kaikki headless-yksikkötestit PASS; isommat muutokset myös
    `--test=fullgame` (ikkunalla). Commit-message englanniksi, selkeä.
-3. **Kaksi repoa:** gd-muutokset commitoidaan `remake/godot`-repoon, docs/tools-muutokset
-   `remake`-repoon. Commitoija: `Cline <cline@local>` (git -c ...).
+3. **Yksi repo:** `remake` sisältää nyt myös `godot/`-kansion (erillinen `godot/.git` poistettu
+   19.11. mennessä) — kaikki gd-, docs- ja tools-muutokset commitoidaan samaan `remake`-repoon.
+   Commitoija: `Cline <cline@local>` (git -c ...).
 4. **Python:** älä aja monimutkaista pythonia PowerShellin `-c`-riviltä (escaping hajoaa) —
    kirjoita väliaikainen `.py`-tiedosto, aja, poista. Kaikki tiedostot `encoding="utf-8"`.
 5. **Dokumentaatio:** SUUNNITELMA päivitetään joka työkokonaisuudella; uudet luvut mitataan,
    ei arvata. Tämä AI_OHJE pidetään ajan tasalla.
-6. Älä koske `t2k-native`-suorittaviin pelitiedostoihin tai `unpacked$b.*`-tiedostoihin ilman
-   erillistä varmuuskopiota.
+6. `t2k-native`-kokeilu poistettiin 19.11.2026 (ei lähteitä jäljellä). `unpacked$b.*`-tiedostot
+   ovat edelleen alkuperäisen pelin purettuja moduuleja — älä koske niihin ilman varmuuskopiota.
 
 ## 4. Tila (7.11.2026)
 
@@ -60,10 +61,12 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
 - **KESKEN (M9):** UI-hionta, virheentestit (korruptoitu save, puuttuvat tiedostot),
   suorituskykymittaukset.
 - **EI ALOITETTU (M10):** exportit, README/ARCHITECTURE/CHANGELOG/version.txt, CI.
-- **ESTETTY:** INTRO-remaster (198 ruutua) — `remaster_set.py intro [N]` on valmis, mutta
-  SDXL-malli `C:\pinokio\api\stable-diffusion-webui\models\Stable-diffusion\sd_xl_base_1.0.safetensors`
-  **puuttuu** (kansio tyhjä; tarkistettu tilapäivityksessä 7.11.2026 — yhä puuttuu).
-  Lataa malli → aja `python remake/tools/remaster_set.py intro`.
+- **PERUTTU 19.11.2026:** INTRO-remaster (198 ruutua) ei tehdä. Käyttäjän päätöksellä peliin
+  jää **alkuperäinen intro**; uutta introa ei luoda eikä SDXL-mallia ajeta. SDXL-malli
+  `C:\pinokio\api\stable-diffusion-webui\models\Stable-diffusion\sd_xl_base_1.0.safetensors`
+  ladattiin koneelle 19.11., mutta generointi pysäytettiin (0/198 kuvaa, `godot/remastered/INTRO`
+  ei ole olemassa). `tools/remaster_set.py intro` jää työkaluksi, mutta sitä EI saa ajaa.
+  Älä käynnistä tätä tehtävää uudelleen.
 - **Tarkistettu 7.11.2026 (tila-auditointi, mitattu uudelleen):** headless-unitit PASS —
   `test_campaign`, `test_chargen_rules`, `test_combat`, `test_vehicle`, `test_battle`
   (test_balancea ei ajettu uudelleen; 7.11. mitatut bändit voimaan).
@@ -119,6 +122,10 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
     muistiloki (1/2/3 ammuntatavat, T-kytkin, "THE ENEMIES STAY IN THE DARK...").
   - Uusi testi `tests/test_spotted.gd` (headless PASS); `--test=battle` (ikkuna) ja
     fullgame läpi; legacy-testit toimivat fog=false-oletuksella.
+- **UUSI 19.11.:** vihollisten omat naamat taistelussa — `FACES/enemies.png` (15 naamaa);
+  `Battle.add_man` asettaa `u["face"]` (id % 15); `battle_view._face_tex` piirtää vihollisten
+  napit uudestaan; AI-kuvageneraattori oli tasetty (insufficient balance), naamat generoitu
+  ohjelmallisesti (PIL); testi `tests/test_enemy_faces.gd`.
 - **UUSI 8.11. (M9 taistelu, lukujen 18-19 jatkot):** reaktiotuli ja paniikki.
   Reaktiotuli: move() astuu reitin portaittain; joka porras näkevä (sticky) vastustaja
   vastaa vapaalla snapilla (≤ 8 tilea, yksi ampuma per siirto, kerta per kierros
@@ -139,8 +146,9 @@ laatu) on puolivälissä; M10 (julkaisu) ei ole alkanut.
   intro/nag/done-rivit ovat alkuperäisen TWI2D.EXE:n omia merkkijonoja (offsetit
   SUUNNITELMA luku 14; missions.json "no retyping"); pelattavuuserot (vuoropohjainen
   taistelu, ei TWI3D-ajoa, tietokoneen bar-graafit puuttuvat vielä) dokumentoitu.
-- **Natiivipuoli (ei SUUNNITELMASSA, katso t2k-native/docs/RAPORTTI.md):**
-  Lataus-Enter-virhe, S_aAls-säännöt, TWI2D-purku.
+- **Natiivipuoli POISTETTU (19.11.2026):** `t2k-native` (x86-emulaattorikokeilu, Lataus-Enter-
+  virhe, S_aAls-säännöt, TWI2D-purku `dis86.py`:llä) ei ole enää olemassa eikä sitä jatketa.
+  Löydökset on talletettu SUUNNITELMAAN; peli ei riippunut kokeilusta millään tavoin.
 
 ## 5. Arkkitehtuurin pikakartta
 
@@ -251,16 +259,22 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
    version.txt lisätty remake-repoon; GitHub Actions CI (`.github/workflows/ci.yml`)
    lisätty headless-testisarjalle.
 
-5. **INTRO-remaster:** kun SDXL-malli palautettu → `python tools/remaster_set.py intro`
-   (resumoitava; ~1–2 min/ruutu, 198 kpl). **ESTETTY:** malli puuttuu yhä.
+5. **INTRO-remaster: PERUTTU (19.11.2026).** Käyttäjä päätti, ettei peliin tehdä uutta introa —
+   alkuperäinen INTRO.LB jää käyttöön. SDXL-malli on nyt ladattu, mutta `remaster_set.py intro`
+   pysäytettiin (0/198 kuvaa) eikä sitä ajeta. Älä käynnistä uudelleen.
 
-6. **Natiivipuoli:** Lataus-Enter-korjaus, S_aAls-säännöt, TWI2D:n purku `tools/dis86.py`:llä.
+6. **Natiivipuoli: POISTETTU / PERUTTU 19.11.2026.** `t2k-native`-kokeilu (Lataus-Enter-korjaus,
+   S_aAls-säännöt, TWI2D:n purku `dis86.py`:llä) poistettiin; lähteitä ei ole jäljellä eikä niitä
+   rakenneta uudelleen. Älä käynnistä näitä tehtäviä.
 
 7. **Pelin avaus ja ensimmäinen tehtävä (SUUNNITELMA luku 18):** design dokumentoitu.
 
 7. **Alkuperäisestä vielä konvertoimatta (8.11. katveiskannaus):**
-   - HQ-varustekauppa: OFFICE-rivit ("ADD AMMO TO WHICH WEAPON?" ym.) ja
-     EQUIP.json-kuvausteekstit Inventoryn INFO/DESCRIPTION-valintoihin.
+   - HQ-varustekauppa: OFFICE-rivit ("ADD AMMO TO WHICH WEAPON?" ym.): VALMIS (computer.gd).
+     EQUIP.json-kuvausteekstit Inventoryn INFO/DESCRIPTION-valintoihin: VALMIS (19.11.,
+     godot `93b1986` — `data/item_desc_map.json` johdettu EQUIP.TXT:n osoitetaulukosta,
+     `GameData.item_description()`, valittavat DESCRIPTION-kohdat kenttä- ja huonenäkymän
+     Inventoryssa; ammuksilla/poistetuilla esineillä ei ole kuvausta).
    - Kuorma-auto supplies/dump-tehtävään: VALMIS (campaign.arrived tarkistaa 2 1/2 TON
      TRUCKin squad_vehicle:n kautta; data/lines/need_truck).
    - ICON-lisäuutiset radioketjuun: VALMIS (icon_news 8 viestiä missions.json:ssa, näkyvät
@@ -306,6 +320,23 @@ godot --path . -- --test=chargen | city | rooms | towns | soldiers | battle | bo
    (throw_grenade/plan_grenade eivät hyväksy oman miehen ruutua; SUUNNITELMA luku 24).
    Testit 18.11.: tank_hunt/spotted/reaction_morale/economy/balance (T2K_FOGGED=1),
    save, windowed battle, fullgame — kaikki PASS.
+
+- remake 19.11.: INTRO-remaster **peruttu** käyttäjän päätöksellä — peliin jää alkuperäinen
+  intro, uutta ei tehdä. SDXL-malli ladattu, mutta generointi pysäytetty (0/198 kuvaa,
+  `godot/remastered/INTRO` ei ole olemassa). `remaster_set.py intro` jää työkaluksi mutta
+  sitä ei ajeta. AI_OHJE luku 4 ja 8 päivitetty.
+- remake 19.11.: `t2k-native` (erillinen x86-emulaattorikokeilu) todettu poistetuksi eikä sen
+  lähteitä löydy koneelta — kokeilu päättynyt, ei jatketa. AI_OHJE luvut 2/3/4/8/9 päivitetty
+  ja SUUNNITELMA merkitty; hyödylliset löydökset (alkuperäisen Enter-bugi, sääntövertailu,
+  manuaalitarkistus) säilyvät SUUNNITELMASSA.
+- remake/godot 19.11.: `93b1986` Inventory INFO/DESCRIPTION — EQUIP.TXT-kuvaukset Inventoryyn
+  (item_desc_map.json 71/96 esineelle, GameData.item_description(), valittavat DESCRIPTION-
+  kohdat tactical.gd/interior.gd, test_item_desc.gd). Kaikki headless- jaikkunatestit PASS.
+- remake 19.11.: paketit rakennettu uudelleen — `Iltarusko_2000.zip` (koko lähdeprojekti
+  2487 tiedostoa, 52,6 Mt; vanha talletettu `Iltarusko_2000_old_backup.zip`) sisältää nyt
+  Inventory-ominaisuuden; purettu paketti testattu (test_item_desc + campaign PASS).
+  `tools/Twilight-2000-Remake.zip` (pack_game.exe: original/ 2347 tiedostoa + Godot-exe,
+  139,8 Mt) päivitetty. Huom: `pack_game.exe` ei sisällä peliprojektia, vain original/ + moottorin.
 
 ## 10. Näin päivität tätä dokumenttia
 
