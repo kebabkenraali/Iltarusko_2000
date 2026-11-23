@@ -42,6 +42,17 @@ The extractor reads **only your own copy** of the 1991 DOS game and writes:
 
 **Known limitation:** the `.LB` sprites use the game's own token compression. The extractor recovers the raw payloads and their headers but does not yet decode them into PNG pixels, so the game is not fully playable from this output alone. The private decoder from the original project was never published. Contributions that crack the token format are very welcome.
 
+## Install / package a playable copy
+Run the PowerShell installer:
+```powershell
+powershell -ExecutionPolicy Bypass -File .\install.ps1
+```
+It asks for the folder of your original 1991 DOS game, extracts the assets with the tool above,
+and builds a clean **`..\Iltarusko_2000_game`** folder. That folder contains only the playable
+game (`godot\`, `Kaynnista.bat`, `README.md`) – all development files (`.git`, `.godot`, `.github`,
+`docs`, `tools`, `tests`, `.uid` files, ZIPs and executables) are left out. Launch with
+`Kaynnista.bat` (requires Godot 4.7.2+ on PATH).
+
 Place extracted files in `godot/original/`:
 ```
 godot/original/
