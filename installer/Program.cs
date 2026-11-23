@@ -92,13 +92,11 @@ internal static class Program
             {
                 proc.StartInfo.FileName = godotExe;
                 proc.StartInfo.Arguments = "--headless --path \"" + pubGodot + "\" --editor --quit";
-                proc.StartInfo.RedirectStandardOutput = true;
-                proc.StartInfo.RedirectStandardError = true;
                 proc.StartInfo.UseShellExecute = false;
                 proc.StartInfo.CreateNoWindow = true;
+                // Do NOT redirect stdout/stderr: reading two pipes sequentially can deadlock
+                // Godot's import process. With CreateNoWindow the output is simply discarded.
                 proc.Start();
-                proc.StandardOutput.ReadToEnd();
-                proc.StandardError.ReadToEnd();
                 proc.WaitForExit();
             }
             Say("  Projekti tuotu.");
