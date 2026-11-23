@@ -13,6 +13,12 @@ godot/original/
 asset_library/
 # Downloaded Godot engine ZIP is cached locally, not published
 engine/
+# Built installer binary and its obfuscated local secret source (local only)
+install.exe
+installer_out/
+installer/bin/
+installer/obj/
+installer/Secret.cs
 # find_game_data build output (the exe is committed)
 tools/find_game_data/bin/
 tools/find_game_data/obj/

@@ -58,6 +58,11 @@ copies `godot.exe` into the package and writes a launcher that uses that bundled
 no system-wide Godot installation is needed. The engine ZIP is cached locally in `engine/`
 (gitignored).
 
+A single-file **`install.exe`** is also built locally (from `installer/`). It embeds both the
+encrypted asset package and an obfuscated passphrase, so there is no plaintext passphrase file
+on disk. `installer/Secret.cs`, `install.exe`, `installer_out/`, `engine/` and `asset_library/`
+are gitignored local-only build inputs/outputs.
+
 Place extracted files in `godot/original/`:
 ```
 godot/original/
